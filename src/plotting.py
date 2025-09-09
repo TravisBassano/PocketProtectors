@@ -410,6 +410,13 @@ class Plotting:
         # Add a horizontal line at y=0
         plt.axhline(0, color='black', linewidth=1)
 
+        plt.ylim(
+            (
+                round(min(plot_df['diff_from_avg'])-200, -2),
+                round(max(plot_df['diff_from_avg'])+200, -2),
+             )
+        )
+
         plt.suptitle(self.PLT_HEADER, fontsize=16, weight="heavy", y=0.95)
         plt.title(
             'Cumulative Points For/Against vs. League Average',
@@ -417,7 +424,7 @@ class Plotting:
         plt.xlabel('Manager', fontsize=12)
         plt.xticks(rotation=45, ha='right')
         plt.ylabel('Difference from Cumulative League Average', fontsize=12)
-        plt.legend(title='Metric')
+        plt.legend(title='Metric', loc='lower right')
         plt.tight_layout()
 
         plt.savefig(self.PLOTS_DIR / 'cumulative_performance_bar_plot.png')
