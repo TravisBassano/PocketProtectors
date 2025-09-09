@@ -6,6 +6,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import numpy as np
 
+from adjustText import adjust_text
 from pathlib import Path
 from matplotlib.lines import Line2D
 
@@ -573,19 +574,31 @@ class Plotting:
         ax.set_ylim((0.33, 0.66))
         ax.set_xlim((-1200, +1200))
 
-        # Add manager names as annotations next to the points with a slight
-        # offset to prevent overlap
-        for line in range(0, cumulative_df.shape[0]):
-            # Define a small vertical offset based on the manager's index
-            y_offset = -0.005 + (0.01 * (line % 2))
-            plt.text(
-                cumulative_df['total_point_diff'][line] + 5,
-                cumulative_df['win_percentage'][line] + y_offset,
-                cumulative_df['manager'][line],
-                horizontalalignment='left',
-                size='medium',
-                color='black',
-                weight='semibold')
+        # Add annotations
+        texts = []
+        for i, row in cumulative_df.iterrows():
+            texts.append(
+                ax.text(
+                    row["total_point_diff"],
+                    row["win_percentage"],
+                    row["manager"],
+                    fontsize=9,
+                    weight="bold")
+                    )
+
+        # Automatically adjust to avoid overlap
+        adjust_text(
+            texts,
+            # expand_points=(1.2, 1.4),
+            # expand_text=(5.05, 5.2),
+            arrowprops=dict(
+                arrowstyle="->",
+                color="gray",
+                lw=0.5,
+                shrinkA=5,   # move arrow start away from text
+                shrinkB=5    # move arrow end away from marker
+            )
+        )
 
         plt.suptitle(self.PLT_HEADER, fontsize=16, weight="heavy", y=0.95)
         plt.title(
@@ -612,8 +625,11 @@ class Plotting:
             labels=labels,
             title='Manager',
             bbox_to_anchor=(1.05, 1),
-            loc='upper left'
+            loc='upper left',
+
             )
+
+        ax.get_legend().remove()
 
         plt.tight_layout(rect=[0, 0, 0.9, 1])
 
@@ -626,32 +642,24 @@ class Plotting:
         # Calculate the 'delta' column (actual points - projected points)
         df['delta'] = df['points'] - df['proj_points']
 
-        # Print the resulting DataFrame to verify
-        print("Generated DataFrame:")
-        print(df)
-        print("\n" + "-"*50 + "\n")
-
         # Calculate overall statistics for the entire dataset
         overall_avg_delta = df['delta'].mean()
         overall_std_dev = df['delta'].std()
-        overall_variance = df['delta'].var()
 
         print("Overall Statistics (All Managers & Seasons):")
         print(f"  Average Projection: {df['proj_points'].mean():.2f}")
         print(f"  Average Score: {df['points'].mean():.2f}")
         print(f"  Average Delta: {overall_avg_delta:.2f}")
         print(f"  Standard Deviation: {overall_std_dev:.2f}")
-        print(f"  Variance: {overall_variance:.2f}")
         print("\n" + "-"*50 + "\n")
 
         # Calculate statistics per manager
         manager_stats = (
             df.groupby('manager')['delta']
-            .agg(['mean', 'std', 'var'])
+            .agg(['mean', 'std'])
             .rename(
                 columns={'mean': 'Average Delta',
                          'std': 'Standard Deviation',
-                         'var': 'Variance'
                          }
                     )
         )
@@ -710,12 +718,6 @@ class Plotting:
         lucky_losses_count = (
             df.groupby('manager')['lucky_loss'].sum().reset_index()
         )
-
-        print("Lucky Wins Count per Manager:")
-        print(lucky_wins_count)
-
-        print("Unlucky Losses Count per Manager:")
-        print(lucky_losses_count)
 
         # Create the bar plot for lucky wins
         plt.figure(figsize=(10, 7))
@@ -813,7 +815,6 @@ class Plotting:
             )
 
         # --- Actual outcome ---
-        print(df.columns)
         actual_conditions = [
             (df['points'] - df['opp_points'] > threshold),
             (df['opp_points'] - df['points'] > threshold)
