@@ -29,9 +29,6 @@ class Query:
 
         self.DATA_DIR.mkdir(parents=True, exist_ok=True)
 
-        with open('league_ids.json', 'r') as f:
-            self.league_ids = json.load(f)
-
         self.managers_record_map = defaultdict(  # season
             lambda: defaultdict(  # week
                 lambda: defaultdict(dict)  # manager -> data entries
@@ -64,7 +61,6 @@ class Query:
         """
 
         query = YahooFantasySportsQuery(
-            # league_id=self.league_ids[f"{season}"],
             league_id="######",
             game_code="nfl"
             )
@@ -94,7 +90,6 @@ class Query:
         sleep(1)
 
         query = YahooFantasySportsQuery(
-                # league_id=self.league_ids[f"{season}"],
                 league_id=league_id,
                 game_id=game_id,
                 game_code="nfl",
@@ -233,6 +228,9 @@ class Query:
 
         for manager, alias in manager_aliases.items():
             df['manager'] = df['manager'].str.replace(manager, alias)
+
+            if 'opponent' in df.columns:
+                df['opponent'] = df['opponent'].str.replace(manager, alias)
 
     def save_data(self):
         """Save results from YahooFantasySportsQuery to local files.
