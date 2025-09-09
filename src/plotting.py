@@ -16,7 +16,7 @@ class Plotting:
 
     """
 
-    PLOTS_DIR = Path(__file__).parent.parent / "plots"
+    PLOTS_DIR = Path(__file__).parent.parent / "assets" / "plots"
     DATA_DIR = Path(__file__).parent.parent / "data"
 
     def __init__(self):
@@ -219,6 +219,7 @@ class Plotting:
         plt.xlabel('Opponent', fontsize=12)
         plt.xticks(rotation=45, ha='right')
         plt.ylabel('Manager', fontsize=12)
+        plt.yticks(rotation=0, ha='right')
         plt.tight_layout()
 
         plt.savefig(self.PLOTS_DIR / 'head_to_head_heatmap.png')
