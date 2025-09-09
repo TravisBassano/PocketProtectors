@@ -1,0 +1,31 @@
+#!/usr/bin/env python3
+
+"""Pocket Protectors Fantasy Football Leage History
+
+Leverages the YFPY (Yahoo Fantasy Sports API Wrapper) to read in league history
+ and generate interesting historical plots from the data.
+
+"""
+
+__author__ = "Travis Bassano"
+__copyright__ = "Copyright 2025, Pocket Protectors"
+__license__ = "MIT"
+
+from dotenv import load_dotenv
+
+from src.query import Query
+from src.plotting import Plotting
+
+load_dotenv()
+
+
+def main():
+    q = Query()
+    q.query_seasons()
+
+    p = Plotting()
+    p.plot_all()
+
+
+if __name__ == "__main__":
+    main()
