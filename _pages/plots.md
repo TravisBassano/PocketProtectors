@@ -32,4 +32,8 @@ This scatter plot shows a manager's overall win percentage against their average
 
 ### Cumulative Points For (PF) and Points Against (PA) for all managers
 
-![Manager win percentage vs. point diff]({{ site.baseurl }}/assets/plots/cumulative_performance_bar_plot.png)
+![Manager cumulative PF PA bar plot]({{ site.baseurl }}/assets/plots/cumulative_performance_bar_plot.png)
+
+### Manager Points Against vs. League Average by Season
+
+![Manager points against vs. league season]({{ site.baseurl }}/assets/plots/seasonal_points_against_line_plot.png)
