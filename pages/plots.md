@@ -10,6 +10,6 @@ MVKC League History Plots
 
 ![Manger projected points box plots](/assets/plots/projected_pts_diff_box.png)
 
-![Manger projected points box plots](/assets/plots/projected_pts_diff_bar.png)
+![Manger projected points bar plots](/assets/plots/projected_pts_diff_bar.png)
 
-![Manger projected points box plots](/assets/plots/manager_wins_vs_point_diff.png)
+![Manger win percentage vs. point diff](/assets/plots/manager_wins_vs_point_diff.png)
