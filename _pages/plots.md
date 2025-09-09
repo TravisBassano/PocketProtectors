@@ -28,4 +28,4 @@ _Figure 3: A bar chart of the average projected points difference per manager._
 
 This scatter plot shows a manager's overall win percentage against their average point differential. It can help identify managers who win games by a large margin versus those who consistently win close matchups.
 
-![Manager win percentage vs. point diff]({{ site.baseurl }}/assets/plots/manager_wins_vs_point_diff.png)
+![Manager win percentage vs. point diff]({{ site.baseurl }}/assets/plots/manager_win_vs_point_diff.png)
