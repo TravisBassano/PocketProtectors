@@ -1,14 +1,16 @@
 #!/usr/bin/env python3
 
 import inspect
+import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
-import matplotlib.pyplot as plt
+import networkx as nx
 import numpy as np
 
 from adjustText import adjust_text
 from pathlib import Path
 from matplotlib.lines import Line2D
+from statsmodels.formula.api import ols
 
 
 class Plotting:
@@ -32,6 +34,8 @@ class Plotting:
         self.df['point_diff'] = self.df['points'] - self.df['proj_points']
 
         self.df_standings = pd.read_csv(self.DATA_DIR / 'standings.csv')
+
+        self.df_trades = pd.read_csv(self.DATA_DIR / 'transactions.csv')
 
         min_season = min(self.df["season"].unique())
         max_season = max(self.df["season"].unique())
@@ -229,36 +233,104 @@ class Plotting:
 
         df = self.df
 
-        # Calculate the point differential for each matchup
-        df['point_differential'] = df['points'] - df['opp_points']
+        league_avg_points = df['points'].mean()
 
-        # Identify all unique managers
+        xlim = (
+            round(df['points'].min()-0, -0),
+            round(df['points'].max()+0, -0)
+        )
+
+        ylim = (
+            round(df['point_diff'].min()-0, -0),
+            round(df['point_diff'].max()+0, -0)
+        )
+
         managers = df['manager'].unique()
 
-        # Determine the symmetrical y-axis limits based on the maximum
-        # absolute point differential
-        max_diff = df['point_differential'].abs().max()
-        y_limit = max_diff * 1.1
+        df = df.sort_values('points')
+
+        # Fit the linear regression model using statsmodels
+        model = ols('point_diff ~ points', data=df).fit()
+        predictions = (
+            model.get_prediction(df['points']).summary_frame(alpha=0.05)
+        )
+
+        fmls = {name: 0 for name in managers}
 
         # Create a separate scatter plot for each manager
         for manager in managers:
             # Filter the DataFrame for the current manager
-            manager_df = df[df['manager'] == manager]
+            manager_df = df[df['manager'] == manager].copy()
 
-            # Create the scatter plot
-            plt.figure(figsize=(10, 7))
-            sns.scatterplot(
-                x='points',
-                y='point_differential',
-                data=manager_df,
-                s=150,  # Size of the markers
-                edgecolor='black',
-                hue='opponent',  # Color points based on the opponent
-                style='opponent',  # Set marker style based on the opponent
+            manager_df['win'] = (
+                manager_df['point_diff'] > 0
             )
 
-            # Add a horizontal line at y=0 for visual reference
+            manager_df = manager_df.reset_index(drop=True)
+
+            # Separate wins and losses
+            wins_df = manager_df[manager_df['win']]
+            losses_df = manager_df[~manager_df['win']]
+
+            fml = (
+                # (manager_df['point_diff'] < fml_preds['obs_ci_lower']) &
+                (manager_df['point_diff'] < 0) &
+                (manager_df['points'] > league_avg_points)
+            )
+
+            fmls[manager] = int(fml.sum())
+
+            print(f'{manager} : {fml.sum()}')
+
+            plt.figure(figsize=(10, 7))
+
+            # Plot wins
+            ax = sns.scatterplot(
+                x='points',
+                y='point_diff',
+                data=wins_df,
+                s=150,
+                edgecolor='black',
+                marker='o',
+                color='green',
+                label='Win'
+            )
+
+            # Plot losses
+            sns.scatterplot(
+                x='points',
+                y='point_diff',
+                data=losses_df,
+                s=150,
+                edgecolor='black',
+                marker='X',
+                color='red',
+                label='Loss'
+            )
+
+            # Plot the prediction interval
+            plt.fill_between(
+                x=df['points'],
+                y1=predictions['obs_ci_lower'],
+                y2=predictions['obs_ci_upper'],
+                color='gray',
+                alpha=0.1,
+                label='95% Prediction Interval'
+                )
+
+            # Plot the regression line
+            plt.plot(
+                df['points'],
+                predictions['mean'],
+                c='black',
+                linestyle='--',
+                label='Regression Line',
+                zorder=4
+                )
+
             plt.axhline(0, color='gray', linestyle='--')
+            plt.axvline(league_avg_points, color='gray', linestyle='--')
+
             plt.suptitle(self.PLT_HEADER, fontsize=16, weight="heavy", y=0.95)
             plt.title(f'Weekly Matchup Performance for {manager}', fontsize=16)
             plt.xlabel('Manager Points Scored', fontsize=12)
@@ -267,14 +339,42 @@ class Plotting:
                 fontsize=12
                 )
 
-            # Set the y-axis to be symmetrical
-            plt.ylim(-y_limit, y_limit)
+            plt.legend(loc="upper left", bbox_to_anchor=(1.05, 1))
+            plt.xlim(xlim)
+            plt.ylim(ylim)
 
-            # Add a legend
-            plt.legend(
-                title='Opponent',
-                bbox_to_anchor=(1.05, 1),
-                loc='upper left'
+            # Add quadrant labels
+            ax.text(
+                xlim[1]*0.22,
+                ylim[0]*0.95,
+                'Bad Loss',
+                ha='left',
+                va='center',
+                fontsize=12,
+                )
+            ax.text(
+                xlim[1]*0.98,
+                ylim[0]*0.95,
+                'F My Life',
+                ha='right',
+                va='center',
+                fontsize=12,
+                )
+            ax.text(
+                xlim[1]*0.22,
+                ylim[1]*0.94,
+                'Bad Victory',
+                ha='left',
+                va='center',
+                fontsize=12,
+                )
+            ax.text(
+                xlim[1]*0.98,
+                ylim[1]*0.94,
+                'Good Victory',
+                ha='right',
+                va='center',
+                fontsize=12,
                 )
 
             plt.grid(True, which='both', linestyle='--', linewidth=0.5)
@@ -282,8 +382,52 @@ class Plotting:
 
             # Save the figure with a descriptive filename
             manager_str = f'{manager.lower().replace(" ", "_")}'
-            plt.savefig(self.PLOTS_DIR / f'{manager_str}_matchup_scatter.png')
+            plt.savefig(self.PLOTS_DIR / f'matchup_scatter_{manager_str}.png')
             plt.close()
+
+        print(fmls)
+
+        # Create the bar plot
+        plt.figure(figsize=(10, 6))
+        ax = plt.bar(fmls.keys(), fmls.values(), color='skyblue')
+
+        # Add labels and a title
+        plt.xlabel('Manager', fontsize=12)
+        plt.ylabel('FML Games', fontsize=12)
+        plt.suptitle(self.PLT_HEADER, fontsize=16, weight="heavy", y=0.95)
+        plt.title(
+            'Total \'F My Life\' Outcomes (All FML Quadrant)',
+            fontsize=16,
+            )
+
+        # Rotate the x-axis labels for better readability if needed
+        plt.xticks(rotation=45, ha='right')
+
+        # Add a grid for easier reading of the values
+        plt.grid(axis='y', linestyle='--', alpha=0.7)
+        plt.grid(axis='x', visible=False)
+
+        # Display the plot
+        plt.ylim(0, max(fmls.values())+3)
+        # Set the y-axis ticks to display only integers
+        plt.locator_params(axis='y', integer=True)
+
+        # Add annotations to each bar
+        for bar in ax:
+            yval = bar.get_height()
+            # Only add annotation if the value is not zero
+            if yval > 0:
+                plt.text(
+                    bar.get_x() + bar.get_width()/2,
+                    yval,
+                    int(yval),
+                    va='bottom',
+                    ha='center',
+                    )
+
+        plt.tight_layout()
+        plt.savefig(self.PLOTS_DIR / 'fmls.png')
+        plt.close()
 
     def plot_points_against(self):
 
@@ -428,6 +572,312 @@ class Plotting:
         plt.tight_layout()
 
         plt.savefig(self.PLOTS_DIR / 'cumulative_performance_bar_plot.png')
+
+    def plot_weekly_scatter2(self):
+
+        df = self.df
+
+        # Calculate the league averages
+        league_avg_points = df['points'].mean()
+
+        # Normalize the data by subtracting the league average
+        df['points_norm'] = df['points'] - league_avg_points
+        df['opp_points_normalized'] = df['opp_points'] - league_avg_points
+
+        model = ols('opp_points_normalized ~ points_norm', data=df).fit()
+
+        # Sort the DataFrame by normalized opponent points for correct plotting
+        df = df.sort_values(by='points_norm')
+
+        lims = round(max(abs(df['points_norm']))+10, -1)
+        x_range = np.linspace(-lims, lims, 100)
+
+        # Create a new DataFrame for prediction with the correct column name
+        new_data = pd.DataFrame({'points_norm': x_range})
+
+        predictions = model.get_prediction(new_data).summary_frame(alpha=0.05)
+
+        # Create a separate scatter plot for each manager
+        for manager in df['manager'].unique():
+
+            manager_df = df[df['manager'] == manager].copy()
+
+            manager_df['win'] = (
+                manager_df['points_norm'] > manager_df['opp_points_normalized']
+            )
+
+            # Separate wins and losses
+            wins_df = manager_df[manager_df['win']]
+            losses_df = manager_df[~manager_df['win']]
+
+            plt.figure(figsize=(10, 8))
+
+            '''
+            ax = sns.scatterplot(
+                x='points_norm',
+                y='opp_points_normalized',
+                data=manager_df,
+                s=150,  # Size of the markers
+                edgecolor='black',
+                hue='opponent',  # Color points based on the opponent
+                style='opponent',  # Set marker style based on the opponent
+            )
+            '''
+            # Plot wins
+            ax = sns.scatterplot(
+                x='points_norm',
+                y='opp_points_normalized',
+                data=wins_df,
+                s=150,
+                edgecolor='black',
+                marker='o',
+                color='green',
+                label='Win'
+            )
+
+            # Plot losses
+            sns.scatterplot(
+                x='points_norm',
+                y='opp_points_normalized',
+                data=losses_df,
+                s=150,
+                edgecolor='black',
+                marker='X',
+                color='red',
+                label='Loss'
+            )
+
+            # Get predictions for this manager's points
+            pred = model.get_prediction(manager_df).summary_frame(alpha=0.05)
+
+            manager_df['obs_ci_lower'] = pred['obs_ci_lower'].values
+            manager_df['obs_ci_upper'] = pred['obs_ci_upper'].values
+
+            # Flag points outside the prediction interval
+            manager_df['outside_pi'] = ~manager_df.apply(
+                lambda row:
+                    row['obs_ci_lower'] <=
+                    row['opp_points_normalized'] <=
+                    row['obs_ci_upper'],
+                axis=1
+            )
+
+            # Plot points outside the prediction interval with a highlight
+            sns.scatterplot(
+                x='points_norm',
+                y='opp_points_normalized',
+                data=manager_df[manager_df['outside_pi']],
+                s=200,
+                edgecolor='black',
+                facecolor='none',
+                marker='o',
+                ax=ax
+            )
+
+            # Plot the prediction interval (wider band)
+            plt.fill_between(
+                x_range,
+                predictions['obs_ci_lower'],
+                predictions['obs_ci_upper'],
+                color='gray',
+                alpha=0.1,
+                label='95% Prediction Interval'
+                )
+
+            # Plot the confidence interval (narrower band)
+            plt.fill_between(
+                x_range,
+                predictions['mean_ci_lower'],
+                predictions['mean_ci_upper'],
+                color='blue',
+                alpha=0.3,
+                label='95% Confidence Interval'
+                )
+
+            plt.plot(
+                x_range,
+                predictions['mean'],
+                c='black',
+                linestyle='--',
+                label='Regression Line',
+                zorder=4
+                )
+
+            plt.axhline(0, color='gray', linestyle='-')
+            plt.axvline(0, color='gray', linestyle='-')
+
+            plt.xlim((-lims, lims))
+            plt.ylim((-lims, lims))
+
+            # Set plot titles and labels
+            plt.suptitle(
+                self.PLT_HEADER,
+                fontsize=16,
+                weight="heavy",
+                x=0.40,
+                y=0.95)
+            plt.title(
+                f'Manager: {manager}\nTeam Score vs. League Opponents Score\n'
+                'All Scores Relative to League Average',
+                fontsize=16
+                )
+            plt.xlabel('Manager Points - League Average', fontsize=12)
+            plt.ylabel('Opponent Points - League Average', fontsize=12)
+
+            # Move the legend to the right of the plot
+            plt.legend(bbox_to_anchor=(1.05, 0.5), loc='center left')
+            plt.tight_layout()
+            plt.savefig(
+                self.PLOTS_DIR /
+                f'normalized_matchup_scatter_{manager.lower()}.png'
+                )
+            plt.close()
+
+        # --- Count Outlier Games by Win/Loss ---
+        print("\n--- Outlier Game Analysis by Win/Loss ---")
+
+        outlier_stats = {
+            manager: {
+                'win_count': 0,
+                'win_sum': 0.0,
+                'loss_count': 0,
+                'loss_sum': 0.0
+                }
+            for manager in df['manager'].unique()
+        }
+
+        for _, row in df.iterrows():
+            # Create a DataFrame for this game's predictor
+            points_df = pd.DataFrame({'points_norm': [row['points_norm']]})
+
+            # Get prediction interval
+            game_prediction = (
+                model.get_prediction(points_df).summary_frame(alpha=0.05)
+            )
+            upper_bound = game_prediction['obs_ci_upper'].values[0]
+            lower_bound = game_prediction['obs_ci_lower'].values[0]
+
+            if (
+                row['opp_points_normalized'] > upper_bound or
+                row['opp_points_normalized'] < lower_bound
+            ):
+
+                # Determine win/loss
+                if row['points_norm'] > row['opp_points_normalized']:
+                    outlier_stats[row['manager']]['win_count'] += 1
+                    outlier_stats[row['manager']]['win_sum'] += (
+                        row['points_norm'] - row['opp_points_normalized']
+                        )
+
+                elif row['points_norm'] < row['opp_points_normalized']:
+                    outlier_stats[row['manager']]['loss_count'] += 1
+                    outlier_stats[row['manager']]['loss_sum'] += (
+                        row['points_norm'] - row['opp_points_normalized']
+                        )
+                # ties are ignored
+
+        # Print the results
+        for manager, stats in outlier_stats.items():
+            print(f"Manager: {manager}")
+            print(
+                f"  Outlier Wins: {stats['win_count']}, "
+                f"Sum of points_norm: {stats['win_sum']:.2f}"
+                )
+            print(
+                f"  Outlier Losses: {stats['loss_count']}, "
+                f"Sum of points_norm: {stats['loss_sum']:.2f}"
+                )
+            print("-" * 30)
+
+        # Convert outlier_stats to a DataFrame
+        stats_df = (
+            pd.DataFrame.from_dict(outlier_stats, orient='index').reset_index()
+        )
+        stats_df.rename(columns={'index': 'manager'}, inplace=True)
+
+        # Compute total sums and counts
+        stats_df['total_sum'] = stats_df['win_sum'] + stats_df['loss_sum']
+        stats_df['total_count'] = (
+            stats_df['win_count'] + stats_df['loss_count']
+        )
+
+        # Sort by total sum (luckiest first)
+        stats_df_sorted = (
+            stats_df.sort_values(by='total_sum', ascending=False)
+            .reset_index(drop=True)
+        )
+        x = np.arange(len(stats_df_sorted))
+        bar_width = 0.25
+
+        # -----------------------------
+        # Grouped Bar Chart: Sums of points_norm
+        # -----------------------------
+        plt.figure(figsize=(12, 6))
+
+        plt.bar(
+            x - bar_width,
+            stats_df_sorted['win_sum'],
+            width=bar_width,
+            color='green',
+            label='Outlier Wins'
+            )
+        plt.bar(
+            x,
+            stats_df_sorted['loss_sum'],
+            width=bar_width,
+            color='red',
+            label='Outlier Losses'
+            )
+        plt.bar(
+            x + bar_width,
+            stats_df_sorted['total_sum'],
+            width=bar_width,
+            color='blue',
+            label='Total Score'
+            )
+
+        plt.xticks(x, stats_df_sorted['manager'], rotation=45)
+        plt.ylabel('Sum of Victory/Loss Margin')
+        plt.suptitle(self.PLT_HEADER, fontsize=16, weight="heavy", y=0.95)
+        plt.title('Cumulative Win/Loss Margin Sums by Manager')
+        plt.legend()
+        plt.tight_layout()
+        plt.savefig(self.PLOTS_DIR / 'outlier_sums.png')
+
+        # -----------------------------
+        # Grouped Bar Chart: Counts of outlier wins/losses
+        # -----------------------------
+        plt.figure(figsize=(12, 6))
+
+        plt.bar(
+            x - bar_width,
+            stats_df_sorted['win_count'],
+            width=bar_width,
+            color='green',
+            label='Outlier Wins'
+            )
+        plt.bar(
+            x,
+            stats_df_sorted['loss_count'],
+            width=bar_width,
+            color='red',
+            label='Outlier Losses'
+            )
+        plt.bar(
+            x + bar_width,
+            stats_df_sorted['total_count'],
+            width=bar_width,
+            color='blue',
+            label='Total Games'
+            )
+
+        plt.xticks(x, stats_df_sorted['manager'], rotation=45)
+        plt.ylabel('Count of Outlier Games')
+        plt.suptitle(self.PLT_HEADER, fontsize=16, weight="heavy", y=0.95)
+        plt.title('Outlier Win/Loss Counts by Manager')
+        plt.legend()
+        plt.tight_layout()
+        plt.savefig(self.PLOTS_DIR / 'outlier_counts.png')
 
     def plot_winnings(self):
 
@@ -641,6 +1091,101 @@ class Plotting:
         plt.tight_layout(rect=[0, 0, 0.9, 1])
 
         plt.savefig(self.PLOTS_DIR / 'manager_win_vs_point_diff.png')
+
+    def plot_manager_finish(self):
+
+        df = self.df_standings
+
+        # Calculate the average rank for each manager
+        avg_seed = (
+            df.groupby('manager')['seed'].mean()
+            .reset_index().sort_values(by='seed')
+        )
+        avg_rank = (
+            df.groupby('manager')['rank'].mean()
+            .reset_index().sort_values(by='rank')
+        )
+
+        # --- Plot 1: Average Seed ---
+        plt.figure(figsize=(10, 6))
+        bars = sns.barplot(
+            data=avg_seed,
+            x='manager',
+            y='seed',
+            hue='manager',
+            palette='Blues_r'
+        )
+
+        plt.grid(True, axis='y')
+        bars.set_axisbelow(True)
+
+        # Add annotations to the bars
+        for bar in bars.patches:
+            yval = bar.get_height()
+            bars.text(
+                bar.get_x() + bar.get_width()/2,
+                yval,
+                f'{yval:.2f}',
+                ha='center',
+                va='bottom'
+                )
+
+        # # Add annotations to the bars
+        # for i, bar in enumerate(ax_seed.patches):
+        #     x = bar.get_x() + bar.get_width() / 2
+        #     y = bar.get_height()
+        #     avg_seed = df_seed_sorted['average_seed'].iloc[i]
+        #     ax_seed.text(
+        #         x,
+        #         y,
+        #         f"{avg_seed:.2f}",
+        #         color='black',
+        #         ha='center',
+        #         va='bottom',
+        #         fontsize=10,
+        #         fontweight='bold'
+        #     )
+
+        plt.suptitle(self.PLT_HEADER, fontsize=16, weight="heavy", y=0.95)
+        plt.title('Average Playoff Seed per Manager', fontsize=16)
+        plt.xlabel('Manager', fontsize=12)
+        plt.ylabel('Average Seed', fontsize=12)
+        plt.xticks(rotation=45, ha='right')
+        plt.tight_layout()
+
+        plt.savefig(self.PLOTS_DIR / 'average_seed_barchart.png')
+
+        # --- Plot 2: Average Rank ---
+        plt.figure(figsize=(10, 6))
+        bars = sns.barplot(
+            data=avg_rank,
+            x='manager',
+            y='rank',
+            hue='manager',
+            palette='Greens_r'
+            )
+
+        plt.grid(True, axis='y')
+        bars.set_axisbelow(True)
+
+        # Add annotations to the bars
+        for bar in bars.patches:
+            yval = bar.get_height()
+            bars.text(
+                bar.get_x() + bar.get_width()/2,
+                yval,
+                f'{yval:.2f}',
+                ha='center',
+                va='bottom'
+                )
+
+        plt.suptitle(self.PLT_HEADER, fontsize=16, weight="heavy", y=0.95)
+        plt.title('Average Overall Playoff Finish per Manager', fontsize=16)
+        plt.xlabel('Manager', fontsize=12)
+        plt.ylabel('Average Rank', fontsize=12)
+        plt.xticks(rotation=45, ha='right')
+        plt.tight_layout()
+        plt.savefig(self.PLOTS_DIR / 'average_rank_barchart.png')
 
     def plot_luck_factor(self):
 
@@ -903,6 +1448,79 @@ class Plotting:
         plt.tight_layout()
 
         plt.savefig(self.PLOTS_DIR / 'net_upset_record_bar_plot.png')
+
+    def plot_total_trades(self):
+
+        df = self.df_trades
+
+        # Count trades by each role
+        trader_counts = df['trader'].value_counts()
+        tradee_counts = df['tradee'].value_counts()
+
+        # Combine into a single Series
+        all_counts = trader_counts.add(tradee_counts, fill_value=0)
+
+        # Reindex with all managers (missing get 0)
+        all_counts = all_counts.reindex(
+            self.df['manager'].unique(), fill_value=0
+            )
+
+        # Sort by most active
+        all_counts = all_counts.sort_values(ascending=False)
+
+        # Plot bar chart
+        plt.figure(figsize=(10, 6))
+        ax = all_counts.plot(kind='bar', color='skyblue', edgecolor='black')
+
+        plt.suptitle(self.PLT_HEADER, fontsize=16, weight="heavy", y=0.95)
+        plt.title("Trade Count by Manager")
+        plt.xlabel("Manager")
+        plt.ylabel("Number of Trades")
+        plt.xticks(rotation=45, ha="right")
+        plt.grid(axis='x', linestyle='', alpha=0, visible=True)
+        ax.set_axisbelow(True)
+        plt.tight_layout()
+        plt.savefig(self.PLOTS_DIR / 'total_trades.png')
+        plt.close()
+
+    def plot_trade_mapping(self):
+
+        df = self.df_trades
+
+        # Build the graph
+        G = nx.Graph()
+        edges = list(zip(df['trader'], df['tradee']))
+
+        # Add weighted edges (weight = number of trades between same pair)
+        for trader, tradee in edges:
+            if G.has_edge(trader, tradee):
+                G[trader][tradee]['weight'] += 1
+            else:
+                G.add_edge(trader, tradee, weight=1)
+
+        # Ensure all managers appear, even if isolated
+        G.add_nodes_from(self.df['manager'].unique())
+
+        # Draw the graph
+        plt.figure(figsize=(10, 8))
+
+        pos = nx.spring_layout(G, seed=42, k=0.5)  # consistent layout
+
+        # Extract weights for line thickness
+        weights = [G[u][v]['weight'] for u, v in G.edges()]
+
+        nx.draw_networkx_nodes(
+            G, pos, node_size=1500, node_color="skyblue", edgecolors="black"
+            )
+        nx.draw_networkx_labels(G, pos, font_size=10, font_weight="bold")
+        nx.draw_networkx_edges(G, pos, width=[w for w in weights], alpha=0.6)
+
+        plt.suptitle(self.PLT_HEADER, fontsize=16, weight="heavy", y=0.95)
+        plt.title("Trade Network", fontsize=14)
+        plt.axis("off")
+        plt.tight_layout()
+        plt.savefig(self.PLOTS_DIR / 'trade_network.png')
+        plt.close()
 
     def plot_all(self):
         """Discovers and calls all plotting methods in the class.
