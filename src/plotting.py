@@ -601,7 +601,6 @@ class Plotting:
 
         with open('league_dues.json', 'r') as f:
             league_dues = json.load(f)
-            print(league_dues)
 
         df = self.df_standings
 
@@ -637,8 +636,6 @@ class Plotting:
             by='total_winnings',
             ascending=False
             )
-
-        print(total_winnings)
 
         # Create the bar chart
         plt.figure(figsize=(10, 7))
