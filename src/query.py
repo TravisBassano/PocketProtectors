@@ -20,6 +20,8 @@ class Query:
     and other league metadata.
     """
 
+    API_DELAY_SLEEP_SEC = 1
+
     SEASONS_RANGE = range(2018, 2024+1)
     DATA_DIR = Path(__file__).parent.parent / "data"
 
@@ -42,6 +44,8 @@ class Query:
         self.standings_map = defaultdict(  # season
                 lambda: defaultdict(dict)  # manager -> data entries
         )
+
+        self.transactions_map = defaultdict(list)
 
         self.league_name = None
 
@@ -87,7 +91,7 @@ class Query:
             raise ValueError(f"No league_id found for {season}")
 
         # Reduce API rate
-        sleep(1)
+        sleep(self.API_DELAY_SLEEP_SEC)
 
         query = YahooFantasySportsQuery(
                 league_id=league_id,
@@ -97,7 +101,7 @@ class Query:
             )
 
         # Reduce API rate
-        sleep(1)
+        sleep(self.API_DELAY_SLEEP_SEC)
 
         return query
 
@@ -120,9 +124,21 @@ class Query:
 
         standings = query.get_league_standings().teams
 
+        teams = query.get_league_teams()
+
         self.winners_map[season]["1st"] = standings[0].managers[0].nickname
         self.winners_map[season]["2nd"] = standings[1].managers[0].nickname
         self.winners_map[season]["3rd"] = standings[2].managers[0].nickname
+
+        for transaction in query.get_league_transactions():
+            if transaction.type == "trade":
+                tk0 = int(transaction.tradee_team_key.rsplit('.')[-1])-1
+                tk1 = int(transaction.trader_team_key.rsplit('.')[-1])-1
+
+                self.transactions_map[season].append((
+                    teams[tk0].managers[0].nickname,
+                    teams[tk1].managers[0].nickname,
+                ))
 
         for team in standings:
 
@@ -236,15 +252,6 @@ class Query:
         """Save results from YahooFantasySportsQuery to local files.
         """
 
-        # with open(self.DATA_DIR / 'matchups_data.json', 'w') as f:
-        #     json.dump(self.managers_record_map, f, indent=3)
-
-        # with open(self.DATA_DIR / 'winners.json', 'w') as f:
-        #     json.dump(self.winners_map, f, indent=3)
-
-        # with open(self.DATA_DIR / 'standings.json', 'w') as f:
-        #     json.dump(self.standings_map, f, indent=3)
-
         # Flatten the nested dictionary into a list of records
         records = []
         for season in list(self.managers_record_map.keys()):
@@ -270,9 +277,42 @@ class Query:
 
         print(df.columns)
 
+        manager_aliases_path = Path('manager_aliases.json')
         self.apply_manager_aliases(df)
 
         df.to_csv(self.DATA_DIR / 'data.csv')
+
+        with open(manager_aliases_path, 'r') as f:
+            manager_aliases = json.load(f)
+
+        # Flatten the nested dictionary into a list of records
+        records = []
+        for season in list(self.managers_record_map.keys()):
+
+            print(season)
+
+            for trade in self.transactions_map[season]:
+
+                if trade[0] in manager_aliases:
+                    m0 = manager_aliases[trade[0]]
+                else:
+                    m0 = trade[0]
+
+                if trade[1] in manager_aliases:
+                    m1 = manager_aliases[trade[1]]
+                else:
+                    m1 = trade[1]
+
+                record = {
+                        "season": season,
+                        "trader": m0,
+                        "tradee": m1,
+                    }
+
+                records.append(record)
+
+        df = pd.DataFrame(records)
+        df.to_csv(self.DATA_DIR / 'transactions.csv')
 
         # Flatten the nested dictionary into a list of records
         records = []
@@ -293,7 +333,4 @@ class Query:
         df = pd.DataFrame(records)
 
         self.apply_manager_aliases(df)
-
-        print(df.columns)
-
         df.to_csv(self.DATA_DIR / 'standings.csv')
