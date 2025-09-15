@@ -32,13 +32,13 @@ title: Home
 </div>
 
 <style>
-  /* Sort arrows with smooth transition */
-  th {
+  /* Table header sort arrows */
+  #myTable th {
     position: relative;
     cursor: pointer;
     user-select: none;
   }
-  th:after {
+  #myTable th:after {
     content: '⇅';
     font-size: 0.7em;
     position: absolute;
@@ -46,24 +46,22 @@ title: Home
     color: #aaa;
     transition: transform 0.2s ease, color 0.2s ease;
   }
-  th.tablesort-up:after {
-    content: '↑';
-    color: #007bff;
-    transform: rotate(0deg);
+  #myTable th.tablesort-up:after {
+    content: '↑' !important;
+    color: #007bff !important;
   }
-  th.tablesort-down:after {
-    content: '↓';
-    color: #007bff;
-    transform: rotate(0deg);
+  #myTable th.tablesort-down:after {
+    content: '↓' !important;
+    color: #007bff !important;
   }
 
-  /* Hover highlight */
-  tbody tr:hover {
+  /* Hover highlight for rows */
+  #myTable tbody tr:hover {
     background-color: #f1f1f1;
   }
 
   /* Zebra striping */
-  tbody tr:nth-child(even) {
+  #myTable tbody tr:nth-child(even) {
     background-color: #fafafa;
   }
 </style>
@@ -71,18 +69,19 @@ title: Home
 <!-- Tablesort JS -->
 <script src="https://unpkg.com/tablesort@5.2.1/dist/tablesort.min.js"></script>
 <script>
-  // Initialize Tablesort
-  const table = document.getElementById('myTable');
-  const ts = new Tablesort(table);
+  document.addEventListener('DOMContentLoaded', function() {
+    // Initialize Tablesort
+    const table = document.getElementById('myTable');
+    new Tablesort(table);
 
-  // Optional: animate arrows smoothly
-  table.querySelectorAll('th').forEach(th => {
-    th.addEventListener('click', () => {
-      // Remove classes from other headers
-      table.querySelectorAll('th').forEach(other => {
-        if (other !== th) {
-          other.classList.remove('tablesort-up', 'tablesort-down');
-        }
+    // Ensure only clicked header shows arrow state
+    table.querySelectorAll('th').forEach(th => {
+      th.addEventListener('click', () => {
+        table.querySelectorAll('th').forEach(other => {
+          if (other !== th) {
+            other.classList.remove('tablesort-up', 'tablesort-down');
+          }
+        });
       });
     });
   });
