@@ -32,15 +32,58 @@ title: Home
 </div>
 
 <style>
-  th { position: relative; cursor: pointer; }
-  th:after { content: '⇅'; font-size: 0.7em; position: absolute; right: 8px; color: #aaa; }
-  th.tablesort-up:after { content: '↑'; color: #333; }
-  th.tablesort-down:after { content: '↓'; color: #333; }
-  tbody tr:hover { background-color: #f1f1f1; }
-  tbody tr:nth-child(even) { background-color: #fafafa; }
+  /* Sort arrows with smooth transition */
+  th {
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+  }
+  th:after {
+    content: '⇅';
+    font-size: 0.7em;
+    position: absolute;
+    right: 8px;
+    color: #aaa;
+    transition: transform 0.2s ease, color 0.2s ease;
+  }
+  th.tablesort-up:after {
+    content: '↑';
+    color: #007bff;
+    transform: rotate(0deg);
+  }
+  th.tablesort-down:after {
+    content: '↓';
+    color: #007bff;
+    transform: rotate(0deg);
+  }
+
+  /* Hover highlight */
+  tbody tr:hover {
+    background-color: #f1f1f1;
+  }
+
+  /* Zebra striping */
+  tbody tr:nth-child(even) {
+    background-color: #fafafa;
+  }
 </style>
 
+<!-- Tablesort JS -->
 <script src="https://unpkg.com/tablesort@5.2.1/dist/tablesort.min.js"></script>
 <script>
-  new Tablesort(document.getElementById('myTable'));
+  // Initialize Tablesort
+  const table = document.getElementById('myTable');
+  const ts = new Tablesort(table);
+
+  // Optional: animate arrows smoothly
+  table.querySelectorAll('th').forEach(th => {
+    th.addEventListener('click', () => {
+      // Remove classes from other headers
+      table.querySelectorAll('th').forEach(other => {
+        if (other !== th) {
+          other.classList.remove('tablesort-up', 'tablesort-down');
+        }
+      });
+    });
+  });
 </script>
