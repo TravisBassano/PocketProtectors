@@ -26,14 +26,14 @@
   color: #007bff !important;
 }
 
-/* Hover highlight for rows */
-#myTable tbody tr:hover {
-  background-color: #f1f1f1;
-}
-
 /* Zebra striping */
 #myTable tbody tr:nth-child(even) {
   background-color: #fafafa;
+}
+
+/* Hover highlight for rows */
+#myTable tbody tr:hover {
+  background-color: rgba(241, 241, 241, 0.8);
 }
 
 /* Responsive table container */
