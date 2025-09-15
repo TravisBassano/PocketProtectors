@@ -8,7 +8,7 @@ title: Home
 <link rel="stylesheet" href="{{ '/assets/css/tablesort.css' | relative_url }}">
 
 <div class="table-responsive">
-  <table id="myTable" class="table table-striped table-bordered table-hover">
+  <table id="myTable" class="table table-striped table-bordered table-hover sortable">
     <thead>
       <tr>
         <th>Manager</th>
@@ -35,4 +35,3 @@ title: Home
 
 <!-- Tablesort JS -->
 <script src="https://unpkg.com/tablesort@5.2.1/dist/tablesort.min.js"></script>
-<script src="{{ '/assets/js/tablesort-init.js' | relative_url }}"></script>
