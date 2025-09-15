@@ -6,6 +6,7 @@ title: Home
 ## MVKC League History Dashboard
 
 <div class="table-responsive">
+
 | Manager | Wins | Losses |
 | :--- | :---: | ---: |
 |Bob        |47      |48    |
@@ -20,4 +21,5 @@ title: Home
 |PJ         |50      |45    |
 |Ryan       |47      |48    |
 |Travis     |42      |53    |
+
 </div>
