@@ -1,98 +1,98 @@
 [
    {
-      "manager":"Bob",
+      "name":"Bob",
       "wins":47,
       "losses":48,
       "pf":10974.74,
       "pa":11321.06,
-      "win_pct":0.4947368421
+      "win_pct":49.5
    },
    {
-      "manager":"Brendon",
+      "name":"Brendon",
       "wins":61,
       "losses":34,
       "pf":11565.12,
       "pa":10518.46,
-      "win_pct":0.6421052632
+      "win_pct":64.2
    },
    {
-      "manager":"Brian",
+      "name":"Brian",
       "wins":47,
       "losses":48,
       "pf":11235.3,
       "pa":11150.42,
-      "win_pct":0.4947368421
+      "win_pct":49.5
    },
    {
-      "manager":"Chris",
+      "name":"Chris",
       "wins":34,
       "losses":61,
       "pf":9726.8,
       "pa":10893.78,
-      "win_pct":0.3578947368
+      "win_pct":35.8
    },
    {
-      "manager":"Eric",
+      "name":"Eric",
       "wins":40,
       "losses":55,
       "pf":11453.86,
       "pa":11581.82,
-      "win_pct":0.4210526316
+      "win_pct":42.1
    },
    {
-      "manager":"Jordan",
+      "name":"Jordan",
       "wins":50,
       "losses":45,
       "pf":11245.12,
       "pa":10939.98,
-      "win_pct":0.5263157895
+      "win_pct":52.6
    },
    {
-      "manager":"Keara",
+      "name":"Keara",
       "wins":47,
       "losses":48,
       "pf":11321.28,
       "pa":11088.88,
-      "win_pct":0.4947368421
+      "win_pct":49.5
    },
    {
-      "manager":"Licata",
+      "name":"Licata",
       "wins":52,
       "losses":43,
       "pf":11208.92,
       "pa":11079.2,
-      "win_pct":0.5473684211
+      "win_pct":54.7
    },
    {
-      "manager":"Mike",
+      "name":"Mike",
       "wins":53,
       "losses":42,
       "pf":11151.5,
       "pa":10908.42,
-      "win_pct":0.5578947368
+      "win_pct":55.8
    },
    {
-      "manager":"PJ",
+      "name":"PJ",
       "wins":50,
       "losses":45,
       "pf":11063.36,
       "pa":10847.32,
-      "win_pct":0.5263157895
+      "win_pct":52.6
    },
    {
-      "manager":"Ryan",
+      "name":"Ryan",
       "wins":47,
       "losses":48,
       "pf":11178.88,
       "pa":11145.18,
-      "win_pct":0.4947368421
+      "win_pct":49.5
    },
    {
-      "manager":"Travis",
+      "name":"Travis",
       "wins":42,
       "losses":53,
       "pf":10760.86,
       "pa":11411.22,
-      "win_pct":0.4421052632
+      "win_pct":44.2
    }
 ]
