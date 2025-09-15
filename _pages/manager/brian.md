@@ -5,5 +5,5 @@
                 permalink: /about/
                 ---
 
-                ![Scatter plot]({ site.baseurl }/assets/plots/matchup_scatter_Brian.png)
+                ![Scatter plot]({ site.baseurl }/assets/plots/matchup_scatter_brian.png)
                 
