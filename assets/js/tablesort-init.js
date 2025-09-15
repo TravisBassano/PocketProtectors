@@ -1,18 +1,26 @@
 // tablesort-init.js
 
 document.addEventListener('DOMContentLoaded', function() {
-  // Initialize Tablesort
   const table = document.getElementById('myTable');
-  new Tablesort(table);
+  const ts = new Tablesort(table);
 
-  // Ensure only clicked header shows arrow state
-  table.querySelectorAll('th').forEach(th => {
-    th.addEventListener('click', () => {
-      table.querySelectorAll('th').forEach(other => {
-        if (other !== th) {
-          other.classList.remove('tablesort-up', 'tablesort-down');
-        }
-      });
+  // Remove arrow classes from all headers
+  function clearArrowClasses() {
+    table.querySelectorAll('th').forEach(th => {
+      th.classList.remove('tablesort-up', 'tablesort-down');
     });
+  }
+
+  // Listen to sort event
+  table.addEventListener('tablesort:afterSort', function(event) {
+    clearArrowClasses();
+
+    const th = event.target; // the column that was sorted
+    if (ts.direction === 1) {
+      th.classList.add('tablesort-up');
+    } else if (ts.direction === -1) {
+      th.classList.add('tablesort-down');
+    }
   });
 });
+
