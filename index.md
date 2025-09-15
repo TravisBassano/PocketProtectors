@@ -14,21 +14,22 @@ title: Home
         <th>Manager</th>
         <th data-sort-method="number">Wins</th>
         <th data-sort-method="number">Losses</th>
+        <th data-sort-method="number">Win %</th>
+        <th data-sort-method="number">Points For (PF)</th>
+        <th data-sort-method="number">Points Against (PA)</th>
       </tr>
     </thead>
     <tbody>
-      <tr><td>Bob</td><td>47</td><td>48</td></tr>
-      <tr><td>Brendon</td><td>61</td><td>34</td></tr>
-      <tr><td>Brian</td><td>47</td><td>48</td></tr>
-      <tr><td>Chris</td><td>34</td><td>61</td></tr>
-      <tr><td>Eric</td><td>40</td><td>55</td></tr>
-      <tr><td>Jordan</td><td>50</td><td>45</td></tr>
-      <tr><td>Keara</td><td>47</td><td>48</td></tr>
-      <tr><td>Licata</td><td>52</td><td>43</td></tr>
-      <tr><td>Mike</td><td>53</td><td>42</td></tr>
-      <tr><td>PJ</td><td>50</td><td>45</td></tr>
-      <tr><td>Ryan</td><td>47</td><td>48</td></tr>
-      <tr><td>Travis</td><td>42</td><td>53</td></tr>
+      {% for manager in site.data.overall %}
+      <tr>
+        <td>{{ manager.name }}</td>
+        <td>{{ manager.wins }}</td>
+        <td>{{ manager.losses }}</td>
+        <td>{{ manager.win_pct }}</td>
+        <td>{{ manager.pf }}</td>
+        <td>{{ manager.pa }}</td>
+      </tr>
+      {% endfor %}
     </tbody>
   </table>
 </div>
