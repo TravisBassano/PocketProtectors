@@ -68,21 +68,4 @@ title: Home
 
 <!-- Tablesort JS -->
 <script src="https://unpkg.com/tablesort@5.2.1/dist/tablesort.min.js"></script>
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    // Initialize Tablesort
-    const table = document.getElementById('myTable');
-    new Tablesort(table);
-
-    // Ensure only clicked header shows arrow state
-    table.querySelectorAll('th').forEach(th => {
-      th.addEventListener('click', () => {
-        table.querySelectorAll('th').forEach(other => {
-          if (other !== th) {
-            other.classList.remove('tablesort-up', 'tablesort-down');
-          }
-        });
-      });
-    });
-  });
-</script>
+<script src="{{ '/assets/js/tablesort-init.js' | relative_url }}"></script>
