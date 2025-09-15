@@ -53,8 +53,8 @@ class ContentGenerator:
 
             f = open(manager_page_path, "w")
 
-            f.write(textwrap.dedent(f"""
-                ---
+            f.write(textwrap.dedent(
+                f"""---
                 layout: page
                 title: {manager.title()} Profile Page
                 permalink: /manager/{manager.lower()}/

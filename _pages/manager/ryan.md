@@ -1,8 +1,7 @@
-
 ---
-layout: page
-title: Ryan Profile Page
-permalink: /manager/ryan/
----
+                layout: page
+                title: Ryan Profile Page
+                permalink: /manager/ryan/
+                ---
 
-![Scatter plot]({ site.baseurl }/assets/plots/matchup_scatter_ryan.png)
+                ![Scatter plot]({ site.baseurl }/assets/plots/matchup_scatter_ryan.png)
