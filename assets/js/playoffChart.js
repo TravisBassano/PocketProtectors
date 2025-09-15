@@ -3,6 +3,10 @@
 document.addEventListener("DOMContentLoaded", function() {
   const managers = JSON.parse(document.getElementById('playoff-data').textContent);
 
+  // Match chart font to site CSS
+  Chart.defaults.font.family = getComputedStyle(document.body).getPropertyValue("font-family");
+  Chart.defaults.font.size = parseInt(getComputedStyle(document.body).getPropertyValue("font-size"));
+
   const labels = managers.map(m => m.manager);
   const playoffAppearances = managers.map(m => m.playoff_appearances);
   const championshipAppearances = managers.map(m => m.championship_appearances);
@@ -43,9 +47,6 @@ document.addEventListener("DOMContentLoaded", function() {
             beginAtZero: true,
             ticks: {
                 precision: 0
-                // callback: function(value) {
-                //     return Number.isInteger(value) ? value : null;
-                // }
             }
         }
       }
