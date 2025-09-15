@@ -8,7 +8,7 @@
 }
 
 /* Default arrow for unsorted */
-#myTable th[aria-sort="none"]::after {
+#myTable th:not([aria-sort])::after {
   content: '⇅';
   font-size: 0.7em;
   position: absolute;
