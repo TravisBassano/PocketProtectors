@@ -24,7 +24,8 @@ class ContentGenerator:
 
     DATA_DIR = Path(__file__).parent.parent / "data"
     PAGES_DIR = Path(__file__).parent.parent / "_pages"
-    MGR_PAGES_DIR = PAGES_DIR / "manager"
+    SUBPAGES_DIR = Path(__file__).parent.parent / "_subpages"
+    MGR_PAGES_DIR = SUBPAGES_DIR / "manager"
 
     def __init__(self):
 
