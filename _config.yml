@@ -10,3 +10,7 @@ collections:
   subpages:
     output: true
     permalink: /:collection/:path/
+
+
+social_links:
+  github: "https://github.com/TravisBassano/PocketProtectors"
