@@ -6,18 +6,18 @@ permalink: /managers/
 
 ## League Managers
 
-[Bob]({{ '/manager/bob' | relative_url }})
-[Brendon]({{ '/manager/brendon' | relative_url }})
-[Brian]({{ '/manager/brian' | relative_url }})
-[Chris]({{ '/manager/chris' | relative_url }})
-[Eric]({{ '/manager/eric' | relative_url }})
-[Jordan]({{ '/manager/jordan' | relative_url }})
-[Keara]({{ '/manager/keara' | relative_url }})
-[Licata]({{ '/manager/licata' | relative_url }})
-[Mike]({{ '/manager/mike' | relative_url }})
-[PJ]({{ '/manager/pj' | relative_url }})
-[Ryan]({{ '/manager/ryan' | relative_url }})
-[Travis]({{ '/manager/travis' | relative_url }})
+[Bob]({{ '/manager/bob/' | relative_url }})
+[Brendon]({{ '/manager/brendon/' | relative_url }})
+[Brian]({{ '/manager/brian/' | relative_url }})
+[Chris]({{ '/manager/chris/' | relative_url }})
+[Eric]({{ '/manager/eric/' | relative_url }})
+[Jordan]({{ '/manager/jordan/' | relative_url }})
+[Keara]({{ '/manager/keara/' | relative_url }})
+[Licata]({{ '/manager/licata/' | relative_url }})
+[Mike]({{ '/manager/mike/' | relative_url }})
+[PJ]({{ '/manager/pj/' | relative_url }})
+[Ryan]({{ '/manager/ryan/' | relative_url }})
+[Travis]({{ '/manager/travis/' | relative_url }})
 
 
 ## MVKC League History Plots
