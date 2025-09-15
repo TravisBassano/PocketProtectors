@@ -16,12 +16,12 @@
   transition: transform 0.2s ease, color 0.2s ease;
 }
 
-#myTable th.tablesort-up:after {
+#myTable th.sort-up:after {
   content: '↑' !important;
   color: #007bff !important;
 }
 
-#myTable th.tablesort-down:after {
+#myTable th.sort-down:after {
   content: '↓' !important;
   color: #007bff !important;
 }
