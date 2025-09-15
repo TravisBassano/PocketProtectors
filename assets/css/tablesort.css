@@ -7,27 +7,30 @@
   user-select: none;
 }
 
-/* Default arrow for unsorted */
-#myTable th:not([aria-sort])::after {
-  content: '⇅';
-  font-size: 0.7em;
+#myTable th::after {
+  content: '⇅'; /* initial content */
   position: absolute;
-  transform: translateY(-50%);
+  top: 50%;
   right: 8px;
+  transform: translateY(-50%);
+  font-size: 0.7em;
   color: #aaa;
-  transition: transform 0.2s ease, color 0.2s ease;
+  display: inline-block;
+  width: 1ch; /* reserve 1 character width */
+  text-align: center;
+  transition: color 0.2s ease;
 }
 
 /* Ascending */
 #myTable th[aria-sort="ascending"]::after {
-  content: '↑';
-  color: #007bff;
+    content: '↑';
+    color: #007bff;
 }
 
 /* Descending */
 #myTable th[aria-sort="descending"]::after {
-  content: '↓';
-  color: #007bff;
+    content: '↓';
+    color: #007bff;
 }
 
 /* Default row color */
