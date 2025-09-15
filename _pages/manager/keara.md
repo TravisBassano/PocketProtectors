@@ -4,4 +4,4 @@ title: Keara Profile Page
 permalink: /manager/keara/
 ---
 
-![Scatter plot]({ site.baseurl }/assets/plots/matchup_scatter_keara.png)
+![Scatter plot]({{ site.baseurl }}/assets/plots/matchup_scatter_keara.png)
