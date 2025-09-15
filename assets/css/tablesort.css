@@ -21,14 +21,14 @@
 #myTable th[aria-sort="ascending"]::after {
   content: '↑';
   color: #007bff;
-  padding-left: 5x;
+  padding-left: 5px;
 }
 
 /* Descending */
 #myTable th[aria-sort="descending"]::after {
   content: '↓';
   color: #007bff;
-  padding-left: 5x;
+  padding-left: 5px;
 }
 
 /* Default row color */
