@@ -39,7 +39,13 @@ document.addEventListener("DOMContentLoaded", function() {
         title: { display: true, text: 'Fantasy Manager Playoff Stats' }
       },
       scales: {
-        y: { beginAtZero: true, precision: 0 }
+        y: {
+            beginAtZero: true,
+            precision: 0,
+            callback: function(value) {
+                return Number.isInteger(value) ? value : null;
+            }
+        }
       }
     }
   };
