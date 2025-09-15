@@ -59,7 +59,7 @@ class ContentGenerator:
                 permalink: /about/
                 ---
 
-                ![Scatter plot]({{ site.baseurl }}/assets/plots/matchup_scatter_{manager}.png)
+                ![Scatter plot]({{ site.baseurl }}/assets/plots/matchup_scatter_{manager.lower()}.png)
                 """
             )
 
