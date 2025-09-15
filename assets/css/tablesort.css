@@ -1,0 +1,44 @@
+/* tablesort.css */
+
+/* Table header sort arrows */
+#myTable th {
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+}
+
+#myTable th:after {
+  content: '⇅';
+  font-size: 0.7em;
+  position: absolute;
+  right: 8px;
+  color: #aaa;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+#myTable th.tablesort-up:after {
+  content: '↑' !important;
+  color: #007bff !important;
+}
+
+#myTable th.tablesort-down:after {
+  content: '↓' !important;
+  color: #007bff !important;
+}
+
+/* Hover highlight for rows */
+#myTable tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* Zebra striping */
+#myTable tbody tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+/* Responsive table container */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
