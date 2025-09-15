@@ -7,3 +7,6 @@ collections:
   pages:
     output: true
     permalink: /:name/
+  subpages:
+    output: true
+    permalink: /:collection/:path/
