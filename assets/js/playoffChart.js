@@ -41,9 +41,11 @@ document.addEventListener("DOMContentLoaded", function() {
       scales: {
         y: {
             beginAtZero: true,
-            precision: 0,
-            callback: function(value) {
-                return Number.isInteger(value) ? value : null;
+            ticks: {
+                precision: 0
+                // callback: function(value) {
+                //     return Number.isInteger(value) ? value : null;
+                // }
             }
         }
       }
