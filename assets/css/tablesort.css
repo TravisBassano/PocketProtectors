@@ -31,9 +31,9 @@
   background-color: #fafafa;
 }
 
-/* Hover highlight for rows */
+/* Hover highlight */
 #myTable tbody tr:hover {
-  background-color: rgba(241, 241, 241, 0.8);
+  background-color: #f1f1f1 !important;
 }
 
 /* Responsive table container */
