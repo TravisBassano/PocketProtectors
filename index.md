@@ -5,7 +5,7 @@ title: Home
 
 ## MVKC League History Dashboard
 
-<div class="table-responsive">
+<div class="table-responsive" markdown="1">
 
 | Manager | Wins | Losses |
 | :--- | :---: | ---: |
