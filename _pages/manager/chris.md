@@ -2,8 +2,7 @@
                 ---
                 layout: page
                 title: Chris Profile Page
-                permalink: /about/
+                permalink: /chris/
                 ---
 
                 ![Scatter plot]({ site.baseurl }/assets/plots/matchup_scatter_chris.png)
-                

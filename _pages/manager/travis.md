@@ -2,8 +2,7 @@
                 ---
                 layout: page
                 title: Travis Profile Page
-                permalink: /about/
+                permalink: /travis/
                 ---
 
                 ![Scatter plot]({ site.baseurl }/assets/plots/matchup_scatter_travis.png)
-                
