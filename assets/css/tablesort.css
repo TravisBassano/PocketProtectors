@@ -12,6 +12,7 @@
   content: '⇅';
   font-size: 0.7em;
   position: absolute;
+  transform: translateY(-50%);
   right: 8px;
   color: #aaa;
   transition: transform 0.2s ease, color 0.2s ease;
@@ -21,14 +22,12 @@
 #myTable th[aria-sort="ascending"]::after {
   content: '↑';
   color: #007bff;
-  padding-left: 5px;
 }
 
 /* Descending */
 #myTable th[aria-sort="descending"]::after {
   content: '↓';
   color: #007bff;
-  padding-left: 5px;
 }
 
 /* Default row color */
