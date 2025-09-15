@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Plots
-permalink: /plots/
+title: Manager Stats
+permalink: /managers/
 ---
 
 ## MVKC League History Plots
