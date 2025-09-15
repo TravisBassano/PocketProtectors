@@ -11,6 +11,7 @@ Usage example:
 """
 
 import pandas as pd
+import textwrap
 
 from pathlib import Path
 
@@ -52,7 +53,7 @@ class ContentGenerator:
 
             f = open(manager_page_path, "w")
 
-            f.write(f"""
+            f.write(textwrap.dedent(f"""
                 ---
                 layout: page
                 title: {manager.title()} Profile Page
@@ -61,7 +62,7 @@ class ContentGenerator:
 
                 ![Scatter plot]({{ site.baseurl }}/assets/plots/matchup_scatter_{manager.lower()}.png)
                 """
-            )
+            ))
 
             f.close()
 

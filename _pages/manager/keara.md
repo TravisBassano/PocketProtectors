@@ -1,8 +1,8 @@
 
-                ---
-                layout: page
-                title: Keara Profile Page
-                permalink: /keara/
-                ---
+---
+layout: page
+title: Keara Profile Page
+permalink: /about/
+---
 
-                ![Scatter plot]({ site.baseurl }/assets/plots/matchup_scatter_keara.png)
+![Scatter plot]({ site.baseurl }/assets/plots/matchup_scatter_keara.png)

@@ -1,8 +1,8 @@
 
-                ---
-                layout: page
-                title: Chris Profile Page
-                permalink: /chris/
-                ---
+---
+layout: page
+title: Chris Profile Page
+permalink: /about/
+---
 
-                ![Scatter plot]({ site.baseurl }/assets/plots/matchup_scatter_chris.png)
+![Scatter plot]({ site.baseurl }/assets/plots/matchup_scatter_chris.png)
