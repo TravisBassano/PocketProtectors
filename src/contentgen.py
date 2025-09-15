@@ -57,7 +57,7 @@ class ContentGenerator:
                 ---
                 layout: page
                 title: {manager.title()} Profile Page
-                permalink: /about/
+                permalink: /manager/{manager.lower()}/
                 ---
 
                 ![Scatter plot]({{ site.baseurl }}/assets/plots/matchup_scatter_{manager.lower()}.png)
