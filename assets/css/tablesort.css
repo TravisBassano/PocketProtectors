@@ -38,7 +38,7 @@
 
 /* Hover highlight for rows */
 #myTable tbody tr:hover {
-  background-color: #f1f1f1 !important;
+  background-color: dodgerblue;
 }
 
 /* Responsive table container */
