@@ -5,7 +5,6 @@
   position: relative;
   cursor: pointer;
   user-select: none;
-  padding-right: 20px; /* space for arrow */
 }
 
 /* Default arrow for unsorted */
@@ -22,12 +21,14 @@
 #myTable th[aria-sort="ascending"]::after {
   content: '↑';
   color: #007bff;
+  padding-left: 5x;
 }
 
 /* Descending */
 #myTable th[aria-sort="descending"]::after {
   content: '↓';
   color: #007bff;
+  padding-left: 5x;
 }
 
 /* Default row color */
