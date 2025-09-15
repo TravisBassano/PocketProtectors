@@ -5,21 +5,42 @@ title: Home
 
 ## MVKC League History Dashboard
 
-<div class="table-responsive" markdown="1">
-
-| Manager | Wins | Losses |
-| :--- | :---: | ---: |
-|Bob        |47      |48    |
-|Brendon    |61      |34    |
-|Brian      |47      |48    |
-|Chris      |34      |61    |
-|Eric       |40      |55    |
-|Jordan     |50      |45    |
-|Keara      |47      |48    |
-|Licata     |52      |43    |
-|Mike       |53      |42    |
-|PJ         |50      |45    |
-|Ryan       |47      |48    |
-|Travis     |42      |53    |
-
+<div class="table-responsive">
+  <table id="myTable" class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+        <th>Manager</th>
+        <th data-sort-method="number">Wins</th>
+        <th data-sort-method="number">Losses</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Bob</td><td>47</td><td>48</td></tr>
+      <tr><td>Brendon</td><td>61</td><td>34</td></tr>
+      <tr><td>Brian</td><td>47</td><td>48</td></tr>
+      <tr><td>Chris</td><td>34</td><td>61</td></tr>
+      <tr><td>Eric</td><td>40</td><td>55</td></tr>
+      <tr><td>Jordan</td><td>50</td><td>45</td></tr>
+      <tr><td>Keara</td><td>47</td><td>48</td></tr>
+      <tr><td>Licata</td><td>52</td><td>43</td></tr>
+      <tr><td>Mike</td><td>53</td><td>42</td></tr>
+      <tr><td>PJ</td><td>50</td><td>45</td></tr>
+      <tr><td>Ryan</td><td>47</td><td>48</td></tr>
+      <tr><td>Travis</td><td>42</td><td>53</td></tr>
+    </tbody>
+  </table>
 </div>
+
+<style>
+  th { position: relative; cursor: pointer; }
+  th:after { content: '⇅'; font-size: 0.7em; position: absolute; right: 8px; color: #aaa; }
+  th.tablesort-up:after { content: '↑'; color: #333; }
+  th.tablesort-down:after { content: '↓'; color: #333; }
+  tbody tr:hover { background-color: #f1f1f1; }
+  tbody tr:nth-child(even) { background-color: #fafafa; }
+</style>
+
+<script src="https://unpkg.com/tablesort@5.2.1/dist/tablesort.min.js"></script>
+<script>
+  new Tablesort(document.getElementById('myTable'));
+</script>
