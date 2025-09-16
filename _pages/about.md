@@ -7,18 +7,18 @@ permalink: /about/
 # Fantasy Manager Stats
 
 <select id="manager-select">
-  <option value="bob">Bob</option>
-  <option value="brendon">Brendon</option>
-  <option value="brian">Brian</option>
-  <option value="chris">Chris</option>
-  <option value="eric">Eric</option>
-  <option value="jordan">Jordan</option>
-  <option value="keara">Keara</option>
-  <option value="licata">Licata</option>
-  <option value="mike">Mike</option>
-  <option value="pj">PJ</option>
-  <option value="ryan">Ryan</option>
-  <option value="travis">Travis</option>
+  <option value="Bob">Bob</option>
+  <option value="Brendon">Brendon</option>
+  <option value="Brian">Brian</option>
+  <option value="Chris">Chris</option>
+  <option value="Eric">Eric</option>
+  <option value="Jordan">Jordan</option>
+  <option value="Keara">Keara</option>
+  <option value="Licata">Licata</option>
+  <option value="Mike">Mike</option>
+  <option value="PJ">PJ</option>
+  <option value="Ryan">Ryan</option>
+  <option value="Travis">Travis</option>
 </select>
 
 <canvas id="managerChart" width="600" height="400"></canvas>
@@ -29,8 +29,8 @@ permalink: /about/
 const managerData = {
   {% for manager, stats in site.data.seasons %}
   "{{ manager }}": {
-    wins: {{ stats.wins | jsonify }},
-    losses: {{ stats.losses | jsonify }}
+    pf: {{ stats.pf }},
+    pa: {{ stats.pa }}
   }{% if forloop.last == false %},{% endif %}
   {% endfor %}
 };
