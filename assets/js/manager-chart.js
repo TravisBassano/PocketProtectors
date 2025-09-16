@@ -2,6 +2,7 @@
 document.addEventListener("DOMContentLoaded", function() {
   const ctx = document.getElementById('managerChart').getContext('2d');
   const managerSelect = document.getElementById('manager-select');
+  const managerData = JSON.parse(document.getElementById("manager-data").textContent);
   let currentManager = managerSelect.value;
 
   const chartConfig = {
