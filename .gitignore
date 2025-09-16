@@ -4,6 +4,7 @@ data/
 # Keep repo data only on stats
 league_dues.json
 manager_aliases.json
+assets/plots/total_winnings_bar_chart.png
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
