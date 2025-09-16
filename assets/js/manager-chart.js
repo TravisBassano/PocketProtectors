@@ -1,6 +1,3 @@
-// Load manager data from Jekyll _data/seasons
-const managerData = JSON.parse('{{ site.data.seasons | jsonify }}');
-
 // Wait for DOM to load
 document.addEventListener("DOMContentLoaded", function() {
   const ctx = document.getElementById('managerChart').getContext('2d');

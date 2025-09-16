@@ -23,5 +23,10 @@ permalink: /about/
 
 <canvas id="managerChart" width="600" height="400"></canvas>
 
+<!-- Embed manager data in JSON -->
+<script id="manager-data" type="application/json">
+  {{ site.data.seasons | jsonify }}
+</script>
+
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="{{ '/assets/js/manager-chart.js' | relative_url }}"></script>
