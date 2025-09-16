@@ -5,6 +5,11 @@ document.addEventListener("DOMContentLoaded", function() {
   const managerData = JSON.parse(document.getElementById("manager-data").textContent);
   let currentManager = managerSelect.value;
 
+  const allPf = Object.values(managerData).flatMap(m => m.pf);
+  const allPa = Object.values(managerData).flatMap(m => m.pa);
+  const globalMin = Math.min(...allPf, ...allPa);
+  const globalMax = Math.max(...allPf, ...allPa);
+
   const chartConfig = {
     type: 'line',
     data: {
@@ -27,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function() {
     options: {
       responsive: true,
       plugins: { legend: { position: 'top' } },
-      scales: { y: { beginAtZero: true, ticks: { stepSize: 10 } } }
+      scales: { y: { beginAtZero: true, min: globalMin, max: globalMax, ticks: { stepSize: 100 } } }
     }
   };
 
