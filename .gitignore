@@ -1,6 +1,10 @@
 # Pocket Protector outputs
 data/
 
+# Keep repo data only on stats
+league_dues.json
+manager_aliases.json
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
