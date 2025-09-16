@@ -26,8 +26,8 @@ title: Home
         <td>{{ manager.wins }}</td>
         <td>{{ manager.losses }}</td>
         <td>{{ manager.win_pct }}</td>
-        <td>{{ manager.pf | round: 1 }}</td>
-        <td>{{ manager.pa | round: 1 }}</td>
+        <td>{{ manager.pf }}</td>
+        <td>{{ manager.pa }}</td>
       </tr>
       {% endfor %}
     </tbody>
