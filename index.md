@@ -14,9 +14,9 @@ title: Home
         <th>Manager</th>
         <th data-sort-method="number">Wins</th>
         <th data-sort-method="number">Losses</th>
-        <th data-sort-method="number">Win %</th>
-        <th data-sort-method="number">Points For (PF)</th>
-        <th data-sort-method="number">Points Against (PA)</th>
+        <th data-sort-method="dotsep">Win %</th>
+        <th data-sort-method="dotsep">Points For (PF)</th>
+        <th data-sort-method="dotsep">Points Against (PA)</th>
       </tr>
     </thead>
     <tbody>
@@ -36,6 +36,7 @@ title: Home
 
 <!-- Tablesort JS -->
 <script src="https://unpkg.com/tablesort@5.2.1/dist/tablesort.min.js"></script>
+<script src="https://unpkg.com/tablesort@5.2.1/dist/tablesort.dotsep.min.js"></script>
 
 <script>
   new Tablesort(document.getElementById('myTable'));
