@@ -29,8 +29,8 @@ permalink: /about/
 const managerData = {
   {% for manager, stats in site.data.seasons %}
   "{{ manager }}": {
-    pf: {{ stats.pf }},
-    pa: {{ stats.pa }}
+    pf: {{ stats.pf | jsonify }},
+    pa: {{ stats.pa | jsonify }}
   }{% if forloop.last == false %},{% endif %}
   {% endfor %}
 };
