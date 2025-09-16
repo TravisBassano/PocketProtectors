@@ -42,7 +42,83 @@ class Plotting:
         max_season = max(self.df["season"].unique())
         self.PLT_HEADER = f"MVKC\nSeaons {min_season}-{max_season}\n"
 
-        # Perform common pre-processing on the dataframes
+        self.generate_web_data()
+
+    def generate_web_data(self):
+        """Generate the output files used by Liquid / Jekyll for JS charts.
+        """
+
+        # Group by 'manager' and sum the 'wins' and 'losses'
+        manager_stats = self.df_standings.groupby('manager')[
+            ['wins',
+             'losses',
+             'pf',
+             'pa',
+             ]].sum().reset_index()
+
+        manager_stats['win_pct'] = round(
+            manager_stats['wins'] / (
+                manager_stats['wins'] + manager_stats['losses']
+                ) * 100.0,
+            1
+            )
+
+        manager_stats = manager_stats.rename(columns={'manager': 'name'})
+        manager_stats = manager_stats.round(1)
+
+        # Print the resulting table
+        print(manager_stats)
+
+        p = Path(__file__).parent.parent / "_data"
+        p.mkdir(parents=True, exist_ok=True)
+
+        p = p / "overall.json"
+
+        with open(p, "w") as f:
+            manager_stats.to_json(f, orient='records', indent=3)
+
+        # Group the data by 'manager' and calculate the totals
+        manager_stats = self.df_standings.groupby('manager').agg(
+            playoff_appearances=('seed', lambda x: (x <= 6).sum()),
+            championship_appearances=('rank', lambda x: (x <= 2).sum()),
+            championships=('rank', lambda x: (x == 1).sum())
+        )
+
+        manager_stats = manager_stats.rename(columns={'manager': 'name'})
+        manager_stats = manager_stats.reset_index()
+
+        # Print the resulting table
+        print(manager_stats)
+
+        p = Path(__file__).parent.parent / "_data" / "playoffs.json"
+
+        with open(p, "w") as f:
+            manager_stats.to_json(f, orient='records', indent=3)
+
+        grouped = self.df_standings.groupby('manager')
+
+        # Create a dictionary to hold the final output
+        json_output = {}
+
+        # Iterate through each manager's group
+        for manager, group_df in grouped:
+            # For each manager, create a dictionary to store their stats
+            manager_stats = {}
+
+            # Get the columns to include in the output (excluding 'manager' and 'season')
+            columns_to_include = ['pf', 'pa', 'rank', 'seed', 'wins', 'losses']
+
+            # Iterate through each column and convert the series to a list
+            for col in columns_to_include:
+                manager_stats[col] = group_df[col].tolist()
+
+            # Add the manager's stats to the main output dictionary
+            json_output[manager] = manager_stats
+
+        p = Path(__file__).parent.parent / "_data" / "seasons.json"
+
+        with open(p, "w") as f:
+            json.dump(json_output, f, indent=3)
 
     def plot_proj(self):
         """Plot projected points vs. actual points scored per manager.
