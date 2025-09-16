@@ -3,8 +3,6 @@ layout: default
 title: Home
 ---
 
-## MVKC League History Dashboard
-
 <link rel="stylesheet" href="{{ '/assets/css/tablesort.css' | relative_url }}">
 
 <div class="table-responsive">
