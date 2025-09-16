@@ -24,4 +24,4 @@ permalink: /about/
 <canvas id="managerChart" width="600" height="400"></canvas>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="{{ '/_includes/manager-chart.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/manager-chart.js' | relative_url }}"></script>
