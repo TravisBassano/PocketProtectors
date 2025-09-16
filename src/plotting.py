@@ -516,7 +516,7 @@ class Plotting:
                     )
 
         plt.tight_layout()
-        plt.savefig(self.PLOTS_DIR / 'fmls.png')
+        plt.savefig(self.PLOTS_DIR / 'outlier_losses.png')
         plt.close()
 
     def plot_points_against(self):
