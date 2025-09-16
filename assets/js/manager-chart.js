@@ -7,8 +7,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
   const allPf = Object.values(managerData).flatMap(m => m.pf);
   const allPa = Object.values(managerData).flatMap(m => m.pa);
-  const globalMin = Math.min(...allPf, ...allPa);
-  const globalMax = Math.max(...allPf, ...allPa);
+
+  const stepSize = 100;
+
+  let globalMin = Math.min(...allPf, ...allPa);
+  let globalMax = Math.max(...allPf, ...allPa);
+
+  globalMin = Math.ceil(globalMin / stepSize) * stepSize;
+  globalMax = Math.ceil(globalMax / stepSize) * stepSize;
 
   const chartConfig = {
     type: 'line',
@@ -32,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function() {
     options: {
       responsive: true,
       plugins: { legend: { position: 'top' } },
-      scales: { y: { beginAtZero: true, min: globalMin, max: globalMax, ticks: { stepSize: 100 } } }
+      scales: { y: { beginAtZero: true, min: globalMin, max: globalMax, ticks: { stepSize: stepSize } } }
     }
   };
 
