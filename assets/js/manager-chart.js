@@ -1,12 +1,5 @@
 // Load manager data from Jekyll _data/seasons
-const managerData = {
-  {% for manager in site.data.seasons %}
-  "{{ manager }}": {
-    pf: {{ site.data.seasons[manager].pf | jsonify }},
-    pa: {{ site.data.seasons[manager].pa | jsonify }}
-  }{% if forloop.last == false %},{% endif %}
-  {% endfor %}
-};
+const managerData = JSON.parse('{{ site.data.seasons | jsonify }}');
 
 // Wait for DOM to load
 document.addEventListener("DOMContentLoaded", function() {
