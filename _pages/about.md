@@ -27,12 +27,12 @@ permalink: /about/
 <script>
 // Load data from Jekyll _data/managers.yml
 const managerData = {
-  {% for manager, stats in site.data.seasons %}
-  "{{ manager }}": {
-    pf: {{ stats.pf }},
-    pa: {{ stats.pa }}
-  }{% if forloop.last == false %},{% endif %}
-  {% endfor %}
+    {% for manager in site.data.seasons %}
+        "{{ manager }}": {
+            pf: {{ site.data.seasons[manager].pf | jsonify }},
+            pa: {{ site.data.seasons[manager].pa | jsonify }}
+        }{% if forloop.last == false %},{% endif %}
+    {% endfor %}
 };
 
 // Initial chart
