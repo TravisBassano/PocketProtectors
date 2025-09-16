@@ -35,8 +35,8 @@ title: Home
 </div>
 
 <!-- Tablesort JS -->
-<script src="https://unpkg.com/tablesort@5.2.1/dist/tablesort.min.js"></script>
-<script src="https://unpkg.com/tablesort@5.2.1/dist/tablesort.dotsep.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.2.1/tablesort.min.js" integrity="sha512-F/gIMdDfda6OD2rnzt/Iyp2V9JLHlFQ+EUyixDg9+rkwjqgW1snpkpx7FD5FV1+gG2fmFj7I3r6ReQDUidHelA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.2.1/sorts/tablesort.dotsep.min.js" integrity="sha512-4PQHFrJ/wVmBBE6FAFzkJJhjvIebDUZM0vTeGFsOSLxTPAP+CFEgt2HwDW/IQPttNDETeVRvBh11+vmF+lL9lQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 <script>
   new Tablesort(document.getElementById('myTable'));
