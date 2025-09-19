@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function() {
   let globalMin = Math.min(...allPf, ...allPa);
   let globalMax = Math.max(...allPf, ...allPa);
 
-  globalMin = Math.ceil(globalMin / stepSize) * stepSize;
+  globalMin = Math.floor(globalMin / stepSize) * stepSize;
   globalMax = Math.ceil(globalMax / stepSize) * stepSize;
 
   const chartConfig = {
