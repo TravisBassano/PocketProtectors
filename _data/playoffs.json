@@ -1,74 +1,86 @@
 [
    {
-      "manager":"Bob",
-      "playoff_appearances":5,
-      "championship_appearances":0,
-      "championships":0
+      "manager": "Travis",
+      "playoff_appearances": 3,
+      "playoff_byes": 0,
+      "championship_appearances": 1,
+      "championships": 1
    },
    {
-      "manager":"Brendon",
-      "playoff_appearances":5,
-      "championship_appearances":1,
-      "championships":1
+      "manager": "Licata",
+      "playoff_appearances": 4,
+      "playoff_byes": 2,
+      "championship_appearances": 3,
+      "championships": 1
    },
    {
-      "manager":"Brian",
-      "playoff_appearances":2,
-      "championship_appearances":1,
-      "championships":0
+      "manager": "Brian",
+      "playoff_appearances": 2,
+      "playoff_byes": 1,
+      "championship_appearances": 1,
+      "championships": 0
    },
    {
-      "manager":"Chris",
-      "playoff_appearances":2,
-      "championship_appearances":0,
-      "championships":0
+      "manager": "Brendon",
+      "playoff_appearances": 5,
+      "playoff_byes": 3,
+      "championship_appearances": 1,
+      "championships": 1
    },
    {
-      "manager":"Eric",
-      "playoff_appearances":3,
-      "championship_appearances":1,
-      "championships":0
+      "manager": "Keara",
+      "playoff_appearances": 4,
+      "playoff_byes": 1,
+      "championship_appearances": 1,
+      "championships": 0
    },
    {
-      "manager":"Jordan",
-      "playoff_appearances":5,
-      "championship_appearances":2,
-      "championships":2
+      "manager": "Bob",
+      "playoff_appearances": 5,
+      "playoff_byes": 0,
+      "championship_appearances": 0,
+      "championships": 0
    },
    {
-      "manager":"Keara",
-      "playoff_appearances":4,
-      "championship_appearances":1,
-      "championships":0
+      "manager": "Ryan",
+      "playoff_appearances": 2,
+      "playoff_byes": 2,
+      "championship_appearances": 2,
+      "championships": 1
    },
    {
-      "manager":"Licata",
-      "playoff_appearances":4,
-      "championship_appearances":3,
-      "championships":1
+      "manager": "PJ",
+      "playoff_appearances": 3,
+      "playoff_byes": 1,
+      "championship_appearances": 1,
+      "championships": 0
    },
    {
-      "manager":"Mike",
-      "playoff_appearances":4,
-      "championship_appearances":1,
-      "championships":1
+      "manager": "Eric",
+      "playoff_appearances": 3,
+      "playoff_byes": 0,
+      "championship_appearances": 1,
+      "championships": 0
    },
    {
-      "manager":"PJ",
-      "playoff_appearances":3,
-      "championship_appearances":1,
-      "championships":0
+      "manager": "Jordan",
+      "playoff_appearances": 5,
+      "playoff_byes": 2,
+      "championship_appearances": 2,
+      "championships": 2
    },
    {
-      "manager":"Ryan",
-      "playoff_appearances":2,
-      "championship_appearances":2,
-      "championships":1
+      "manager": "Mike",
+      "playoff_appearances": 4,
+      "playoff_byes": 2,
+      "championship_appearances": 1,
+      "championships": 1
    },
    {
-      "manager":"Travis",
-      "playoff_appearances":3,
-      "championship_appearances":1,
-      "championships":1
+      "manager": "Chris",
+      "playoff_appearances": 2,
+      "playoff_byes": 0,
+      "championship_appearances": 0,
+      "championships": 0
    }
 ]
