@@ -10,6 +10,7 @@ Usage example:
     gen.generate_page()
 """
 
+import json
 import pandas as pd
 import textwrap
 
@@ -23,6 +24,7 @@ class ContentGenerator:
     """
 
     DATA_DIR = Path(__file__).parent.parent / "data"
+    WEB_DATA_DIR = Path(__file__).parent.parent / "_data"
     PAGES_DIR = Path(__file__).parent.parent / "_pages"
     SUBPAGES_DIR = Path(__file__).parent.parent / "_subpages"
     MGR_PAGES_DIR = SUBPAGES_DIR / "manager"
@@ -32,6 +34,37 @@ class ContentGenerator:
         self.df = pd.read_csv(self.DATA_DIR / 'data.csv')
 
         self.MGR_PAGES_DIR.mkdir(parents=True, exist_ok=True)
+
+    def generate_chart_data(self):
+        """Output _data/ assets
+        """
+
+        df = pd.read_csv(self.DATA_DIR / "standings.csv")
+
+        managers = sorted(df["manager"].unique())
+
+        data = []
+
+        for manager in managers:
+
+            df_slice = df[df["manager"] == manager]
+
+            playoff_appearances = (df_slice["seed"] <= 6).sum()
+            playoff_byes = (df_slice["seed"] <= 2).sum()
+            champ_appearances = (df_slice["rank"] <= 2).sum()
+            champs = (df_slice["rank"] == 1).sum()
+
+            data.append({
+                "manager" : manager,
+                "playoff_appearances" : int(playoff_appearances),
+                "playoff_byes" : int(playoff_byes),
+                "championship_appearances" : int(champ_appearances),
+                "championships" : int(champs),
+            })
+
+        with open(self.WEB_DATA_DIR / "playoffs.json", 'w') as f:
+            json.dump(data, f, indent=3)
+
 
     def generate_page(self):
         """
