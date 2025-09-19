@@ -13,6 +13,8 @@ __license__ = "MIT"
 
 from dotenv import load_dotenv
 
+from src.awards import Awards
+from src.contentgen import ContentGenerator
 from src.query import Query
 from src.plotting import Plotting
 
@@ -23,8 +25,15 @@ def main():
     q = Query()
     q.query_seasons()
 
+    a = Awards()
+    a.run()
+
     p = Plotting()
-    p.plot_all()
+    p.run()
+
+    c = ContentGenerator()
+    c.generate_chart_data()
+    c.generate_page()
 
 
 if __name__ == "__main__":
