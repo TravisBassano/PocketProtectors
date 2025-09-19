@@ -1,4 +1,4 @@
-// assets/js/playoffChart.js
+// assets/js/playoff-chart.js
 
 document.addEventListener("DOMContentLoaded", function() {
   const managers = JSON.parse(document.getElementById('playoff-data').textContent);
