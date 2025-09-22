@@ -34,16 +34,16 @@ class Query:
         self.managers_record_map = defaultdict(  # season
             lambda: defaultdict(  # week
                 lambda: defaultdict(dict)  # manager -> data entries
+                )
             )
-        )
 
         self.winners_map = defaultdict(  # season
                 lambda: defaultdict(dict)  # winners
-        )
+            )
 
         self.standings_map = defaultdict(  # season
                 lambda: defaultdict(dict)  # manager -> data entries
-        )
+            )
 
         self.transactions_map = defaultdict(list)
 
@@ -178,13 +178,17 @@ class Query:
 
                 mrm = self.managers_record_map[season][week]
 
-                self.extract_matchup_data(mrm, team1_data, team2_data)
-                self.extract_matchup_data(mrm, team2_data, team1_data)
+                self.extract_matchup_data(mrm, team1_data, team2_data, query, week)
+                self.extract_matchup_data(mrm, team2_data, team1_data, query, week)
+
+
 
     def extract_matchup_data(self,
                              mrm_stub: defaultdict,
                              team1: Team,
-                             team2: Team
+                             team2: Team,
+                             query: YahooFantasySportsQuery,
+                             week: int
                              ):
         """Extracts information for a given weekly matchup.
 
@@ -211,6 +215,48 @@ class Query:
         mrm_stub[team1_manager]["opp_points"] = team2.team_points.total
         mrm_stub[team1_manager]["opp_proj_points"] = team2.projected_points
         mrm_stub[team1_manager]["opponent"] = team2_manager
+
+        players = query.get_team_roster_player_stats_by_week(team1.team_id, week)
+
+        editorial_teams = defaultdict(int)
+        editorial_teams_starters = defaultdict(int)
+
+        pos_pts = defaultdict(int)
+
+        max_player_score = -1e9
+        min_player_score = 1e9
+        zero_pt_starters = 0
+        neg_pt_starters = 0
+        bye_starts = 0
+
+        for player in players:
+
+            editorial_teams[player.editorial_team_abbr] += 1
+
+            if player.selected_position.position == "BN":
+                continue
+
+            pos_pts[player.selected_position.position] += player.player_points.total
+
+            editorial_teams_starters[player.editorial_team_abbr] += 1
+
+            max_player_score = max(max_player_score, player.player_points.total)
+            min_player_score = min(min_player_score, player.player_points.total)
+
+            zero_pt_starters += (player.player_points.total == 0.0)
+            neg_pt_starters += (player.player_points.total < 0.0)
+
+            bye_starts += player.bye_weeks.week == week
+
+        mrm_stub[team1_manager]["player_teams"] = dict(editorial_teams)
+        mrm_stub[team1_manager]["starter_teams"] = dict(editorial_teams_starters)
+        mrm_stub[team1_manager]["max_player_score"] = max_player_score
+        mrm_stub[team1_manager]["min_player_score"] = min_player_score
+        mrm_stub[team1_manager]["zero_pt_starters"] = zero_pt_starters
+        mrm_stub[team1_manager]["neg_pt_starters"] = neg_pt_starters
+        mrm_stub[team1_manager]["bye_starters"] = bye_starts
+        mrm_stub[team1_manager]["pos_pts"] = pos_pts
+
 
     def query_seasons(self):
         """Run and parse YahooFantasySportsQuery for all seasons.
@@ -334,3 +380,13 @@ class Query:
 
         self.apply_manager_aliases(df)
         df.to_csv(self.DATA_DIR / 'standings.csv')
+
+
+if __name__ == "__main__":
+
+    query = YahooFantasySportsQuery(
+            league_id="######",
+            game_code="nfl",
+            save_token_data_to_env_file=True,
+            env_file_location=Path(__file__).parent.parent,
+            )

@@ -3,6 +3,9 @@ layout: default
 title: Home
 ---
 
+# Statistical League History
+## 2018-2024
+
 <link rel="stylesheet" href="{{ '/assets/css/tablesort.css' | relative_url }}">
 
 <div class="table-responsive">
@@ -49,4 +52,4 @@ title: Home
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="{{ '/assets/js/playoffChart.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/playoff-chart.js' | relative_url }}"></script>

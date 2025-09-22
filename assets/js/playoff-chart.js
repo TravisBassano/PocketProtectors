@@ -1,4 +1,4 @@
-// assets/js/playoffChart.js
+// assets/js/playoff-chart.js
 
 document.addEventListener("DOMContentLoaded", function() {
   const managers = JSON.parse(document.getElementById('playoff-data').textContent);
@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   const labels = managers.map(m => m.manager);
   const playoffAppearances = managers.map(m => m.playoff_appearances);
+  const playoffByes = managers.map(m => m.playoff_byes);
   const championshipAppearances = managers.map(m => m.championship_appearances);
   const championships = managers.map(m => m.championships);
 
@@ -19,6 +20,11 @@ document.addEventListener("DOMContentLoaded", function() {
         label: 'Playoff Appearances',
         data: playoffAppearances,
         backgroundColor: 'rgba(54, 162, 235, 0.7)'
+      },
+      {
+        label: 'Playoff Byes',
+        data: playoffByes,
+        backgroundColor: 'rgba(178, 54, 235, 0.7)'
       },
       {
         label: 'Championship Appearances',
