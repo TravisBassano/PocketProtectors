@@ -22,49 +22,50 @@ permalink: /manager/travis/
 ![Scatter plot]({{ site.baseurl }}/assets/plots/matchup_scatter_travis.png)
 
 <style>
-    .banner-wall {
+.banner-wall {
   display: flex;
-  gap: 2rem;
   flex-wrap: wrap;
+  gap: 2rem;
   justify-content: center;
   padding: 2rem;
-  background: #1a1a1a; /* dark backdrop like a stadium wall */
+  background: #111; /* dark wall */
 }
 
-.banner {
+.pennant {
   width: 180px;
   background: #fff;
-  color: #111;
-  border: 4px solid #c00;
-  border-radius: 8px;
+  border: 6px solid #c00; /* team color border */
+  border-radius: 4px 4px 0 0; /* rounded top */
   text-align: center;
   padding: 1rem;
   font-family: 'Impact', sans-serif;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
   position: relative;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.6);
 }
 
-.banner::before {
+/* Triangle bottom to make it look like a hanging pennant */
+.pennant::after {
   content: "";
   position: absolute;
-  top: -20px;
+  bottom: -50px;
   left: 50%;
   transform: translateX(-50%);
   width: 0;
   height: 0;
-  border-left: 15px solid transparent;
-  border-right: 15px solid transparent;
-  border-bottom: 20px solid #c00; /* “hanger” triangle */
+  border-left: 90px solid transparent;
+  border-right: 90px solid transparent;
+  border-top: 50px solid #fff;
+  border-top-color: inherit; /* matches background */
 }
 
-.banner h2 {
+.pennant h2 {
   font-size: 1rem;
   margin: 0;
   line-height: 1.2;
 }
 
-.banner p {
-  font-size: 1.2rem;
+.pennant p {
+  font-size: 1.4rem;
   font-weight: bold;
   margin: 0.5rem 0 0;
 }
