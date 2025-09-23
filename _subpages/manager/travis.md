@@ -5,17 +5,17 @@ permalink: /manager/travis/
 ---
 
 <div class="banner-wall">
-  <div class="pennant">
-    <h2>Consolation Bracket Champion</h2>
-    <p>2018</p>
+  <div class="banner">
+    <div class="banner-title">Consolation Bracket Champion</div>
+    <div class="banner-year">2018</div>
   </div>
-  <div class="pennant">
-    <h2>Most FAAB Wasted</h2>
-    <p>2020</p>
+  <div class="banner">
+    <div class="banner-title">Most FAAB Wasted</div>
+    <div class="banner-year">2020</div>
   </div>
-  <div class="pennant">
-    <h2>Best Draft Name</h2>
-    <p>2022</p>
+  <div class="banner">
+    <div class="banner-title">Best Draft Name</div>
+    <div class="banner-year">2022</div>
   </div>
 </div>
 
@@ -25,48 +25,32 @@ permalink: /manager/travis/
 .banner-wall {
   display: flex;
   flex-wrap: wrap;
-  gap: 2rem;
   justify-content: center;
+  gap: 2rem; /* spacing between banners */
   padding: 2rem;
-  background: #111; /* dark wall */
 }
 
-.pennant {
-  width: 180px;
-  background: #fff;
-  border: 6px solid #c00; /* team color border */
-  border-radius: 4px 4px 0 0; /* rounded top */
-  text-align: center;
-  padding: 1rem;
-  font-family: 'Impact', sans-serif;
+.banner {
   position: relative;
-  box-shadow: 0 6px 12px rgba(0,0,0,0.6);
+  width: 180px;
+  padding: 1rem 1.5rem 2.5rem; /* extra padding for the V bottom */
+  background: white;
+  border: 3px solid #c00;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  font-family: sans-serif;
+  font-weight: 600;
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%);
+  /* makes the V-shape cut */
 }
 
-/* Triangle bottom to make it look like a hanging pennant */
-.pennant::after {
-  content: "";
-  position: absolute;
-  bottom: -50px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0;
-  height: 0;
-  border-left: 90px solid transparent;
-  border-right: 90px solid transparent;
-  border-top: 50px solid #fff;
-  border-top-color: inherit; /* matches background */
+.banner-title {
+  font-size: 0.95rem;
 }
 
-.pennant h2 {
-  font-size: 1rem;
-  margin: 0;
-  line-height: 1.2;
-}
-
-.pennant p {
-  font-size: 1.4rem;
-  font-weight: bold;
-  margin: 0.5rem 0 0;
+.banner-year {
+  font-weight: 800;
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
 }
 </style>
