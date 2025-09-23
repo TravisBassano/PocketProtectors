@@ -22,28 +22,48 @@ permalink: /manager/travis/
 ![Scatter plot]({{ site.baseurl }}/assets/plots/matchup_scatter_travis.png)
 
 <style>
-.banner-wall {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2.5rem; /* spacing between banners */
-  padding: 2rem;
-}
-
 .banner {
   position: relative;
   width: 220px;
-  height: 280px;
+  min-height: 240px;
   padding: 1.2rem;
-  color: white; /* text color */
-  background: #c00; /* default: red team look */
-  border: 4px solid #900; /* darker border for depth */
+  color: white;
+  background: #c00;
+  border: 4px solid #900;
   text-align: center;
   box-shadow: 0 6px 14px rgba(0,0,0,0.3);
   font-family: sans-serif;
   font-weight: 600;
-  clip-path: polygon(0 0, 100% 0, 100% 80%, 50% 100%, 0 80%);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  margin-bottom: 40px; /* make room for the triangle */
+}
+
+.banner::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -40px;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 110px solid transparent;
+  border-right: 110px solid transparent;
+  border-top: 40px solid #c00;  /* same as background */
+  z-index: 1;
+}
+
+.banner::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -44px;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 114px solid transparent;
+  border-right: 114px solid transparent;
+  border-top: 44px solid #900; /* border color */
+  z-index: 0;
 }
 
 .banner:hover {
