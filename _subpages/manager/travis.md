@@ -5,15 +5,15 @@ permalink: /manager/travis/
 ---
 
 <div class="banner-wall">
-  <div class="banner">
+  <div class="pennant">
     <h2>Consolation Bracket Champion</h2>
     <p>2018</p>
   </div>
-  <div class="banner">
+  <div class="pennant">
     <h2>Most FAAB Wasted</h2>
     <p>2020</p>
   </div>
-  <div class="banner">
+  <div class="pennant">
     <h2>Best Draft Name</h2>
     <p>2022</p>
   </div>
