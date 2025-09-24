@@ -1,10 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
   // Grab JSON embedded in the HTML
   const dataEl = document.getElementById("awards-data");
+  const allAwards = JSON.parse(dataEl.textContent);
   const manager = "{{ page.manager }}";
   if (!dataEl) return;
 
-  let banners = dataEl[manager];
+  let banners = allAwards[manager];
 
   const wall = document.getElementById("banner-wall");
   if (!wall) return;
