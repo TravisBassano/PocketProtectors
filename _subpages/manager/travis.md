@@ -30,5 +30,13 @@ permalink: /manager/travis/
   </div>
 </div>
 
+<div class="banner">
+  <div class="banner-content">
+    <div class="banner-title">Participant</div>
+    <div class="banner-year">2020</div>
+    <div class="star"></div>
+  </div>
+</div>
+
 
 ![Scatter plot]({{ site.baseurl }}/assets/plots/matchup_scatter_travis.png)
