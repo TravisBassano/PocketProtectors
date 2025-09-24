@@ -1,3 +1,10 @@
+#banner-wall {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center; /* center the whole set */
+}
+
 .banner {
   position: relative;
   width: 200px;
