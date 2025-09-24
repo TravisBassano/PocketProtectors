@@ -8,8 +8,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
   const countsData = JSON.parse(document.getElementById("counts-data").textContent);
 
-  const labels = countsData.map(item => item[0]);  // team names
-  const counts = countsData.map(item => item[1]);  // counts
+  const managerData = countsData[manager];
+  if (!managerData) return;
+
+  const labels = managerData.map(item => item[0]);  // team names
+  const counts = managerData.map(item => item[1]);  // counts
 
   const ctx = document.getElementById('favoriteTeams').getContext('2d');
   new Chart(ctx, {
