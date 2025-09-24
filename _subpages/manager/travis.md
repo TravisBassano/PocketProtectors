@@ -34,6 +34,7 @@ manager: Travis
   </div>
 </div>
 
+<canvas id="favoriteTeams"></canvas>
 <script src="{{ '/assets/js/team-counts.js' | relative_url }}"></script>
 
 
