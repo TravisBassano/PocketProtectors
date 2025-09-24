@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const allAwards = JSON.parse(document.getElementById("awards-data").textContent);
   const manager = "{{ page.manager }}";
-  if (!dataEl) return;
+  if (!allAwards) return;
 
   let banners = allAwards[manager];
 
