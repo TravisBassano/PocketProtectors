@@ -4,81 +4,100 @@ title: Travis Profile Page
 permalink: /manager/travis/
 ---
 
-<div class="banner-wall">
-  <div class="banner">
-    <div class="banner-title">Consolation Bracket Champion</div>
-    <div class="banner-year">2018</div>
+<div class="banner banner--gold">
+  <div class="banner-content">
+    <div class="banner-title">League Champion</div>
+    <div class="banner-year">2021</div>
   </div>
-  <div class="banner">
-    <div class="banner-title">Most FAAB Wasted</div>
-    <div class="banner-year">2020</div>
-  </div>
-  <div class="banner">
-    <div class="banner-title">Best Draft Name</div>
-    <div class="banner-year">2022</div>
-  </div>
+
+  <!-- Inline SVG laurel -->
+  <svg class="banner-laurel" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <g fill="currentColor">
+      <!-- Left side -->
+      <path d="M50 95c-15-20-20-40-18-55 1-8 4-15 8-20-6 2-11 7-14 13-4 8-5 18-4 28 2 15 9 29 22 41z"/>
+      <!-- Right side -->
+      <path d="M150 95c15-20 20-40 18-55-1-8-4-15-8-20 6 2 11 7 14 13 4 8 5 18 4 28-2 15-9 29-22 41z"/>
+    </g>
+  </svg>
 </div>
+
 
 ![Scatter plot]({{ site.baseurl }}/assets/plots/matchup_scatter_travis.png)
 
 <style>
 .banner {
   position: relative;
-  width: 220px;
-  min-height: 240px;
-  padding: 1.2rem;
-  color: white;
-  background: #c00;           /* banner fill */
-  border: 4px solid #900;     /* banner border */
+  width: 260px;
+  min-height: 320px;
+  padding: 1.1rem 1.4rem;
+  background: #222;
+  border: 4px solid #111;
+  color: white;               /* text color also drives SVG color */
   text-align: center;
-  box-shadow: 0 6px 14px rgba(0,0,0,0.3);
-  font-family: sans-serif;
+  overflow: hidden;
+  border-radius: 6px;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.18);
+  font-family: system-ui, sans-serif;
+}
+
+.banner-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.banner-title {
+  margin-top: 0.25rem;
+  font-size: 1.05rem;
   font-weight: 600;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  margin-bottom: 60px; /* room for the pennant tip */
-  box-sizing: border-box;
 }
 
-/* Outer (border) triangle */
-.banner::before {
-  content: "";
-  position: absolute;
-  bottom: -44px;
-  left: 0;
-  width: 0;
-  height: 0;
-  border-left: 112px solid transparent;  /* (220px width + 2*4px border) / 2 */
-  border-right: 112px solid transparent;
-  border-top: 44px solid #900;  /* matches border color */
+.banner-year {
+  margin-top: auto;
+  margin-bottom: 1.6rem;
+  font-weight: 800;
+  font-size: 1.65rem;
+  z-index: 2;
 }
 
-/* Inner (fill) triangle */
-.banner::after {
-  content: "";
+/* Laurel placement */
+.banner-laurel {
   position: absolute;
-  bottom: -40px;
-  left: 0;
-  width: 0;
-  height: 0;
-  border-left: 110px solid transparent;  /* (220px width) / 2 */
-  border-right: 110px solid transparent;
-  border-top: 40px solid #c00;  /* matches background */
+  left: 50%;
+  bottom: 12%;
+  transform: translateX(-50%);
+  width: 65%;
+  max-width: 180px;
+  height: auto;
+  opacity: 0.12;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Themed variants */
+.banner--gold {
+  background: #caa200;
+  border-color: #9d7f00;
+  color: #fff7d1;    /* laurel + text color */
+}
+
+.banner--silver {
+  background: #aaa;
+  border-color: #777;
+  color: #f0f0f0;
+}
+
+.banner--bronze {
+  background: #b87333;
+  border-color: #814c1f;
+  color: #ffe6d1;
 }
 
 .banner:hover {
   transform: scale(1.05);
   box-shadow: 0 8px 18px rgba(0,0,0,0.4);
-}
-
-.banner-title {
-  font-size: 1.1rem;
-  margin-top: 0.5rem;
-}
-
-.banner-year {
-  font-weight: 900;
-  font-size: 1.6rem;
-  margin-top: 1.2rem;
 }
 
 </style>
