@@ -28,44 +28,43 @@ permalink: /manager/travis/
   min-height: 240px;
   padding: 1.2rem;
   color: white;
-  background: #c00;
-  border: 4px solid #900;
+  background: #c00;           /* banner fill */
+  border: 4px solid #900;     /* banner border */
   text-align: center;
   box-shadow: 0 6px 14px rgba(0,0,0,0.3);
   font-family: sans-serif;
   font-weight: 600;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  margin-bottom: 60px; /* space for the triangle */
-  box-sizing: border-box; /* important */
+  margin-bottom: 60px; /* room for the pennant tip */
+  box-sizing: border-box;
 }
 
-/* Border triangle */
+/* Outer (border) triangle */
 .banner::before {
   content: "";
   position: absolute;
-  left: 0;
   bottom: -44px;
+  left: 0;
   width: 0;
   height: 0;
-  border-left: 50% solid transparent;
-  border-right: 50% solid transparent;
-  border-top: 44px solid #900; /* border color */
-  width: 100%;
-  transform: none;
+  border-left: 112px solid transparent;  /* (220px width + 2*4px border) / 2 */
+  border-right: 112px solid transparent;
+  border-top: 44px solid #900;  /* matches border color */
 }
 
-/* Inner triangle (matches background) */
+/* Inner (fill) triangle */
 .banner::after {
   content: "";
   position: absolute;
-  left: 0;
   bottom: -40px;
-  width: 100%;
+  left: 0;
+  width: 0;
   height: 0;
-  border-left: 50% solid transparent;
-  border-right: 50% solid transparent;
-  border-top: 40px solid #c00; /* background color */
+  border-left: 110px solid transparent;  /* (220px width) / 2 */
+  border-right: 110px solid transparent;
+  border-top: 40px solid #c00;  /* matches background */
 }
+
 .banner:hover {
   transform: scale(1.05);
   box-shadow: 0 8px 18px rgba(0,0,0,0.4);
