@@ -16,9 +16,18 @@ manager: Travis
 <script src="{{ '/assets/js/manager-awards.js' | relative_url }}"></script>
 
 <div class="accolades">
-  <span class="accolade draft">Best Draft 2021</span>
-  <span class="accolade mvp">MVP: Jonathan Taylor</span>
-  <span class="accolade waiver">Best Waiver Pickup</span>
+  <div class="accolade draft">
+    <div class="accolade-title">Best Draft</div>
+    <div class="accolade-value">2021</div>
+  </div>
+  <div class="accolade mvp">
+    <div class="accolade-title">Most Valuable Player</div>
+    <div class="accolade-value">Jonathan Taylor</div>
+  </div>
+  <div class="accolade waiver">
+    <div class="accolade-title">Best Waiver</div>
+    <div class="accolade-value">Cordarrelle Patterson</div>
+  </div>
 </div>
 
 ![Scatter plot]({{ site.baseurl }}/assets/plots/matchup_scatter_travis.png)
