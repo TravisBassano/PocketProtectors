@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const manager = "{{ page.manager }}".trim();
   if (!allAwards) return;
 
-  let banners = allAwards[manager];
+  const banners = allAwards[manager];
 
   const wall = document.getElementById("banner-wall");
   if (!wall) return;
