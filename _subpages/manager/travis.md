@@ -47,6 +47,7 @@ permalink: /manager/travis/
   border-color: #353535ff;
   box-shadow: 0 6px 14px rgba(0,0,0,0.18);
   font-family: system-ui, sans-serif;
+  margin: 1.75em;
 }
 
 .banner-content {
@@ -75,6 +76,10 @@ permalink: /manager/travis/
   width: 100px;
   height: 100px;
   background-color: #FFD700;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 50%);
 
   /* The clip-path polygon defines the star shape */
   clip-path: polygon(
