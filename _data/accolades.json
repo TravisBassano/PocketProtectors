@@ -1,0 +1,266 @@
+{
+   "Travis": [
+      {
+         "title": "Favorite Team",
+         "value": "LAC",
+         "style": "draft"
+      },
+      {
+         "title": "Disliked Team",
+         "value": "OAK",
+         "style": "mvp"
+      },
+      {
+         "title": "Highest Scoring Player",
+         "value": "6 weeks",
+         "style": "waiver"
+      },
+      {
+         "title": "Lowest Scoring Player",
+         "value": "10 weeks",
+         "style": "waiver"
+      }
+   ],
+   "PJ": [
+      {
+         "title": "Favorite Team",
+         "value": "ARI",
+         "style": "draft"
+      },
+      {
+         "title": "Disliked Team",
+         "value": "BUF",
+         "style": "mvp"
+      },
+      {
+         "title": "Highest Scoring Player",
+         "value": "10 weeks",
+         "style": "waiver"
+      },
+      {
+         "title": "Lowest Scoring Player",
+         "value": "8 weeks",
+         "style": "waiver"
+      }
+   ],
+   "Brian": [
+      {
+         "title": "Favorite Team",
+         "value": "BUF",
+         "style": "draft"
+      },
+      {
+         "title": "Disliked Team",
+         "value": "NYJ",
+         "style": "mvp"
+      },
+      {
+         "title": "Highest Scoring Player",
+         "value": "14 weeks",
+         "style": "waiver"
+      },
+      {
+         "title": "Lowest Scoring Player",
+         "value": "8 weeks",
+         "style": "waiver"
+      }
+   ],
+   "Bob": [
+      {
+         "title": "Favorite Team",
+         "value": "LV",
+         "style": "draft"
+      },
+      {
+         "title": "Disliked Team",
+         "value": "CIN",
+         "style": "mvp"
+      },
+      {
+         "title": "Highest Scoring Player",
+         "value": "10 weeks",
+         "style": "waiver"
+      },
+      {
+         "title": "Lowest Scoring Player",
+         "value": "9 weeks",
+         "style": "waiver"
+      }
+   ],
+   "Chris": [
+      {
+         "title": "Favorite Team",
+         "value": "DAL",
+         "style": "draft"
+      },
+      {
+         "title": "Disliked Team",
+         "value": "ARI",
+         "style": "mvp"
+      },
+      {
+         "title": "Highest Scoring Player",
+         "value": "5 weeks",
+         "style": "waiver"
+      },
+      {
+         "title": "Lowest Scoring Player",
+         "value": "17 weeks",
+         "style": "waiver"
+      }
+   ],
+   "Jordan": [
+      {
+         "title": "Favorite Team",
+         "value": "MIN",
+         "style": "draft"
+      },
+      {
+         "title": "Disliked Team",
+         "value": "GB",
+         "style": "mvp"
+      },
+      {
+         "title": "Highest Scoring Player",
+         "value": "10 weeks",
+         "style": "waiver"
+      },
+      {
+         "title": "Lowest Scoring Player",
+         "value": "7 weeks",
+         "style": "waiver"
+      }
+   ],
+   "Licata": [
+      {
+         "title": "Favorite Team",
+         "value": "BUF",
+         "style": "draft"
+      },
+      {
+         "title": "Disliked Team",
+         "value": "MIN",
+         "style": "mvp"
+      },
+      {
+         "title": "Highest Scoring Player",
+         "value": "10 weeks",
+         "style": "waiver"
+      },
+      {
+         "title": "Lowest Scoring Player",
+         "value": "14 weeks",
+         "style": "waiver"
+      }
+   ],
+   "Ryan": [
+      {
+         "title": "Favorite Team",
+         "value": "PHI",
+         "style": "draft"
+      },
+      {
+         "title": "Disliked Team",
+         "value": "JAX",
+         "style": "mvp"
+      },
+      {
+         "title": "Highest Scoring Player",
+         "value": "6 weeks",
+         "style": "waiver"
+      },
+      {
+         "title": "Lowest Scoring Player",
+         "value": "8 weeks",
+         "style": "waiver"
+      }
+   ],
+   "Keara": [
+      {
+         "title": "Favorite Team",
+         "value": "DET",
+         "style": "draft"
+      },
+      {
+         "title": "Disliked Team",
+         "value": "JAX",
+         "style": "mvp"
+      },
+      {
+         "title": "Highest Scoring Player",
+         "value": "14 weeks",
+         "style": "waiver"
+      },
+      {
+         "title": "Lowest Scoring Player",
+         "value": "12 weeks",
+         "style": "waiver"
+      }
+   ],
+   "Brendon": [
+      {
+         "title": "Favorite Team",
+         "value": "CLE",
+         "style": "draft"
+      },
+      {
+         "title": "Disliked Team",
+         "value": "LAR",
+         "style": "mvp"
+      },
+      {
+         "title": "Highest Scoring Player",
+         "value": "8 weeks",
+         "style": "waiver"
+      },
+      {
+         "title": "Lowest Scoring Player",
+         "value": "3 weeks",
+         "style": "waiver"
+      }
+   ],
+   "Eric": [
+      {
+         "title": "Favorite Team",
+         "value": "LAC",
+         "style": "draft"
+      },
+      {
+         "title": "Disliked Team",
+         "value": "OAK",
+         "style": "mvp"
+      },
+      {
+         "title": "Highest Scoring Player",
+         "value": "14 weeks",
+         "style": "waiver"
+      },
+      {
+         "title": "Lowest Scoring Player",
+         "value": "12 weeks",
+         "style": "waiver"
+      }
+   ],
+   "Mike": [
+      {
+         "title": "Favorite Team",
+         "value": "DAL",
+         "style": "draft"
+      },
+      {
+         "title": "Disliked Team",
+         "value": "DET",
+         "style": "mvp"
+      },
+      {
+         "title": "Highest Scoring Player",
+         "value": "9 weeks",
+         "style": "waiver"
+      },
+      {
+         "title": "Lowest Scoring Player",
+         "value": "8 weeks",
+         "style": "waiver"
+      }
+   ]
+}
