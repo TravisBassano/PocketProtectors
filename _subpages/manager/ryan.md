@@ -23,10 +23,9 @@ manager: Ryan
 <div id="accolades-wall"></div>
 
 <script src="{{ '/assets/js/manager-awards.js' | relative_url }}"></script>
-<script src="{{ '/assets/js/manager-awards.js' | relative_url }}"></script>
 
 <canvas id="favoriteTeams"></canvas>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="{ '/assets/js/team-counts.js' | relative_url }"></script>
+<script src="{{ '/assets/js/team-counts.js' | relative_url }}"></script>
 
 ![Scatter plot]({{ site.baseurl }}/assets/plots/matchup_scatter_ryan.png)
