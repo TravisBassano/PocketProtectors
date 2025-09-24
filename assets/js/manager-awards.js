@@ -1,16 +1,17 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const allAwards = JSON.parse(document.getElementById("awards-data").textContent);
-  const manager = "{{ page.manager }}".trim();
-  if (!allAwards) return;
-
-  console.log("Manager from Liquid:", manager, "length:", manager.length);
-  console.log("All award keys:", Object.keys(allAwards));
-
-  const banners = allAwards[manager];
 
   const wall = document.getElementById("banner-wall");
   if (!wall) return;
 
+  const allAwards = JSON.parse(document.getElementById("awards-data").textContent);
+  if (!allAwards) return;
+
+  const manager = wall.dataset.manager.trim();
+
+  console.log("Manager:", manager, "length:", manager.length);
+  console.log("All award keys:", Object.keys(allAwards));
+
+  const banners = allAwards[manager];
   banners.forEach(banner => {
     const div = document.createElement("div");
     div.className = "banner";

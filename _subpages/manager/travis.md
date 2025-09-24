@@ -11,7 +11,7 @@ manager: Travis
   {{ site.data.awards | jsonify }}
 </script>
 
-<div id="banner-wall"></div>
+<div id="banner-wall" data-manager="{{ page.manager }}"></div>
 
 <script src="{{ '/assets/js/manager-awards.js' | relative_url }}"></script>
 
