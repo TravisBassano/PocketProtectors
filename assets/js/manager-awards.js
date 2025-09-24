@@ -8,9 +8,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const manager = wall.dataset.manager.trim();
 
-  console.log("Manager:", manager, "length:", manager.length);
-  console.log("All award keys:", Object.keys(allAwards));
-
   const banners = allAwards[manager];
   banners.forEach(banner => {
     const div = document.createElement("div");
