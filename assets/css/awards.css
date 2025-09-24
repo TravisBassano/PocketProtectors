@@ -10,7 +10,7 @@
   overflow: hidden;
   border-radius: 6px;
   background: #02008aff;
-  border-color: #353535ff;
+  border-color: rgb(73, 0, 168);
   box-shadow: 0 6px 14px rgba(0,0,0,0.18);
   font-family: system-ui, sans-serif;
   margin: 1.75em;
@@ -41,7 +41,7 @@
 .star {
   width: 100px;
   height: 100px;
-  background-color: #FFD700;
+  background-color: rgb(73, 0, 168);
   position: absolute;
   top: 50%;
   left: 50%;
