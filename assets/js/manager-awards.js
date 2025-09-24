@@ -3,6 +3,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const manager = "{{ page.manager }}".trim();
   if (!allAwards) return;
 
+  console.log("Manager from Liquid:", manager, "length:", manager.length);
+  console.log("All award keys:", Object.keys(allAwards));
+
   const banners = allAwards[manager];
 
   const wall = document.getElementById("banner-wall");
