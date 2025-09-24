@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
   accolades.forEach(accolade => {
     const div = document.createElement("div");
     div.className = "accolade";
-    if (accolade.style) div.classList.add(` ${accolade.style}`);
+    if (accolade.style) div.classList.add(`${accolade.style}`);
 
     div.innerHTML = `
         <div class="accolade-title">${accolade.title}</div>
