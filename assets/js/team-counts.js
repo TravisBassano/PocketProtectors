@@ -1,12 +1,15 @@
 // Wait for DOM to load
 document.addEventListener("DOMContentLoaded", function() {
 
+  const wall = document.getElementById("banner-wall");
+  if (!wall) return;
+
   const manager = wall.dataset.manager.trim();
 
   const countsData = JSON.parse(document.getElementById("counts-data").textContent);
 
-  const labels = managerData.map(item => item[0]);  // team names
-  const counts = managerData.map(item => item[1]);  // counts
+  const labels = countsData.map(item => item[0]);  // team names
+  const counts = countsData.map(item => item[1]);  // counts
 
   const ctx = document.getElementById('favoriteTeams').getContext('2d');
   new Chart(ctx, {
