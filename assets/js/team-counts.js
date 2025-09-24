@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function() {
           beginAtZero: true,
           title: {
             display: true,
-            text: 'Count'
+            text: 'Count of Rostered Player Team Instances'
           }
         }
       }
