@@ -1,15 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
   // Grab JSON embedded in the HTML
   const dataEl = document.getElementById("awards-data");
+  const manager = "{{ page.manager }}";
   if (!dataEl) return;
 
-  let banners;
-  try {
-    banners = JSON.parse(dataEl.textContent);
-  } catch (e) {
-    console.error("Error parsing banner JSON:", e);
-    return;
-  }
+  let banners = dataEl[manager];
 
   const wall = document.getElementById("banner-wall");
   if (!wall) return;

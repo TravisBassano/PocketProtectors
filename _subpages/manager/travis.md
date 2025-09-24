@@ -2,6 +2,7 @@
 layout: page
 title: Travis Profile Page
 permalink: /manager/travis/
+manager: Travis
 ---
 
 <link rel="stylesheet" href="{{ '/assets/css/awards.css' | relative_url }}">

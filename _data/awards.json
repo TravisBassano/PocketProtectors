@@ -1,16 +1,159 @@
-[
-  {
-    "title": "League Champion",
-    "year": "2021",
-    "style": "gold"
-  },
-  {
-    "title": "Consolation Bracket Champion",
-    "year": "2018"
-  },
-  {
-    "title": "Most Points Scored",
-    "year": "2023",
-    "style": "bronze"
-  }
-]
+{
+   "Travis": [
+      {
+         "title": "League Champion",
+         "year": 2018,
+         "style": "gold"
+      },
+      {
+         "title": "Podium Achiever",
+         "year": 2023,
+         "style": "bronze"
+      }
+   ],
+   "Licata": [
+      {
+         "title": "Runner Up",
+         "year": 2018,
+         "style": "silver"
+      },
+      {
+         "title": "League Champion",
+         "year": 2019,
+         "style": "gold"
+      },
+      {
+         "title": "Runner Up",
+         "year": 2020,
+         "style": "silver"
+      },
+      {
+         "title": "Consolation Bracket Hero",
+         "year": 2021
+      },
+      {
+         "title": "Consolation Bracket Hero",
+         "year": 2024
+      }
+   ],
+   "Brian": [
+      {
+         "title": "Podium Achiever",
+         "year": 2018,
+         "style": "bronze"
+      },
+      {
+         "title": "Consolation Bracket Hero",
+         "year": 2019
+      },
+      {
+         "title": "Consolation Bracket Hero",
+         "year": 2020
+      },
+      {
+         "title": "Runner Up",
+         "year": 2024,
+         "style": "silver"
+      }
+   ],
+   "Ryan": [
+      {
+         "title": "Consolation Bracket Hero",
+         "year": 2018
+      },
+      {
+         "title": "Runner Up",
+         "year": 2019,
+         "style": "silver"
+      },
+      {
+         "title": "League Champion",
+         "year": 2023,
+         "style": "gold"
+      }
+   ],
+   "PJ": [
+      {
+         "title": "Podium Achiever",
+         "year": 2019,
+         "style": "bronze"
+      },
+      {
+         "title": "Runner Up",
+         "year": 2023,
+         "style": "silver"
+      }
+   ],
+   "Mike": [
+      {
+         "title": "League Champion",
+         "year": 2020,
+         "style": "gold"
+      },
+      {
+         "title": "Podium Achiever",
+         "year": 2022,
+         "style": "bronze"
+      }
+   ],
+   "Chris": [
+      {
+         "title": "Podium Achiever",
+         "year": 2020,
+         "style": "bronze"
+      }
+   ],
+   "Jordan": [
+      {
+         "title": "League Champion",
+         "year": 2021,
+         "style": "gold"
+      },
+      {
+         "title": "League Champion",
+         "year": 2022,
+         "style": "gold"
+      }
+   ],
+   "Eric": [
+      {
+         "title": "Runner Up",
+         "year": 2021,
+         "style": "silver"
+      },
+      {
+         "title": "Consolation Bracket Hero",
+         "year": 2022
+      }
+   ],
+   "Bob": [
+      {
+         "title": "Podium Achiever",
+         "year": 2021,
+         "style": "bronze"
+      }
+   ],
+   "Keara": [
+      {
+         "title": "Runner Up",
+         "year": 2022,
+         "style": "silver"
+      },
+      {
+         "title": "Podium Achiever",
+         "year": 2024,
+         "style": "bronze"
+      }
+   ],
+   "Brendon": [
+      {
+         "title": "Consolation Bracket Hero",
+         "year": 2023
+      },
+      {
+         "title": "League Champion",
+         "year": 2024,
+         "style": "gold"
+      }
+   ]
+}
