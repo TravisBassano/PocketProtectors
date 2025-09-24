@@ -5,7 +5,7 @@ permalink: /manager/ryan/
 manager: Ryan
 ---
 
-<link rel="stylesheet"href="{{ '/assets/css/awards.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/awards.css' | relative_url }}">
 
 <script id="awards-data" type="application/json">
    { site.data.awards | jsonify }
