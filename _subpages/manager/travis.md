@@ -4,21 +4,28 @@ title: Travis Profile Page
 permalink: /manager/travis/
 ---
 
-<div class="banner">
+<div class="banner banner--gold">
   <div class="banner-content">
     <div class="banner-title">League Champion</div>
     <div class="banner-year">2021</div>
+    <div class="star star--gold"></div>
   </div>
+</div>
 
-  <!-- Inline SVG laurel -->
-  <svg class="banner-laurel banner--gold" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <g fill="currentColor">
-      <!-- Left side -->
-      <path d="M50 95c-15-20-20-40-18-55 1-8 4-15 8-20-6 2-11 7-14 13-4 8-5 18-4 28 2 15 9 29 22 41z"/>
-      <!-- Right side -->
-      <path d="M150 95c15-20 20-40 18-55-1-8-4-15-8-20 6 2 11 7 14 13 4 8 5 18 4 28-2 15-9 29-22 41z"/>
-    </g>
-  </svg>
+<div class="banner banner--silver">
+  <div class="banner-content">
+    <div class="banner-title">League Runner Up</div>
+    <div class="banner-year">2022</div>
+    <div class="star star--silver"></div>
+  </div>
+</div>
+
+<div class="banner banner--bronze">
+  <div class="banner-content">
+    <div class="banner-title">League Member</div>
+    <div class="banner-year">2023</div>
+    <div class="star star--bronze"></div>
+  </div>
 </div>
 
 
@@ -64,37 +71,55 @@ permalink: /manager/travis/
   z-index: 2;
 }
 
-/* Laurel placement */
-.banner-laurel {
-  position: absolute;
-  left: 50%;
-  bottom: 12%;
-  transform: translateX(-50%);
-  width: 65%;
-  max-width: 180px;
-  height: auto;
-  opacity: 0.12;
-  z-index: 1;
-  pointer-events: none;
+.star {
+  width: 100px;
+  height: 100px;
+  background-color: #FFD700;
+
+  /* The clip-path polygon defines the star shape */
+  clip-path: polygon(
+    50% 0%,
+    61.8% 38.2%,
+    100% 38.2%,
+    69.1% 61.8%,
+    80.9% 100%,
+    50% 76.4%,
+    19.1% 100%,
+    30.9% 61.8%,
+    0% 38.2%,
+    38.2% 38.2%
+  );
 }
 
 /* Themed variants */
 .banner--gold {
-  background: #caa200;
-  border-color: #9d7f00;
+  border-color: #caa200;
   color: #fff7d1;    /* laurel + text color */
 }
 
 .banner--silver {
-  background: #aaa;
-  border-color: #777;
+  border-color: #aaaaaaff;
   color: #f0f0f0;
 }
 
 .banner--bronze {
-  background: #b87333;
-  border-color: #814c1f;
+  border-color: #b87333;
   color: #ffe6d1;
+}
+
+.star--gold {
+  background-color: #caa200;
+  color: #caa200;
+}
+
+.star--silver {
+  background-color: #aaaaaaff;
+  color: #aaaaaaff;
+}
+
+.star--bronze {
+  background-color: #b87333;
+  color: #b87333;
 }
 
 .banner:hover {
