@@ -104,3 +104,30 @@
   transform: scale(1.05);
   box-shadow: 0 8px 18px rgba(0,0,0,0.4);
 }
+
+
+/* Container for a row of accolades */
+.accolades {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0.5rem 0;
+}
+
+/* Base style for each accolade */
+.accolade {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px; /* pill shape */
+  font-size: 0.8rem;
+  font-weight: 500;
+  background: #f3f4f6; /* neutral gray */
+  color: #374151;      /* dark gray text */
+  border: 1px solid #e5e7eb;
+  white-space: nowrap;
+}
+
+/* Variants (optional colors for categories) */
+.accolade.draft   { background: #ecfdf5; color: #065f46; border-color: #a7f3d0; } /* green */
+.accolade.mvp     { background: #fef3c7; color: #92400e; border-color: #fde68a; } /* amber */
+.accolade.waiver  { background: #eff6ff; color: #1e40af; border-color: #bfdbfe; } /* blue */
