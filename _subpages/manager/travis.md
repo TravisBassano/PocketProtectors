@@ -4,14 +4,14 @@ title: Travis Profile Page
 permalink: /manager/travis/
 ---
 
-<div class="banner banner--gold">
+<div class="banner">
   <div class="banner-content">
     <div class="banner-title">League Champion</div>
     <div class="banner-year">2021</div>
   </div>
 
   <!-- Inline SVG laurel -->
-  <svg class="banner-laurel" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <svg class="banner-laurel banner--gold" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
     <g fill="currentColor">
       <!-- Left side -->
       <path d="M50 95c-15-20-20-40-18-55 1-8 4-15 8-20-6 2-11 7-14 13-4 8-5 18-4 28 2 15 9 29 22 41z"/>
@@ -27,8 +27,8 @@ permalink: /manager/travis/
 <style>
 .banner {
   position: relative;
-  width: 260px;
-  min-height: 320px;
+  width: 200px;
+  min-height: 275px;
   padding: 1.1rem 1.4rem;
   background: #222;
   border: 4px solid #111;
@@ -36,6 +36,8 @@ permalink: /manager/travis/
   text-align: center;
   overflow: hidden;
   border-radius: 6px;
+  background: #02008aff;
+  border-color: #353535ff;
   box-shadow: 0 6px 14px rgba(0,0,0,0.18);
   font-family: system-ui, sans-serif;
 }
