@@ -12,7 +12,7 @@ manager: Travis
 </script>
 
 <script id="accolades-data" type="application/json">
-  {{ site.data.awards | jsonify }}
+  {{ site.data.accolades | jsonify }}
 </script>
 
 <script id="counts-data" type="application/json">
