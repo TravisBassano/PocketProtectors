@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
       <div class="banner-content">
         <div class="banner-title">${banner.title}</div>
         <div class="banner-year">${banner.year}</div>
-        ${banner.style ? `<div class="star star--${banner.style}"></div>` : ""}
+        ${banner.style ? `<div class="star star--${banner.style}"></div>` : `<div class="star"></div>`}
       </div>
     `;
 
