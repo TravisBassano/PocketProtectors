@@ -1,7 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Grab JSON embedded in the HTML
-  const dataEl = document.getElementById("awards-data");
-  const allAwards = JSON.parse(dataEl.textContent);
+  const allAwards = JSON.parse(document.getElementById("awards-data").textContent);
   const manager = "{{ page.manager }}";
   if (!dataEl) return;
 
