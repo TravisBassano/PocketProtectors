@@ -72,7 +72,9 @@ title: Home
   <option value="Travis">Travis</option>
 </select>
 
-<canvas id="managerChart" width="600" height="400"></canvas>
+<div id="managerChartSection" class="chart-container">
+  <canvas id="managerChart" width="600" height="400"></canvas>
+</div>
 
 <!-- Embed manager data in JSON -->
 <script id="manager-data" type="application/json">
