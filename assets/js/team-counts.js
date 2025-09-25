@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function() {
     data: {
       labels: labels,
       datasets: [{
-        label: `Favorite Teams for ${manager}`,
+        label: `Cumulative Count of Rostered Player Team per Week`,
         data: counts,
         backgroundColor: 'rgba(54, 162, 235, 0.6)',
         borderColor: 'rgba(54, 162, 235, 1)',
@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function() {
           beginAtZero: true,
           title: {
             display: true,
-            text: 'Count of Rostered Player Team Instances'
+            text: 'Roster Player Team Count'
           }
         }
       }
