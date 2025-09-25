@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Eric Profile Page
+title: Eric
 permalink: /manager/eric/
 manager: Eric
 ---
@@ -11,8 +11,21 @@ manager: Eric
    {{ site.data.awards | jsonify }}
 </script>
 
+<script id="accolades-data" type="application/json">
+   {{ site.data.accolades | jsonify }}
+</script>
+
+<script id="counts-data" type="application/json">
+    {{ site.data.team-counts | jsonify }}
+</script>
+
 <div id="banner-wall" data-manager="{{ page.manager }}"></div>
+<div id="accolades-wall"></div>
 
 <script src="{{ '/assets/js/manager-awards.js' | relative_url }}"></script>
+
+<canvas id="favoriteTeams"></canvas>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="{{ '/assets/js/team-counts.js' | relative_url }}"></script>
 
 ![Scatter plot]({{ site.baseurl }}/assets/plots/matchup_scatter_eric.png)
