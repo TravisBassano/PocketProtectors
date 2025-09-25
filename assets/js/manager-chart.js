@@ -16,6 +16,8 @@ document.addEventListener("DOMContentLoaded", function() {
   globalMin = Math.floor(globalMin / stepSize) * stepSize;
   globalMax = Math.ceil(globalMax / stepSize) * stepSize;
 
+  globalMax = Math.max(Math.abs(globalMax), Math.abs(globalMin))
+
   const chartConfig = {
     type: 'line',
     data: {
@@ -38,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function() {
     options: {
       responsive: true,
       plugins: { legend: { position: 'top' } },
-      scales: { y: { beginAtZero: true, min: globalMin, max: globalMax, ticks: { stepSize: stepSize } } }
+      scales: { y: { beginAtZero: true, min: -globalMax, max: globalMax, ticks: { stepSize: stepSize } } }
     }
   };
 
