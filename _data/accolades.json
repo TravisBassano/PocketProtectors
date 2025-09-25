@@ -1,16 +1,6 @@
 {
    "Travis": [
       {
-         "title": "Favorite Team",
-         "value": "LAC",
-         "style": "draft"
-      },
-      {
-         "title": "Disliked Team",
-         "value": "OAK",
-         "style": "mvp"
-      },
-      {
          "title": "Single Week Highest Scoring Player",
          "value": "6 weeks",
          "style": "waiver"
@@ -22,21 +12,76 @@
       },
       {
          "title": "Lowest Single Game Scorer (2024)",
-         "value": "|player-name| / Week 14 / -4.0pts",
+         "value": "Buffalo / Week 14 / -4.0pts",
+         "style": "waiver"
+      },
+      {
+         "title": "League Rival",
+         "value": "Jordan (0.33 win %)",
+         "style": "draft"
+      },
+      {
+         "title": "League Patsy",
+         "value": "Bob (0.64 win %)",
+         "style": "draft"
+      },
+      {
+         "title": "Favorite Player",
+         "value": "James Conner (33 starts)",
+         "style": "draft"
+      },
+      {
+         "title": "Favorite Team",
+         "value": "LAC (96 starts)",
+         "style": "draft"
+      },
+      {
+         "title": "Despised Team",
+         "value": "NYJ (1 starts)",
+         "style": "mvp"
+      },
+      {
+         "title": "Most Valuable Player (2018)",
+         "value": "Julio Jones (282.10 pts)",
+         "style": "mvp"
+      },
+      {
+         "title": "Most Valuable Player (2019)",
+         "value": "Matt Ryan (257.82 pts)",
+         "style": "mvp"
+      },
+      {
+         "title": "Most Valuable Player (2020)",
+         "value": "Josh Allen (345.68 pts)",
+         "style": "mvp"
+      },
+      {
+         "title": "Most Valuable Player (2021)",
+         "value": "Justin Herbert (367.34 pts)",
+         "style": "mvp"
+      },
+      {
+         "title": "Most Valuable Player (2022)",
+         "value": "Travis Kelce (293.00 pts)",
+         "style": "mvp"
+      },
+      {
+         "title": "Most Valuable Player (2023)",
+         "value": "Amon-Ra St. Brown (283.50 pts)",
+         "style": "mvp"
+      },
+      {
+         "title": "Most Valuable Player (2024)",
+         "value": "Kyren Williams (285.40 pts)",
+         "style": "mvp"
+      },
+      {
+         "title": "All-Time MVP)",
+         "value": "Justin Herbert (607.66 pts)",
          "style": "waiver"
       }
    ],
    "PJ": [
-      {
-         "title": "Favorite Team",
-         "value": "ARI",
-         "style": "draft"
-      },
-      {
-         "title": "Disliked Team",
-         "value": "BUF",
-         "style": "mvp"
-      },
       {
          "title": "Single Week Highest Scoring Player",
          "value": "10 weeks",
@@ -49,31 +94,86 @@
       },
       {
          "title": "Lowest Single Game Scorer (2020)",
-         "value": "|player-name| / Week 14 / -4.0pts",
+         "value": "Dan Bailey / Week 14 / -4.0pts",
          "style": "waiver"
       },
       {
          "title": "Highest Single Game Scorer (2023)",
-         "value": "|player-name| / Week 4 / 52.7pts",
+         "value": "Christian McCaffrey / Week 4 / 52.7pts",
          "style": "waiver"
       },
       {
          "title": "Highest Single Game Scorer (2024)",
-         "value": "|player-name| / Week 10 / 55.4pts",
+         "value": "Ja'Marr Chase / Week 10 / 55.4pts",
+         "style": "waiver"
+      },
+      {
+         "title": "League Rival",
+         "value": "Keara (0.25 win %)",
+         "style": "draft"
+      },
+      {
+         "title": "League Patsy",
+         "value": "Mike (0.71 win %)",
+         "style": "draft"
+      },
+      {
+         "title": "Favorite Player",
+         "value": "Matt Prater (37 starts)",
+         "style": "draft"
+      },
+      {
+         "title": "Favorite Team",
+         "value": "ARI (131 starts)",
+         "style": "draft"
+      },
+      {
+         "title": "Despised Team",
+         "value": "NYG (13 starts)",
+         "style": "mvp"
+      },
+      {
+         "title": "Most Valuable Player (2018)",
+         "value": "Cam Newton (288.70 pts)",
+         "style": "mvp"
+      },
+      {
+         "title": "Most Valuable Player (2019)",
+         "value": "Christian McCaffrey (449.40 pts)",
+         "style": "mvp"
+      },
+      {
+         "title": "Most Valuable Player (2020)",
+         "value": "Russell Wilson (353.14 pts)",
+         "style": "mvp"
+      },
+      {
+         "title": "Most Valuable Player (2021)",
+         "value": "Ezekiel Elliott (224.56 pts)",
+         "style": "mvp"
+      },
+      {
+         "title": "Most Valuable Player (2022)",
+         "value": "A.J. Brown (253.40 pts)",
+         "style": "mvp"
+      },
+      {
+         "title": "Most Valuable Player (2023)",
+         "value": "Christian McCaffrey (370.60 pts)",
+         "style": "mvp"
+      },
+      {
+         "title": "Most Valuable Player (2024)",
+         "value": "Ja'Marr Chase (338.70 pts)",
+         "style": "mvp"
+      },
+      {
+         "title": "All-Time MVP)",
+         "value": "Christian McCaffrey (820.00 pts)",
          "style": "waiver"
       }
    ],
    "Brian": [
-      {
-         "title": "Favorite Team",
-         "value": "BUF",
-         "style": "draft"
-      },
-      {
-         "title": "Disliked Team",
-         "value": "NYJ",
-         "style": "mvp"
-      },
       {
          "title": "Single Week Highest Scoring Player",
          "value": "14 weeks",
@@ -86,26 +186,81 @@
       },
       {
          "title": "Highest Single Game Scorer (2020)",
-         "value": "|player-name| / Week 16 / 59.7pts",
+         "value": "Alvin Kamara / Week 16 / 59.7pts",
          "style": "waiver"
       },
       {
          "title": "Lowest Single Game Scorer (2023)",
-         "value": "|player-name| / Week 3 / -4.0pts",
+         "value": "Jacksonville / Week 3 / -4.0pts",
+         "style": "waiver"
+      },
+      {
+         "title": "League Rival",
+         "value": "Mike (0.40 win %)",
+         "style": "draft"
+      },
+      {
+         "title": "League Patsy",
+         "value": "Licata (0.67 win %)",
+         "style": "draft"
+      },
+      {
+         "title": "Favorite Player",
+         "value": "Josh Allen (49 starts)",
+         "style": "draft"
+      },
+      {
+         "title": "Favorite Team",
+         "value": "BUF (136 starts)",
+         "style": "draft"
+      },
+      {
+         "title": "Despised Team",
+         "value": "NYJ (9 starts)",
+         "style": "mvp"
+      },
+      {
+         "title": "Most Valuable Player (2018)",
+         "value": "Patrick Mahomes (358.62 pts)",
+         "style": "mvp"
+      },
+      {
+         "title": "Most Valuable Player (2019)",
+         "value": "Leonard Fournette (250.60 pts)",
+         "style": "mvp"
+      },
+      {
+         "title": "Most Valuable Player (2020)",
+         "value": "Alvin Kamara (382.80 pts)",
+         "style": "mvp"
+      },
+      {
+         "title": "Most Valuable Player (2021)",
+         "value": "Josh Allen (312.36 pts)",
+         "style": "mvp"
+      },
+      {
+         "title": "Most Valuable Player (2022)",
+         "value": "Tony Pollard (197.80 pts)",
+         "style": "mvp"
+      },
+      {
+         "title": "Most Valuable Player (2023)",
+         "value": "Josh Allen (375.42 pts)",
+         "style": "mvp"
+      },
+      {
+         "title": "Most Valuable Player (2024)",
+         "value": "Josh Allen (405.04 pts)",
+         "style": "mvp"
+      },
+      {
+         "title": "All-Time MVP)",
+         "value": "Josh Allen (1092.82 pts)",
          "style": "waiver"
       }
    ],
    "Bob": [
-      {
-         "title": "Favorite Team",
-         "value": "LV",
-         "style": "draft"
-      },
-      {
-         "title": "Disliked Team",
-         "value": "CIN",
-         "style": "mvp"
-      },
       {
          "title": "Single Week Highest Scoring Player",
          "value": "10 weeks",
@@ -118,21 +273,76 @@
       },
       {
          "title": "Lowest Single Game Scorer (2021)",
-         "value": "|player-name| / Week 1 / -4.0pts",
+         "value": "Green Bay / Week 1 / -4.0pts",
+         "style": "waiver"
+      },
+      {
+         "title": "League Rival",
+         "value": "Licata (0.22 win %)",
+         "style": "draft"
+      },
+      {
+         "title": "League Patsy",
+         "value": "Chris (0.80 win %)",
+         "style": "draft"
+      },
+      {
+         "title": "Favorite Player",
+         "value": "Jonathan Taylor (33 starts)",
+         "style": "draft"
+      },
+      {
+         "title": "Favorite Team",
+         "value": "LV (124 starts)",
+         "style": "draft"
+      },
+      {
+         "title": "Despised Team",
+         "value": "CIN (18 starts)",
+         "style": "mvp"
+      },
+      {
+         "title": "Most Valuable Player (2018)",
+         "value": "Alvin Kamara (330.20 pts)",
+         "style": "mvp"
+      },
+      {
+         "title": "Most Valuable Player (2019)",
+         "value": "Deshaun Watson (324.92 pts)",
+         "style": "mvp"
+      },
+      {
+         "title": "Most Valuable Player (2020)",
+         "value": "Lamar Jackson (310.24 pts)",
+         "style": "mvp"
+      },
+      {
+         "title": "Most Valuable Player (2021)",
+         "value": "Matthew Stafford (269.90 pts)",
+         "style": "mvp"
+      },
+      {
+         "title": "Most Valuable Player (2022)",
+         "value": "Justin Jefferson (336.36 pts)",
+         "style": "mvp"
+      },
+      {
+         "title": "Most Valuable Player (2023)",
+         "value": "Patrick Mahomes (293.72 pts)",
+         "style": "mvp"
+      },
+      {
+         "title": "Most Valuable Player (2024)",
+         "value": "Sam Darnold (205.76 pts)",
+         "style": "mvp"
+      },
+      {
+         "title": "All-Time MVP)",
+         "value": "Alvin Kamara (519.02 pts)",
          "style": "waiver"
       }
    ],
    "Chris": [
-      {
-         "title": "Favorite Team",
-         "value": "DAL",
-         "style": "draft"
-      },
-      {
-         "title": "Disliked Team",
-         "value": "ARI",
-         "style": "mvp"
-      },
       {
          "title": "Single Week Highest Scoring Player",
          "value": "5 weeks",
@@ -142,19 +352,74 @@
          "title": "Single Week Lowest Scoring Player",
          "value": "17 weeks",
          "style": "waiver"
-      }
-   ],
-   "Jordan": [
+      },
       {
-         "title": "Favorite Team",
-         "value": "MIN",
+         "title": "League Rival",
+         "value": "Brendon (0.10 win %)",
          "style": "draft"
       },
       {
-         "title": "Disliked Team",
-         "value": "GB",
+         "title": "League Patsy",
+         "value": "Travis (0.56 win %)",
+         "style": "draft"
+      },
+      {
+         "title": "Favorite Player",
+         "value": "Dalvin Cook (44 starts)",
+         "style": "draft"
+      },
+      {
+         "title": "Favorite Team",
+         "value": "DAL (108 starts)",
+         "style": "draft"
+      },
+      {
+         "title": "Despised Team",
+         "value": "ARI (8 starts)",
          "style": "mvp"
       },
+      {
+         "title": "Most Valuable Player (2018)",
+         "value": "Todd Gurley (313.40 pts)",
+         "style": "mvp"
+      },
+      {
+         "title": "Most Valuable Player (2019)",
+         "value": "Ezekiel Elliott (305.30 pts)",
+         "style": "mvp"
+      },
+      {
+         "title": "Most Valuable Player (2020)",
+         "value": "Davante Adams (321.80 pts)",
+         "style": "mvp"
+      },
+      {
+         "title": "Most Valuable Player (2021)",
+         "value": "Dak Prescott (268.72 pts)",
+         "style": "mvp"
+      },
+      {
+         "title": "Most Valuable Player (2022)",
+         "value": "Dalvin Cook (220.10 pts)",
+         "style": "mvp"
+      },
+      {
+         "title": "Most Valuable Player (2023)",
+         "value": "Ja'Marr Chase (233.22 pts)",
+         "style": "mvp"
+      },
+      {
+         "title": "Most Valuable Player (2024)",
+         "value": "Patrick Mahomes (202.86 pts)",
+         "style": "mvp"
+      },
+      {
+         "title": "All-Time MVP)",
+         "value": "Davante Adams (515.00 pts)",
+         "style": "waiver"
+      }
+   ],
+   "Jordan": [
       {
          "title": "Single Week Highest Scoring Player",
          "value": "10 weeks",
@@ -167,31 +432,86 @@
       },
       {
          "title": "Lowest Single Game Scorer (2019)",
-         "value": "|player-name| / Week 14 / -2.0pts",
+         "value": "San Francisco / Week 14 / -2.0pts",
          "style": "waiver"
       },
       {
          "title": "Highest Single Game Scorer (2022)",
-         "value": "|player-name| / Week 9 / 60.6pts",
+         "value": "Joe Mixon / Week 9 / 60.6pts",
          "style": "waiver"
       },
       {
          "title": "Lowest Single Game Scorer (2022)",
-         "value": "|player-name| / Week 11 / -4.0pts",
+         "value": "Arizona / Week 11 / -4.0pts",
+         "style": "waiver"
+      },
+      {
+         "title": "League Rival",
+         "value": "Ryan (0.38 win %)",
+         "style": "draft"
+      },
+      {
+         "title": "League Patsy",
+         "value": "Eric (0.73 win %)",
+         "style": "draft"
+      },
+      {
+         "title": "Favorite Player",
+         "value": "Stefon Diggs (49 starts)",
+         "style": "draft"
+      },
+      {
+         "title": "Favorite Team",
+         "value": "MIN (106 starts)",
+         "style": "draft"
+      },
+      {
+         "title": "Despised Team",
+         "value": "GB (12 starts)",
+         "style": "mvp"
+      },
+      {
+         "title": "Most Valuable Player (2018)",
+         "value": "Stefon Diggs (204.80 pts)",
+         "style": "mvp"
+      },
+      {
+         "title": "Most Valuable Player (2019)",
+         "value": "Dalvin Cook (308.90 pts)",
+         "style": "mvp"
+      },
+      {
+         "title": "Most Valuable Player (2020)",
+         "value": "Patrick Mahomes (364.58 pts)",
+         "style": "mvp"
+      },
+      {
+         "title": "Most Valuable Player (2021)",
+         "value": "Tom Brady (351.94 pts)",
+         "style": "mvp"
+      },
+      {
+         "title": "Most Valuable Player (2022)",
+         "value": "Josh Allen (399.76 pts)",
+         "style": "mvp"
+      },
+      {
+         "title": "Most Valuable Player (2023)",
+         "value": "Brock Purdy (285.80 pts)",
+         "style": "mvp"
+      },
+      {
+         "title": "Most Valuable Player (2024)",
+         "value": "Saquon Barkley (375.40 pts)",
+         "style": "mvp"
+      },
+      {
+         "title": "All-Time MVP)",
+         "value": "Stefon Diggs (673.80 pts)",
          "style": "waiver"
       }
    ],
    "Licata": [
-      {
-         "title": "Favorite Team",
-         "value": "BUF",
-         "style": "draft"
-      },
-      {
-         "title": "Disliked Team",
-         "value": "MIN",
-         "style": "mvp"
-      },
       {
          "title": "Single Week Highest Scoring Player",
          "value": "10 weeks",
@@ -204,21 +524,76 @@
       },
       {
          "title": "Highest Single Game Scorer (2018)",
-         "value": "|player-name| / Week 12 / 46.7pts",
+         "value": "Christian McCaffrey / Week 12 / 46.7pts",
+         "style": "waiver"
+      },
+      {
+         "title": "League Rival",
+         "value": "Brendon (0.25 win %)",
+         "style": "draft"
+      },
+      {
+         "title": "League Patsy",
+         "value": "Bob (0.78 win %)",
+         "style": "draft"
+      },
+      {
+         "title": "Favorite Player",
+         "value": "Jared Goff (41 starts)",
+         "style": "draft"
+      },
+      {
+         "title": "Favorite Team",
+         "value": "BUF (135 starts)",
+         "style": "draft"
+      },
+      {
+         "title": "Despised Team",
+         "value": "MIN (3 starts)",
+         "style": "mvp"
+      },
+      {
+         "title": "Most Valuable Player (2018)",
+         "value": "Christian McCaffrey (373.00 pts)",
+         "style": "mvp"
+      },
+      {
+         "title": "Most Valuable Player (2019)",
+         "value": "Lamar Jackson (398.76 pts)",
+         "style": "mvp"
+      },
+      {
+         "title": "Most Valuable Player (2020)",
+         "value": "Aaron Rodgers (331.86 pts)",
+         "style": "mvp"
+      },
+      {
+         "title": "Most Valuable Player (2021)",
+         "value": "Cooper Kupp (353.20 pts)",
+         "style": "mvp"
+      },
+      {
+         "title": "Most Valuable Player (2022)",
+         "value": "Nick Chubb (270.10 pts)",
+         "style": "mvp"
+      },
+      {
+         "title": "Most Valuable Player (2023)",
+         "value": "Rachaad White (256.60 pts)",
+         "style": "mvp"
+      },
+      {
+         "title": "Most Valuable Player (2024)",
+         "value": "Bijan Robinson (307.40 pts)",
+         "style": "mvp"
+      },
+      {
+         "title": "All-Time MVP)",
+         "value": "Jared Goff (471.72 pts)",
          "style": "waiver"
       }
    ],
    "Ryan": [
-      {
-         "title": "Favorite Team",
-         "value": "PHI",
-         "style": "draft"
-      },
-      {
-         "title": "Disliked Team",
-         "value": "JAX",
-         "style": "mvp"
-      },
       {
          "title": "Single Week Highest Scoring Player",
          "value": "6 weeks",
@@ -228,19 +603,74 @@
          "title": "Single Week Lowest Scoring Player",
          "value": "8 weeks",
          "style": "waiver"
-      }
-   ],
-   "Keara": [
+      },
       {
-         "title": "Favorite Team",
-         "value": "DET",
+         "title": "League Rival",
+         "value": "Licata (0.30 win %)",
          "style": "draft"
       },
       {
-         "title": "Disliked Team",
-         "value": "JAX",
+         "title": "League Patsy",
+         "value": "Eric (0.70 win %)",
+         "style": "draft"
+      },
+      {
+         "title": "Favorite Player",
+         "value": "Derrick Henry (55 starts)",
+         "style": "draft"
+      },
+      {
+         "title": "Favorite Team",
+         "value": "PHI (152 starts)",
+         "style": "draft"
+      },
+      {
+         "title": "Despised Team",
+         "value": "JAX (7 starts)",
          "style": "mvp"
       },
+      {
+         "title": "Most Valuable Player (2018)",
+         "value": "DeAndre Hopkins (292.30 pts)",
+         "style": "mvp"
+      },
+      {
+         "title": "Most Valuable Player (2019)",
+         "value": "Nick Chubb (254.80 pts)",
+         "style": "mvp"
+      },
+      {
+         "title": "Most Valuable Player (2020)",
+         "value": "DK Metcalf (239.10 pts)",
+         "style": "mvp"
+      },
+      {
+         "title": "Most Valuable Player (2021)",
+         "value": "CeeDee Lamb (215.80 pts)",
+         "style": "mvp"
+      },
+      {
+         "title": "Most Valuable Player (2022)",
+         "value": "Derrick Henry (281.66 pts)",
+         "style": "mvp"
+      },
+      {
+         "title": "Most Valuable Player (2023)",
+         "value": "Jalen Hurts (363.80 pts)",
+         "style": "mvp"
+      },
+      {
+         "title": "Most Valuable Player (2024)",
+         "value": "Derrick Henry (317.30 pts)",
+         "style": "mvp"
+      },
+      {
+         "title": "All-Time MVP)",
+         "value": "Derrick Henry (909.40 pts)",
+         "style": "waiver"
+      }
+   ],
+   "Keara": [
       {
          "title": "Single Week Highest Scoring Player",
          "value": "14 weeks",
@@ -250,19 +680,74 @@
          "title": "Single Week Lowest Scoring Player",
          "value": "12 weeks",
          "style": "waiver"
-      }
-   ],
-   "Brendon": [
+      },
       {
-         "title": "Favorite Team",
-         "value": "CLE",
+         "title": "League Rival",
+         "value": "Brendon (0.11 win %)",
          "style": "draft"
       },
       {
-         "title": "Disliked Team",
-         "value": "LAR",
+         "title": "League Patsy",
+         "value": "PJ (0.75 win %)",
+         "style": "draft"
+      },
+      {
+         "title": "Favorite Player",
+         "value": "Tyler Lockett (60 starts)",
+         "style": "draft"
+      },
+      {
+         "title": "Favorite Team",
+         "value": "DET (132 starts)",
+         "style": "draft"
+      },
+      {
+         "title": "Despised Team",
+         "value": "JAX (2 starts)",
          "style": "mvp"
       },
+      {
+         "title": "Most Valuable Player (2018)",
+         "value": "Kareem Hunt (248.70 pts)",
+         "style": "mvp"
+      },
+      {
+         "title": "Most Valuable Player (2019)",
+         "value": "Tyler Lockett (202.40 pts)",
+         "style": "mvp"
+      },
+      {
+         "title": "Most Valuable Player (2020)",
+         "value": "Kyler Murray (400.96 pts)",
+         "style": "mvp"
+      },
+      {
+         "title": "Most Valuable Player (2021)",
+         "value": "Kyler Murray (270.46 pts)",
+         "style": "mvp"
+      },
+      {
+         "title": "Most Valuable Player (2022)",
+         "value": "Stefon Diggs (276.70 pts)",
+         "style": "mvp"
+      },
+      {
+         "title": "Most Valuable Player (2023)",
+         "value": "Lamar Jackson (318.38 pts)",
+         "style": "mvp"
+      },
+      {
+         "title": "Most Valuable Player (2024)",
+         "value": "Jahmyr Gibbs (306.00 pts)",
+         "style": "mvp"
+      },
+      {
+         "title": "All-Time MVP)",
+         "value": "Lamar Jackson (811.04 pts)",
+         "style": "waiver"
+      }
+   ],
+   "Brendon": [
       {
          "title": "Single Week Highest Scoring Player",
          "value": "8 weeks",
@@ -275,21 +760,76 @@
       },
       {
          "title": "Highest Single Game Scorer (2021)",
-         "value": "|player-name| / Week 11 / 59.4pts",
+         "value": "Jonathan Taylor / Week 11 / 59.4pts",
+         "style": "waiver"
+      },
+      {
+         "title": "League Rival",
+         "value": "Bob (0.40 win %)",
+         "style": "draft"
+      },
+      {
+         "title": "League Patsy",
+         "value": "Chris (0.90 win %)",
+         "style": "draft"
+      },
+      {
+         "title": "Favorite Player",
+         "value": "Baker Mayfield (31 starts)",
+         "style": "draft"
+      },
+      {
+         "title": "Favorite Team",
+         "value": "CLE (145 starts)",
+         "style": "draft"
+      },
+      {
+         "title": "Despised Team",
+         "value": "LAR (4 starts)",
+         "style": "mvp"
+      },
+      {
+         "title": "Most Valuable Player (2018)",
+         "value": "Ezekiel Elliott (293.70 pts)",
+         "style": "mvp"
+      },
+      {
+         "title": "Most Valuable Player (2019)",
+         "value": "DeAndre Hopkins (246.24 pts)",
+         "style": "mvp"
+      },
+      {
+         "title": "Most Valuable Player (2020)",
+         "value": "Travis Kelce (263.66 pts)",
+         "style": "mvp"
+      },
+      {
+         "title": "Most Valuable Player (2021)",
+         "value": "Jonathan Taylor (373.10 pts)",
+         "style": "mvp"
+      },
+      {
+         "title": "Most Valuable Player (2022)",
+         "value": "Jalen Hurts (364.38 pts)",
+         "style": "mvp"
+      },
+      {
+         "title": "Most Valuable Player (2023)",
+         "value": "Chris Olave (185.60 pts)",
+         "style": "mvp"
+      },
+      {
+         "title": "Most Valuable Player (2024)",
+         "value": "Jayden Daniels (354.86 pts)",
+         "style": "mvp"
+      },
+      {
+         "title": "All-Time MVP)",
+         "value": "Jonathan Taylor (373.10 pts)",
          "style": "waiver"
       }
    ],
    "Eric": [
-      {
-         "title": "Favorite Team",
-         "value": "LAC",
-         "style": "draft"
-      },
-      {
-         "title": "Disliked Team",
-         "value": "OAK",
-         "style": "mvp"
-      },
       {
          "title": "Single Week Highest Scoring Player",
          "value": "14 weeks",
@@ -302,21 +842,76 @@
       },
       {
          "title": "Highest Single Game Scorer (2019)",
-         "value": "|player-name| / Week 5 / 52.2pts",
+         "value": "Aaron Jones Sr. / Week 5 / 52.2pts",
+         "style": "waiver"
+      },
+      {
+         "title": "League Rival",
+         "value": "Jordan (0.27 win %)",
+         "style": "draft"
+      },
+      {
+         "title": "League Patsy",
+         "value": "Chris (0.64 win %)",
+         "style": "draft"
+      },
+      {
+         "title": "Favorite Player",
+         "value": "David Montgomery (50 starts)",
+         "style": "draft"
+      },
+      {
+         "title": "Favorite Team",
+         "value": "LAC (140 starts)",
+         "style": "draft"
+      },
+      {
+         "title": "Despised Team",
+         "value": "OAK (6 starts)",
+         "style": "mvp"
+      },
+      {
+         "title": "Most Valuable Player (2018)",
+         "value": "Melvin Gordon III (275.90 pts)",
+         "style": "mvp"
+      },
+      {
+         "title": "Most Valuable Player (2019)",
+         "value": "Aaron Jones Sr. (278.00 pts)",
+         "style": "mvp"
+      },
+      {
+         "title": "Most Valuable Player (2020)",
+         "value": "Allen Robinson (220.90 pts)",
+         "style": "mvp"
+      },
+      {
+         "title": "Most Valuable Player (2021)",
+         "value": "Patrick Mahomes (346.46 pts)",
+         "style": "mvp"
+      },
+      {
+         "title": "Most Valuable Player (2022)",
+         "value": "Patrick Mahomes (413.42 pts)",
+         "style": "mvp"
+      },
+      {
+         "title": "Most Valuable Player (2023)",
+         "value": "CeeDee Lamb (309.00 pts)",
+         "style": "mvp"
+      },
+      {
+         "title": "Most Valuable Player (2024)",
+         "value": "Jalen Hurts (315.52 pts)",
+         "style": "mvp"
+      },
+      {
+         "title": "All-Time MVP)",
+         "value": "Patrick Mahomes (759.88 pts)",
          "style": "waiver"
       }
    ],
    "Mike": [
-      {
-         "title": "Favorite Team",
-         "value": "DAL",
-         "style": "draft"
-      },
-      {
-         "title": "Disliked Team",
-         "value": "DET",
-         "style": "mvp"
-      },
       {
          "title": "Single Week Highest Scoring Player",
          "value": "9 weeks",
@@ -329,7 +924,72 @@
       },
       {
          "title": "Lowest Single Game Scorer (2018)",
-         "value": "|player-name| / Week 1 / -4.0pts",
+         "value": "New Orleans / Week 1 / -4.0pts",
+         "style": "waiver"
+      },
+      {
+         "title": "League Rival",
+         "value": "PJ (0.29 win %)",
+         "style": "draft"
+      },
+      {
+         "title": "League Patsy",
+         "value": "Chris (0.85 win %)",
+         "style": "draft"
+      },
+      {
+         "title": "Favorite Player",
+         "value": "Saquon Barkley (48 starts)",
+         "style": "draft"
+      },
+      {
+         "title": "Favorite Team",
+         "value": "DAL (112 starts)",
+         "style": "draft"
+      },
+      {
+         "title": "Despised Team",
+         "value": "DET (9 starts)",
+         "style": "mvp"
+      },
+      {
+         "title": "Most Valuable Player (2018)",
+         "value": "Davante Adams (285.50 pts)",
+         "style": "mvp"
+      },
+      {
+         "title": "Most Valuable Player (2019)",
+         "value": "Mike Evans (213.10 pts)",
+         "style": "mvp"
+      },
+      {
+         "title": "Most Valuable Player (2020)",
+         "value": "Deshaun Watson (315.22 pts)",
+         "style": "mvp"
+      },
+      {
+         "title": "Most Valuable Player (2021)",
+         "value": "Jalen Hurts (296.36 pts)",
+         "style": "mvp"
+      },
+      {
+         "title": "Most Valuable Player (2022)",
+         "value": "Joe Burrow (327.30 pts)",
+         "style": "mvp"
+      },
+      {
+         "title": "Most Valuable Player (2023)",
+         "value": "Travis Etienne Jr. (250.90 pts)",
+         "style": "mvp"
+      },
+      {
+         "title": "Most Valuable Player (2024)",
+         "value": "Joe Mixon (226.60 pts)",
+         "style": "mvp"
+      },
+      {
+         "title": "All-Time MVP)",
+         "value": "Saquon Barkley (577.60 pts)",
          "style": "waiver"
       }
    ]
