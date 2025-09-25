@@ -43,7 +43,9 @@ title: Home
 </script>
 
 
-<canvas id="playoffChart" width="800" height="400"></canvas>
+<div class="chart-container">
+  <canvas id="playoffChart"></canvas>
+</div>
 
 <!-- Embed data in a hidden element -->
 <script id="playoff-data" type="application/json">
@@ -79,3 +81,17 @@ title: Home
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="{{ '/assets/js/manager-chart.js' | relative_url }}"></script>
+
+<style>
+    .chart-container {
+    position: relative;
+    width: 100%;
+    height: 300px; /* adjust for your needs */
+    }
+
+    @media (max-width: 600px) {
+    .chart-container {
+        height: 220px; /* smaller for portrait phones */
+    }
+    }
+</style>
