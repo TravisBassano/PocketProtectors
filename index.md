@@ -91,7 +91,7 @@ title: Home
 
     @media (max-width: 600px) {
     .chart-container {
-        height: 220px; /* smaller for portrait phones */
+        height: 280px; /* smaller for portrait phones */
     }
     }
 </style>
