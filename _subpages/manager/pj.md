@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Pj
+title: PJ
 permalink: /manager/pj/
 manager: PJ
 ---
