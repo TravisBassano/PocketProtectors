@@ -72,7 +72,7 @@ title: Home
   <option value="Travis">Travis</option>
 </select>
 
-<div id="managerChartSection" class="chart-container">
+<div id="managerChartSection">
   <canvas id="managerChart" width="600" height="400"></canvas>
 </div>
 
