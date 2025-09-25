@@ -22,13 +22,13 @@ document.addEventListener("DOMContentLoaded", function() {
       labels: ['2018', '2019', '2020', '2021', '2022', '2023', '2024'],
       datasets: [
         {
-          label: 'Points Scored',
+          label: 'Points Scored - League Average',
           data: managerData[currentManager].pf,
           borderColor: 'green',
           fill: false,
         },
         {
-          label: 'Points Against',
+          label: 'Points Against - League Average',
           data: managerData[currentManager].pa,
           borderColor: 'red',
           fill: false,
