@@ -19,6 +19,11 @@
          "title": "Lowest Scoring Player",
          "value": "10 weeks",
          "style": "waiver"
+      },
+      {
+         "title": "Lowest Single Game Scorer (2024)",
+         "value": "<player> - Week 14 - -4.0",
+         "style": "waiver"
       }
    ],
    "PJ": [
@@ -40,6 +45,21 @@
       {
          "title": "Lowest Scoring Player",
          "value": "8 weeks",
+         "style": "waiver"
+      },
+      {
+         "title": "Lowest Single Game Scorer (2020)",
+         "value": "<player> - Week 14 - -4.0",
+         "style": "waiver"
+      },
+      {
+         "title": "Highest Single Game Scorer (2023)",
+         "value": "<player> - Week 4 - 52.7",
+         "style": "waiver"
+      },
+      {
+         "title": "Highest Single Game Scorer (2024)",
+         "value": "<player> - Week 10 - 55.4",
          "style": "waiver"
       }
    ],
@@ -63,6 +83,16 @@
          "title": "Lowest Scoring Player",
          "value": "8 weeks",
          "style": "waiver"
+      },
+      {
+         "title": "Highest Single Game Scorer (2020)",
+         "value": "<player> - Week 16 - 59.7",
+         "style": "waiver"
+      },
+      {
+         "title": "Lowest Single Game Scorer (2023)",
+         "value": "<player> - Week 3 - -4.0",
+         "style": "waiver"
       }
    ],
    "Bob": [
@@ -84,6 +114,11 @@
       {
          "title": "Lowest Scoring Player",
          "value": "9 weeks",
+         "style": "waiver"
+      },
+      {
+         "title": "Lowest Single Game Scorer (2021)",
+         "value": "<player> - Week 1 - -4.0",
          "style": "waiver"
       }
    ],
@@ -129,6 +164,21 @@
          "title": "Lowest Scoring Player",
          "value": "7 weeks",
          "style": "waiver"
+      },
+      {
+         "title": "Lowest Single Game Scorer (2019)",
+         "value": "<player> - Week 14 - -2.0",
+         "style": "waiver"
+      },
+      {
+         "title": "Highest Single Game Scorer (2022)",
+         "value": "<player> - Week 9 - 60.6",
+         "style": "waiver"
+      },
+      {
+         "title": "Lowest Single Game Scorer (2022)",
+         "value": "<player> - Week 11 - -4.0",
+         "style": "waiver"
       }
    ],
    "Licata": [
@@ -150,6 +200,11 @@
       {
          "title": "Lowest Scoring Player",
          "value": "14 weeks",
+         "style": "waiver"
+      },
+      {
+         "title": "Highest Single Game Scorer (2018)",
+         "value": "<player> - Week 12 - 46.7",
          "style": "waiver"
       }
    ],
@@ -217,6 +272,11 @@
          "title": "Lowest Scoring Player",
          "value": "3 weeks",
          "style": "waiver"
+      },
+      {
+         "title": "Highest Single Game Scorer (2021)",
+         "value": "<player> - Week 11 - 59.4",
+         "style": "waiver"
       }
    ],
    "Eric": [
@@ -239,6 +299,11 @@
          "title": "Lowest Scoring Player",
          "value": "12 weeks",
          "style": "waiver"
+      },
+      {
+         "title": "Highest Single Game Scorer (2019)",
+         "value": "<player> - Week 5 - 52.2",
+         "style": "waiver"
       }
    ],
    "Mike": [
@@ -260,6 +325,11 @@
       {
          "title": "Lowest Scoring Player",
          "value": "8 weeks",
+         "style": "waiver"
+      },
+      {
+         "title": "Lowest Single Game Scorer (2018)",
+         "value": "<player> - Week 1 - -4.0",
          "style": "waiver"
       }
    ]
