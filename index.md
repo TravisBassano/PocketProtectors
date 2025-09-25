@@ -53,6 +53,8 @@ title: Home
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="{{ '/assets/js/playoff-chart.js' | relative_url }}"></script>
 
+## Season-by-Season Manager Scoring
+
 <select id="manager-select">
   <option value="Bob">Bob</option>
   <option value="Brendon">Brendon</option>
