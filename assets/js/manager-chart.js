@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function() {
   const allPf = Object.values(managerData).flatMap(m => m.pf);
   const allPa = Object.values(managerData).flatMap(m => m.pa);
 
-  const stepSize = 100;
+  const stepSize = 10;
 
   let globalMin = Math.min(...allPf, ...allPa);
   let globalMax = Math.max(...allPf, ...allPa);
