@@ -6,19 +6,20 @@ permalink: /managers/
 
 ## League Managers
 
-[Bob]({{ '/manager/bob/' | relative_url }})
-[Brendon]({{ '/manager/brendon/' | relative_url }})
-[Brian]({{ '/manager/brian/' | relative_url }})
-[Chris]({{ '/manager/chris/' | relative_url }})
-[Eric]({{ '/manager/eric/' | relative_url }})
-[Jordan]({{ '/manager/jordan/' | relative_url }})
-[Keara]({{ '/manager/keara/' | relative_url }})
-[Licata]({{ '/manager/licata/' | relative_url }})
-[Mike]({{ '/manager/mike/' | relative_url }})
-[PJ]({{ '/manager/pj/' | relative_url }})
-[Ryan]({{ '/manager/ryan/' | relative_url }})
-[Travis]({{ '/manager/travis/' | relative_url }})
-
+<div class="manager-grid">
+  <a class="manager-card" href="{{ '/manager/bob/' | relative_url }}">Bob</a>
+  <a class="manager-card" href="{{ '/manager/brendon/' | relative_url }}">Brendon</a>
+  <a class="manager-card" href="{{ '/manager/brian/' | relative_url }}">Brian</a>
+  <a class="manager-card" href="{{ '/manager/chris/' | relative_url }}">Chris</a>
+  <a class="manager-card" href="{{ '/manager/eric/' | relative_url }}">Eric</a>
+  <a class="manager-card" href="{{ '/manager/jordan/' | relative_url }}">Jordan</a>
+  <a class="manager-card" href="{{ '/manager/keara/' | relative_url }}">Keara</a>
+  <a class="manager-card" href="{{ '/manager/licata/' | relative_url }}">Licata</a>
+  <a class="manager-card" href="{{ '/manager/mike/' | relative_url }}">Mike</a>
+  <a class="manager-card" href="{{ '/manager/pj/' | relative_url }}">PJ</a>
+  <a class="manager-card" href="{{ '/manager/ryan/' | relative_url }}">Ryan</a>
+  <a class="manager-card" href="{{ '/manager/travis/' | relative_url }}">Travis</a>
+</div>
 
 ## MVKC League History Plots
 
@@ -53,3 +54,32 @@ This scatter plot shows a manager's overall win percentage against their average
 ### Manager Points Against vs. League Average by Season
 
 ![Manager points against vs. league season]({{ site.baseurl }}/assets/plots/seasonal_points_against_line_plot.png)
+
+<style>
+    .manager-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+    }
+
+    .manager-card {
+    display: block;
+    text-align: center;
+    padding: 0.8rem 1rem;
+    background: linear-gradient(145deg, #ffffff, #f3f4f6);
+    border-radius: 12px;
+    font-weight: 600;
+    color: #333;
+    text-decoration: none;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.08);
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.3s;
+    }
+
+    .manager-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.12);
+    background: linear-gradient(145deg, #f9fafb, #e5e7eb);
+    color: #111;
+    }
+</style>
