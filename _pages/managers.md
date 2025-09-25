@@ -1,10 +1,8 @@
 ---
 layout: post
-title: Manager Stats
+title: League Managers
 permalink: /managers/
 ---
-
-## League Managers
 
 <div class="manager-grid">
   <a class="manager-card" href="{{ '/manager/bob/' | relative_url }}">Bob</a>
