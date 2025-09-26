@@ -9,4 +9,4 @@ permalink: /draft/
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="{{ '/assets/js/scatter.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/draft-scatter.js' | relative_url }}"></script>
