@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const rawData = JSON.parse(document.getElementById("scatter-data").textContent);
+  const rawData = JSON.parse(document.getElementById("draft-data").textContent);
 
   // Get unique seasons
   const seasons = [...new Set(rawData.map(d => d.season))].sort();
