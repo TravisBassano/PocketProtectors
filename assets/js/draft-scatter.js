@@ -32,6 +32,13 @@ document.addEventListener("DOMContentLoaded", function () {
     "rgba(102, 255, 219, 0.7)"
   ];
 
+  const markers = [
+    "circle",
+    "triangle",
+    "rect",
+    "cross"
+  ];
+
   const ctx = document.getElementById("scatterChart").getContext("2d");
 
   let chart = new Chart(ctx, {
@@ -48,7 +55,14 @@ document.addEventListener("DOMContentLoaded", function () {
             }
           }
         },
-        legend: { position: "top" }
+        legend: {
+            position: "top",
+            labels: {
+            usePointStyle: true,
+            pointStyle: "circle",
+            boxWidth: 10
+            }
+        },
       },
       scales: {
         x: {
@@ -88,7 +102,8 @@ document.addEventListener("DOMContentLoaded", function () {
       data: grouped[manager],
       backgroundColor: colors[i % colors.length],
       borderColor: colors[i % colors.length].replace("0.7", "1"),
-      pointRadius: 6
+      pointRadius: 6,
+      pointStyle: markers[i % markers.length]
     }));
 
     chart.update();
