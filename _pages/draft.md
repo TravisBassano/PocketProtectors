@@ -37,10 +37,12 @@ permalink: /draft/
   padding: 6px 14px;
   font-size: 0.9rem;
   transition: all 0.2s ease;
+  text-decoration: line-through;
 }
 
 .season-filters input[type="checkbox"]:checked + span {
   background: #007bff;
   color: #fff;
+  text-decoration: none;
 }
 </style>
