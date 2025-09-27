@@ -17,22 +17,26 @@ permalink: /draft/
 <script src="{{ '/assets/js/draft-scatter.js' | relative_url }}"></script>
 
 <style>
-  .season-filters {
+.season-filters {
   margin-bottom: 1rem;
 }
 
 .season-filters label {
-  display: inline-block;
-  background: #f0f0f0;
-  border-radius: 25px;
-  padding: 5px 12px;
-  margin: 3px;
   cursor: pointer;
-  font-size: 0.9rem;
+  margin: 3px;
 }
 
 .season-filters input[type="checkbox"] {
-  display: none;
+  display: none; /* hide the real checkbox */
+}
+
+.season-filters span {
+  display: inline-block;
+  background: #f0f0f0;
+  border-radius: 25px;
+  padding: 6px 14px;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
 }
 
 .season-filters input[type="checkbox"]:checked + span {
