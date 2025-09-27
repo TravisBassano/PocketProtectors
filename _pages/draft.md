@@ -60,7 +60,7 @@ permalink: /draft/
   .chart-container {
     position: relative;
     width: 100%;
-    height: 300px; /* adjust for your needs */
+    height: 400px; /* adjust for your needs */
     }
 
   @media (max-width: 600px) {
