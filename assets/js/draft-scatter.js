@@ -55,6 +55,29 @@ document.addEventListener("DOMContentLoaded", function () {
             }
           }
         },
+        title: {
+        display: true,
+        text: "Player Auction Draft Cost vs Points Scored as Starter for Drafting Team",
+        font: {
+          size: 18,
+          weight: "bold"
+        },
+        padding: {
+          top: 10,
+          bottom: 30
+        }
+      },
+      subtitle: {
+        display: true,
+        text: "Filterable by season and manager",
+        font: {
+          size: 14,
+          style: "italic"
+        },
+        padding: {
+          bottom: 20
+        }
+      },
         legend: {
             position: "top",
             labels: {
@@ -65,14 +88,14 @@ document.addEventListener("DOMContentLoaded", function () {
       },
       scales: {
         x: {
-          title: { display: true, text: "Player Cost" },
+          title: { display: true, text: "Player Auction Draft Cost" },
           grid: { color: "rgba(200,200,200,0.3)" },
           ticks: {
             callback: value => "$" + value
           }
         },
         y: {
-          title: { display: true, text: "Points" },
+          title: { display: true, text: "Points Scored as Starter for Drafted Team" },
           grid: { color: "rgba(200,200,200,0.3)" }
         }
       }
