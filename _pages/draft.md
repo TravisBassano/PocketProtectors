@@ -10,7 +10,10 @@ permalink: /draft/
 <div id="season-filters" class="season-filters">
 </div>
 
-<canvas id="scatterChart" width="600" height="400"></canvas>
+<div class="chart-container">
+  <canvas id="scatterChart" width="600" height="400"></canvas>
+</div>
+
 
 <script id="draft-data" type="application/json">
   {{ site.data.draft-results | jsonify }}
@@ -54,8 +57,16 @@ permalink: /draft/
   text-decoration: none;
 }
 
-/* darker when selected/hovered */
-.season-filters label:hover {
-  background: #0056b3;
-}
+  .chart-container {
+    position: relative;
+    width: 100%;
+    height: 300px; /* adjust for your needs */
+    }
+
+  @media (max-width: 600px) {
+  .chart-container {
+        height: 280px; /* smaller for portrait phones */
+    }
+    }
+
 </style>
