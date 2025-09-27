@@ -59,7 +59,6 @@ document.addEventListener("DOMContentLoaded", function () {
             position: "top",
             labels: {
             usePointStyle: true,
-            pointStyle: "circle",
             boxWidth: 10
             }
         },
