@@ -55,29 +55,6 @@ document.addEventListener("DOMContentLoaded", function () {
             }
           }
         },
-        title: {
-        display: true,
-        text: "Player Auction Draft Cost vs Points Scored as Starter for Drafting Team",
-        font: {
-          size: 18,
-          weight: "bold"
-        },
-        padding: {
-          top: 10,
-          bottom: 30
-        }
-      },
-      subtitle: {
-        display: true,
-        text: "Filterable by season and manager",
-        font: {
-          size: 14,
-          style: "italic"
-        },
-        padding: {
-          bottom: 20
-        }
-      },
         legend: {
             position: "top",
             labels: {

@@ -4,6 +4,9 @@ title: Draft Results
 permalink: /draft/
 ---
 
+## Player Auction Draft Cost vs Points Scored as Starter for Drafting Team
+### Filterable by season and manager
+
 <div id="season-filters" class="season-filters">
 </div>
 
@@ -19,6 +22,11 @@ permalink: /draft/
 <style>
 .season-filters {
   margin-bottom: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 1rem 0;
 }
 
 .season-filters label {
@@ -44,5 +52,10 @@ permalink: /draft/
   background: #007bff;
   color: #fff;
   text-decoration: none;
+}
+
+/* darker when selected/hovered */
+.season-filters label:hover {
+  background: #0056b3;
 }
 </style>
