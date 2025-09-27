@@ -11,11 +11,6 @@
          "style": "waiver"
       },
       {
-         "title": "Lowest Single Game Scorer (2024)",
-         "value": "Buffalo / Week 14 / -4.0pts",
-         "style": "waiver"
-      },
-      {
          "title": "League Rival",
          "value": "Jordan (0.33 win %)",
          "style": "draft"
@@ -79,6 +74,11 @@
          "title": "All-Time MVP (Cumulative)",
          "value": "Justin Herbert (607.66 pts)",
          "style": "waiver"
+      },
+      {
+         "title": "Lowest Single Game Scorer (2020)",
+         "value": "Jerick McKinnon / Week 7 / -0.1pts",
+         "style": "waiver"
       }
    ],
    "PJ": [
@@ -90,21 +90,6 @@
       {
          "title": "Single Week Lowest Scoring Player",
          "value": "8 weeks",
-         "style": "waiver"
-      },
-      {
-         "title": "Lowest Single Game Scorer (2020)",
-         "value": "Dan Bailey / Week 14 / -4.0pts",
-         "style": "waiver"
-      },
-      {
-         "title": "Highest Single Game Scorer (2023)",
-         "value": "Christian McCaffrey / Week 4 / 52.7pts",
-         "style": "waiver"
-      },
-      {
-         "title": "Highest Single Game Scorer (2024)",
-         "value": "Ja'Marr Chase / Week 10 / 55.4pts",
          "style": "waiver"
       },
       {
@@ -171,6 +156,16 @@
          "title": "All-Time MVP (Cumulative)",
          "value": "Christian McCaffrey (820.00 pts)",
          "style": "waiver"
+      },
+      {
+         "title": "Highest Single Game Scorer (2023)",
+         "value": "Christian McCaffrey / Week 4 / 52.7pts",
+         "style": "waiver"
+      },
+      {
+         "title": "Highest Single Game Scorer (2024)",
+         "value": "Ja'Marr Chase / Week 10 / 55.4pts",
+         "style": "waiver"
       }
    ],
    "Brian": [
@@ -182,16 +177,6 @@
       {
          "title": "Single Week Lowest Scoring Player",
          "value": "8 weeks",
-         "style": "waiver"
-      },
-      {
-         "title": "Highest Single Game Scorer (2020)",
-         "value": "Alvin Kamara / Week 16 / 59.7pts",
-         "style": "waiver"
-      },
-      {
-         "title": "Lowest Single Game Scorer (2023)",
-         "value": "Jacksonville / Week 3 / -4.0pts",
          "style": "waiver"
       },
       {
@@ -258,6 +243,11 @@
          "title": "All-Time MVP (Cumulative)",
          "value": "Josh Allen (1092.82 pts)",
          "style": "waiver"
+      },
+      {
+         "title": "Highest Single Game Scorer (2020)",
+         "value": "Alvin Kamara / Week 16 / 59.7pts",
+         "style": "waiver"
       }
    ],
    "Bob": [
@@ -269,11 +259,6 @@
       {
          "title": "Single Week Lowest Scoring Player",
          "value": "9 weeks",
-         "style": "waiver"
-      },
-      {
-         "title": "Lowest Single Game Scorer (2021)",
-         "value": "Green Bay / Week 1 / -4.0pts",
          "style": "waiver"
       },
       {
@@ -431,21 +416,6 @@
          "style": "waiver"
       },
       {
-         "title": "Lowest Single Game Scorer (2019)",
-         "value": "San Francisco / Week 14 / -2.0pts",
-         "style": "waiver"
-      },
-      {
-         "title": "Highest Single Game Scorer (2022)",
-         "value": "Joe Mixon / Week 9 / 60.6pts",
-         "style": "waiver"
-      },
-      {
-         "title": "Lowest Single Game Scorer (2022)",
-         "value": "Arizona / Week 11 / -4.0pts",
-         "style": "waiver"
-      },
-      {
          "title": "League Rival",
          "value": "Ryan (0.38 win %)",
          "style": "draft"
@@ -509,6 +479,16 @@
          "title": "All-Time MVP (Cumulative)",
          "value": "Stefon Diggs (673.80 pts)",
          "style": "waiver"
+      },
+      {
+         "title": "Lowest Single Game Scorer (2019)",
+         "value": "David Johnson / Week 10 / -0.5pts",
+         "style": "waiver"
+      },
+      {
+         "title": "Highest Single Game Scorer (2022)",
+         "value": "Joe Mixon / Week 9 / 60.6pts",
+         "style": "waiver"
       }
    ],
    "Licata": [
@@ -520,11 +500,6 @@
       {
          "title": "Single Week Lowest Scoring Player",
          "value": "14 weeks",
-         "style": "waiver"
-      },
-      {
-         "title": "Highest Single Game Scorer (2018)",
-         "value": "Christian McCaffrey / Week 12 / 46.7pts",
          "style": "waiver"
       },
       {
@@ -590,6 +565,11 @@
       {
          "title": "All-Time MVP (Cumulative)",
          "value": "Jared Goff (471.72 pts)",
+         "style": "waiver"
+      },
+      {
+         "title": "Highest Single Game Scorer (2018)",
+         "value": "Christian McCaffrey / Week 12 / 46.7pts",
          "style": "waiver"
       }
    ],
@@ -667,6 +647,11 @@
       {
          "title": "All-Time MVP (Cumulative)",
          "value": "Derrick Henry (909.40 pts)",
+         "style": "waiver"
+      },
+      {
+         "title": "Lowest Single Game Scorer (2018)",
+         "value": "Rishard Matthews / Week 1 / 0.0pts",
          "style": "waiver"
       }
    ],
@@ -759,11 +744,6 @@
          "style": "waiver"
       },
       {
-         "title": "Highest Single Game Scorer (2021)",
-         "value": "Jonathan Taylor / Week 11 / 59.4pts",
-         "style": "waiver"
-      },
-      {
          "title": "League Rival",
          "value": "Bob (0.40 win %)",
          "style": "draft"
@@ -827,6 +807,21 @@
          "title": "All-Time MVP (Cumulative)",
          "value": "Jonathan Taylor (373.10 pts)",
          "style": "waiver"
+      },
+      {
+         "title": "Highest Single Game Scorer (2021)",
+         "value": "Jonathan Taylor / Week 11 / 59.4pts",
+         "style": "waiver"
+      },
+      {
+         "title": "Lowest Single Game Scorer (2021)",
+         "value": "Brandon Aiyuk / Week 1 / 0.0pts",
+         "style": "waiver"
+      },
+      {
+         "title": "Lowest Single Game Scorer (2022)",
+         "value": "P.J. Walker / Week 9 / -3.04pts",
+         "style": "waiver"
       }
    ],
    "Eric": [
@@ -838,11 +833,6 @@
       {
          "title": "Single Week Lowest Scoring Player",
          "value": "12 weeks",
-         "style": "waiver"
-      },
-      {
-         "title": "Highest Single Game Scorer (2019)",
-         "value": "Aaron Jones Sr. / Week 5 / 52.2pts",
          "style": "waiver"
       },
       {
@@ -909,6 +899,16 @@
          "title": "All-Time MVP (Cumulative)",
          "value": "Patrick Mahomes (759.88 pts)",
          "style": "waiver"
+      },
+      {
+         "title": "Highest Single Game Scorer (2019)",
+         "value": "Aaron Jones Sr. / Week 5 / 52.2pts",
+         "style": "waiver"
+      },
+      {
+         "title": "Lowest Single Game Scorer (2024)",
+         "value": "Chris Olave / Week 6 / -1.0pts",
+         "style": "waiver"
       }
    ],
    "Mike": [
@@ -920,11 +920,6 @@
       {
          "title": "Single Week Lowest Scoring Player",
          "value": "8 weeks",
-         "style": "waiver"
-      },
-      {
-         "title": "Lowest Single Game Scorer (2018)",
-         "value": "New Orleans / Week 1 / -4.0pts",
          "style": "waiver"
       },
       {
@@ -990,6 +985,11 @@
       {
          "title": "All-Time MVP (Cumulative)",
          "value": "Saquon Barkley (577.60 pts)",
+         "style": "waiver"
+      },
+      {
+         "title": "Lowest Single Game Scorer (2023)",
+         "value": "D'Onta Foreman / Week 15 / -0.6pts",
          "style": "waiver"
       }
    ]
