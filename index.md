@@ -98,11 +98,11 @@ title: Home
     }
 </style>
 
-
+### Points by Roster Position
 <canvas id="pointsChart"></canvas>
 
 <!-- Embed JSON directly from Jekyll data -->
-<script id="manager-data" type="application/json">
+<script id="rosters-data" type="application/json">
   {{ site.data.rosters | jsonify }}
 </script>
 

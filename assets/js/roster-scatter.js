@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const rawData = document.getElementById("manager-data").textContent;
+  const rawData = document.getElementById("rosters-data").textContent;
   const data = JSON.parse(rawData);
 
   const ctx = document.getElementById("pointsChart");
