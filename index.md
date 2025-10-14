@@ -99,6 +99,9 @@ title: Home
 </style>
 
 ### Points by Roster Position
+
+<div id="season-filters" class="season-filters"></div>
+
 <canvas id="pointsChart"></canvas>
 
 <!-- Embed JSON directly from Jekyll data -->
@@ -109,3 +112,36 @@ title: Home
 <!-- Load Chart.js and your custom JS -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="{{ '/assets/js/roster-scatter.js' | relative_url }}"></script>
+
+<style>
+  .season-filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.season-filters input {
+  display: none;
+}
+
+.season-filters label {
+  background: #007bff;
+  color: #fff;
+  border-radius: 999px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  user-select: none;
+  font-size: 0.9rem;
+  transition: background 0.2s ease;
+}
+
+.season-filters label:hover {
+  background: #3399ff;
+}
+
+.season-filters input:checked + label {
+  background: #0056b3;
+}
+</style>
