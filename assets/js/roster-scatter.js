@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // --- Deterministic jitter based on manager name ---
             const hash = Array.from(mgr).reduce((acc, c) => acc + c.charCodeAt(0), 0);
-            const jitter = ((hash % 100) / 100 - 1.0) * 0.9;
+            const jitter = ((hash % 100) / 100 - 1.0) * 0.8;
 
             return {
                x: baseX + jitter,
@@ -123,8 +123,8 @@ document.addEventListener("DOMContentLoaded", () => {
                   stepSize: 1,
                },
                grid: { color: "rgba(200,200,200,0.3)" },
-               min: -0.5,
-               max: positions.length - 0.5
+               min: -1.0,
+               max: positions.length - 1.0
                },
             y: {
               title: { display: true, text: "Points" },
