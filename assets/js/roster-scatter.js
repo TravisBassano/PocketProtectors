@@ -4,8 +4,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const ctx = document.getElementById("pointsChart");
 
   const managers = [...new Set(data.map(d => d.manager))];
-  const positions = [...new Set(data.map(d => d.position))];
+//   const positions = [...new Set(data.map(d => d.position))];
   const seasons = [...new Set(data.map(d => d.season))].sort();
+
+  const positions = ["QB", "RB", "WR", "TE", "W/T", "W/R/T", "K", "DEF", "BN"];
 
   const colors = [
     "#1f77b4", "#ff7f0e", "#2ca02c", "#d62728",
@@ -92,7 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
           plugins: {
             title: {
               display: true,
-              text: "Roster Position Points Comparison Across All Managers"
+              text: "Roster Position Points Comparison Across All Managers",
               font: { size: 18, weight: "bold" },
               padding: { top: 10, bottom: 20 }
             },
