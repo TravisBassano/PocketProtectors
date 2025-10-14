@@ -52,17 +52,25 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       return {
-        label: mgr,
-        data: Object.entries(aggregated).map(([pos, pts]) => ({
-          x: positions.indexOf(pos),
-          y: pts,
-          position: pos
-        })),
-        backgroundColor: colors[i % colors.length],
-        borderColor: colors[i % colors.length],
-        pointStyle: pointStyles[i % pointStyles.length],
-        pointRadius: 8
-      };
+         label: mgr,
+         data: Object.entries(aggregated).map(([pos, pts]) => {
+            const baseX = positions.indexOf(pos);
+
+            // --- Deterministic jitter based on manager name ---
+            const hash = Array.from(mgr).reduce((acc, c) => acc + c.charCodeAt(0), 0);
+            const jitter = ((hash % 100) / 100 - 0.5) * 0.3; // range roughly [-0.15, +0.15]
+
+            return {
+               x: baseX + jitter,
+               y: pts,
+               position: pos
+            };
+         }),
+         backgroundColor: colors[i % colors.length],
+         borderColor: colors[i % colors.length],
+         pointStyle: pointStyles[i % pointStyles.length],
+         pointRadius: 8
+         };
     });
   }
 

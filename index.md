@@ -124,7 +124,6 @@ title: Home
 
 .season-filters input {
   display: none;
-  text-decoration: line-through;
 }
 
 .season-filters label {
@@ -136,6 +135,7 @@ title: Home
   user-select: none;
   font-size: 0.9rem;
   transition: background 0.2s ease;
+  text-decoration: line-through;
 }
 
 .season-filters label:hover {
