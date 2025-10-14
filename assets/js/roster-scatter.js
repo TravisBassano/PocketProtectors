@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // --- Deterministic jitter based on manager name ---
             const hash = Array.from(mgr).reduce((acc, c) => acc + c.charCodeAt(0), 0);
-            const jitter = ((hash % 100) / 100 - 0.5) * 0.6;
+            const jitter = ((hash % 100) / 100 - 1.0) * 0.9;
 
             return {
                x: baseX + jitter,
@@ -92,13 +92,9 @@ document.addEventListener("DOMContentLoaded", () => {
           plugins: {
             title: {
               display: true,
-              text: "MVKC — Seasons 2018–2024",
+              text: "Roster Position Points Comparison Across All Managers"
               font: { size: 18, weight: "bold" },
               padding: { top: 10, bottom: 20 }
-            },
-            subtitle: {
-              display: true,
-              text: "Player Position Points Comparison Across All Managers"
             },
             legend: {
               position: "top", // ✅ moved above the plot
@@ -116,7 +112,7 @@ document.addEventListener("DOMContentLoaded", () => {
           scales: {
             x: {
                type: "linear",
-               title: { display: true, text: "Player Position" },
+               title: { display: true, text: "Roster Position" },
                ticks: {
                   callback: (value) => {
                      const idx = Math.round(value);
