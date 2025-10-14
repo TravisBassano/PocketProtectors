@@ -124,6 +124,7 @@ title: Home
 
 .season-filters input {
   display: none;
+  text-decoration: line-through;
 }
 
 .season-filters label {
@@ -138,10 +139,11 @@ title: Home
 }
 
 .season-filters label:hover {
-  background: #3399ff;
+  background: #abd5ffff;
 }
 
 .season-filters input:checked + label {
   background: #0056b3;
+  text-decoration: none;
 }
 </style>
