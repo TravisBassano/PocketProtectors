@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // --- Deterministic jitter based on manager name ---
             const hash = Array.from(mgr).reduce((acc, c) => acc + c.charCodeAt(0), 0);
-            const jitter = ((hash % 100) / 100 - 0.5) * 0.3; // range roughly [-0.15, +0.15]
+            const jitter = ((hash % 100) / 100 - 0.5) * 0.6;
 
             return {
                x: baseX + jitter,
@@ -115,12 +115,19 @@ document.addEventListener("DOMContentLoaded", () => {
           },
           scales: {
             x: {
-              title: { display: true, text: "Player Position" },
-              ticks: {
-                callback: (value, index) => positions[index] || ""
-              },
-              grid: { color: "rgba(200,200,200,0.3)" }
-            },
+               type: "linear",
+               title: { display: true, text: "Player Position" },
+               ticks: {
+                  callback: (value) => {
+                     const idx = Math.round(value);
+                     return positions[idx] ?? "";
+                  },
+                  stepSize: 1,
+               },
+               grid: { color: "rgba(200,200,200,0.3)" },
+               min: -0.5,
+               max: positions.length - 0.5
+               },
             y: {
               title: { display: true, text: "Points" },
               grid: { color: "rgba(200,200,200,0.3)" }
