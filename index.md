@@ -97,3 +97,15 @@ title: Home
     }
     }
 </style>
+
+
+<canvas id="pointsChart"></canvas>
+
+<!-- Embed JSON directly from Jekyll data -->
+<script id="manager-data" type="application/json">
+  {{ site.data.rosters | jsonify }}
+</script>
+
+<!-- Load Chart.js and your custom JS -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="{{ '/assets/js/roster-scatter.js' | relative_url }}"></script>

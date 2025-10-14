@@ -1,0 +1,4040 @@
+[
+   {
+      "manager": "Travis",
+      "season": 2018,
+      "position": "QB",
+      "points": 314.9
+   },
+   {
+      "manager": "Travis",
+      "season": 2018,
+      "position": "WR",
+      "points": 514.3000000000001
+   },
+   {
+      "manager": "Travis",
+      "season": 2018,
+      "position": "RB",
+      "points": 534.5
+   },
+   {
+      "manager": "Travis",
+      "season": 2018,
+      "position": "TE",
+      "points": 125.5
+   },
+   {
+      "manager": "Travis",
+      "season": 2018,
+      "position": "W/R/T",
+      "points": 260.74000000000007
+   },
+   {
+      "manager": "Travis",
+      "season": 2018,
+      "position": "BN",
+      "points": 853.7400000000001
+   },
+   {
+      "manager": "Travis",
+      "season": 2018,
+      "position": "K",
+      "points": 103.0
+   },
+   {
+      "manager": "Travis",
+      "season": 2018,
+      "position": "DEF",
+      "points": 143.0
+   },
+   {
+      "manager": "Travis",
+      "season": 2019,
+      "position": "QB",
+      "points": 301.28
+   },
+   {
+      "manager": "Travis",
+      "season": 2019,
+      "position": "WR",
+      "points": 316.61999999999995
+   },
+   {
+      "manager": "Travis",
+      "season": 2019,
+      "position": "RB",
+      "points": 366.4
+   },
+   {
+      "manager": "Travis",
+      "season": 2019,
+      "position": "TE",
+      "points": 208.9
+   },
+   {
+      "manager": "Travis",
+      "season": 2019,
+      "position": "W/R/T",
+      "points": 125.89999999999999
+   },
+   {
+      "manager": "Travis",
+      "season": 2019,
+      "position": "BN",
+      "points": 443.8399999999999
+   },
+   {
+      "manager": "Travis",
+      "season": 2019,
+      "position": "K",
+      "points": 118.0
+   },
+   {
+      "manager": "Travis",
+      "season": 2019,
+      "position": "DEF",
+      "points": 112.0
+   },
+   {
+      "manager": "Travis",
+      "season": 2020,
+      "position": "QB",
+      "points": 373.82000000000005
+   },
+   {
+      "manager": "Travis",
+      "season": 2020,
+      "position": "WR",
+      "points": 349.5
+   },
+   {
+      "manager": "Travis",
+      "season": 2020,
+      "position": "RB",
+      "points": 359.5
+   },
+   {
+      "manager": "Travis",
+      "season": 2020,
+      "position": "TE",
+      "points": 109.69999999999999
+   },
+   {
+      "manager": "Travis",
+      "season": 2020,
+      "position": "W/R/T",
+      "points": 108.39999999999999
+   },
+   {
+      "manager": "Travis",
+      "season": 2020,
+      "position": "BN",
+      "points": 371.5200000000001
+   },
+   {
+      "manager": "Travis",
+      "season": 2020,
+      "position": "K",
+      "points": 111.0
+   },
+   {
+      "manager": "Travis",
+      "season": 2020,
+      "position": "DEF",
+      "points": 114.0
+   },
+   {
+      "manager": "Travis",
+      "season": 2020,
+      "position": "IR",
+      "points": 0.0
+   },
+   {
+      "manager": "Travis",
+      "season": 2021,
+      "position": "QB",
+      "points": 386.35999999999996
+   },
+   {
+      "manager": "Travis",
+      "season": 2021,
+      "position": "WR",
+      "points": 496.40000000000003
+   },
+   {
+      "manager": "Travis",
+      "season": 2021,
+      "position": "RB",
+      "points": 379.60000000000014
+   },
+   {
+      "manager": "Travis",
+      "season": 2021,
+      "position": "TE",
+      "points": 192.8
+   },
+   {
+      "manager": "Travis",
+      "season": 2021,
+      "position": "W/R/T",
+      "points": 256.6
+   },
+   {
+      "manager": "Travis",
+      "season": 2021,
+      "position": "BN",
+      "points": 694.7200000000003
+   },
+   {
+      "manager": "Travis",
+      "season": 2021,
+      "position": "K",
+      "points": 152.0
+   },
+   {
+      "manager": "Travis",
+      "season": 2021,
+      "position": "DEF",
+      "points": 150.0
+   },
+   {
+      "manager": "Travis",
+      "season": 2021,
+      "position": "IR",
+      "points": 8.899999999999999
+   },
+   {
+      "manager": "Travis",
+      "season": 2022,
+      "position": "QB",
+      "points": 494.93999999999994
+   },
+   {
+      "manager": "Travis",
+      "season": 2022,
+      "position": "RB",
+      "points": 429.86000000000007
+   },
+   {
+      "manager": "Travis",
+      "season": 2022,
+      "position": "W/T",
+      "points": 499.40000000000003
+   },
+   {
+      "manager": "Travis",
+      "season": 2022,
+      "position": "W/R/T",
+      "points": 170.99999999999997
+   },
+   {
+      "manager": "Travis",
+      "season": 2022,
+      "position": "BN",
+      "points": 683.3399999999999
+   },
+   {
+      "manager": "Travis",
+      "season": 2022,
+      "position": "K",
+      "points": 135.0
+   },
+   {
+      "manager": "Travis",
+      "season": 2022,
+      "position": "DEF",
+      "points": 101.0
+   },
+   {
+      "manager": "Travis",
+      "season": 2022,
+      "position": "IR",
+      "points": 0.0
+   },
+   {
+      "manager": "Travis",
+      "season": 2023,
+      "position": "QB",
+      "points": 314.64
+   },
+   {
+      "manager": "Travis",
+      "season": 2023,
+      "position": "RB",
+      "points": 451.09999999999997
+   },
+   {
+      "manager": "Travis",
+      "season": 2023,
+      "position": "W/T",
+      "points": 617.0
+   },
+   {
+      "manager": "Travis",
+      "season": 2023,
+      "position": "W/R/T",
+      "points": 434.20000000000005
+   },
+   {
+      "manager": "Travis",
+      "season": 2023,
+      "position": "BN",
+      "points": 594.56
+   },
+   {
+      "manager": "Travis",
+      "season": 2023,
+      "position": "K",
+      "points": 116.0
+   },
+   {
+      "manager": "Travis",
+      "season": 2023,
+      "position": "DEF",
+      "points": 147.0
+   },
+   {
+      "manager": "Travis",
+      "season": 2023,
+      "position": "IR",
+      "points": 9.8
+   },
+   {
+      "manager": "Travis",
+      "season": 2024,
+      "position": "QB",
+      "points": 233.84
+   },
+   {
+      "manager": "Travis",
+      "season": 2024,
+      "position": "RB",
+      "points": 568.8999999999999
+   },
+   {
+      "manager": "Travis",
+      "season": 2024,
+      "position": "W/T",
+      "points": 390.59999999999997
+   },
+   {
+      "manager": "Travis",
+      "season": 2024,
+      "position": "W/R/T",
+      "points": 448.49999999999994
+   },
+   {
+      "manager": "Travis",
+      "season": 2024,
+      "position": "BN",
+      "points": 440.4000000000001
+   },
+   {
+      "manager": "Travis",
+      "season": 2024,
+      "position": "K",
+      "points": 121.0
+   },
+   {
+      "manager": "Travis",
+      "season": 2024,
+      "position": "DEF",
+      "points": 134.0
+   },
+   {
+      "manager": "Travis",
+      "season": 2024,
+      "position": "IR",
+      "points": 5.8
+   },
+   {
+      "manager": "PJ",
+      "season": 2018,
+      "position": "QB",
+      "points": 303.56000000000006
+   },
+   {
+      "manager": "PJ",
+      "season": 2018,
+      "position": "WR",
+      "points": 444.90000000000003
+   },
+   {
+      "manager": "PJ",
+      "season": 2018,
+      "position": "RB",
+      "points": 381.4000000000001
+   },
+   {
+      "manager": "PJ",
+      "season": 2018,
+      "position": "TE",
+      "points": 184.3
+   },
+   {
+      "manager": "PJ",
+      "season": 2018,
+      "position": "W/R/T",
+      "points": 170.70000000000002
+   },
+   {
+      "manager": "PJ",
+      "season": 2018,
+      "position": "BN",
+      "points": 666.5400000000001
+   },
+   {
+      "manager": "PJ",
+      "season": 2018,
+      "position": "K",
+      "points": 138.0
+   },
+   {
+      "manager": "PJ",
+      "season": 2018,
+      "position": "DEF",
+      "points": 125.0
+   },
+   {
+      "manager": "PJ",
+      "season": 2019,
+      "position": "QB",
+      "points": 262.0
+   },
+   {
+      "manager": "PJ",
+      "season": 2019,
+      "position": "WR",
+      "points": 410.97999999999996
+   },
+   {
+      "manager": "PJ",
+      "season": 2019,
+      "position": "RB",
+      "points": 703.6000000000001
+   },
+   {
+      "manager": "PJ",
+      "season": 2019,
+      "position": "TE",
+      "points": 101.2
+   },
+   {
+      "manager": "PJ",
+      "season": 2019,
+      "position": "W/R/T",
+      "points": 245.00000000000006
+   },
+   {
+      "manager": "PJ",
+      "season": 2019,
+      "position": "BN",
+      "points": 622.3000000000001
+   },
+   {
+      "manager": "PJ",
+      "season": 2019,
+      "position": "K",
+      "points": 100.0
+   },
+   {
+      "manager": "PJ",
+      "season": 2019,
+      "position": "DEF",
+      "points": 231.0
+   },
+   {
+      "manager": "PJ",
+      "season": 2020,
+      "position": "QB",
+      "points": 369.6799999999999
+   },
+   {
+      "manager": "PJ",
+      "season": 2020,
+      "position": "WR",
+      "points": 454.9000000000001
+   },
+   {
+      "manager": "PJ",
+      "season": 2020,
+      "position": "RB",
+      "points": 478.50000000000006
+   },
+   {
+      "manager": "PJ",
+      "season": 2020,
+      "position": "TE",
+      "points": 119.52
+   },
+   {
+      "manager": "PJ",
+      "season": 2020,
+      "position": "W/R/T",
+      "points": 115.3
+   },
+   {
+      "manager": "PJ",
+      "season": 2020,
+      "position": "BN",
+      "points": 647.9
+   },
+   {
+      "manager": "PJ",
+      "season": 2020,
+      "position": "K",
+      "points": 95.0
+   },
+   {
+      "manager": "PJ",
+      "season": 2020,
+      "position": "DEF",
+      "points": 88.0
+   },
+   {
+      "manager": "PJ",
+      "season": 2020,
+      "position": "IR",
+      "points": 33.0
+   },
+   {
+      "manager": "PJ",
+      "season": 2021,
+      "position": "QB",
+      "points": 222.1
+   },
+   {
+      "manager": "PJ",
+      "season": 2021,
+      "position": "WR",
+      "points": 522.3000000000001
+   },
+   {
+      "manager": "PJ",
+      "season": 2021,
+      "position": "RB",
+      "points": 488.35999999999996
+   },
+   {
+      "manager": "PJ",
+      "season": 2021,
+      "position": "TE",
+      "points": 103.4
+   },
+   {
+      "manager": "PJ",
+      "season": 2021,
+      "position": "W/R/T",
+      "points": 216.20000000000002
+   },
+   {
+      "manager": "PJ",
+      "season": 2021,
+      "position": "BN",
+      "points": 832.1999999999999
+   },
+   {
+      "manager": "PJ",
+      "season": 2021,
+      "position": "K",
+      "points": 130.0
+   },
+   {
+      "manager": "PJ",
+      "season": 2021,
+      "position": "DEF",
+      "points": 97.0
+   },
+   {
+      "manager": "PJ",
+      "season": 2021,
+      "position": "IR",
+      "points": 26.5
+   },
+   {
+      "manager": "PJ",
+      "season": 2022,
+      "position": "QB",
+      "points": 380.02
+   },
+   {
+      "manager": "PJ",
+      "season": 2022,
+      "position": "RB",
+      "points": 401.7
+   },
+   {
+      "manager": "PJ",
+      "season": 2022,
+      "position": "W/T",
+      "points": 522.3
+   },
+   {
+      "manager": "PJ",
+      "season": 2022,
+      "position": "W/R/T",
+      "points": 165.5
+   },
+   {
+      "manager": "PJ",
+      "season": 2022,
+      "position": "BN",
+      "points": 505.8
+   },
+   {
+      "manager": "PJ",
+      "season": 2022,
+      "position": "K",
+      "points": 81.0
+   },
+   {
+      "manager": "PJ",
+      "season": 2022,
+      "position": "DEF",
+      "points": 108.0
+   },
+   {
+      "manager": "PJ",
+      "season": 2023,
+      "position": "QB",
+      "points": 262.88
+   },
+   {
+      "manager": "PJ",
+      "season": 2023,
+      "position": "RB",
+      "points": 553.4000000000001
+   },
+   {
+      "manager": "PJ",
+      "season": 2023,
+      "position": "W/T",
+      "points": 503.6
+   },
+   {
+      "manager": "PJ",
+      "season": 2023,
+      "position": "W/R/T",
+      "points": 338.49999999999994
+   },
+   {
+      "manager": "PJ",
+      "season": 2023,
+      "position": "BN",
+      "points": 506.26000000000005
+   },
+   {
+      "manager": "PJ",
+      "season": 2023,
+      "position": "K",
+      "points": 114.0
+   },
+   {
+      "manager": "PJ",
+      "season": 2023,
+      "position": "DEF",
+      "points": 131.0
+   },
+   {
+      "manager": "PJ",
+      "season": 2023,
+      "position": "IR",
+      "points": 0.0
+   },
+   {
+      "manager": "PJ",
+      "season": 2024,
+      "position": "QB",
+      "points": 265.94000000000005
+   },
+   {
+      "manager": "PJ",
+      "season": 2024,
+      "position": "RB",
+      "points": 496.3
+   },
+   {
+      "manager": "PJ",
+      "season": 2024,
+      "position": "W/T",
+      "points": 505.2
+   },
+   {
+      "manager": "PJ",
+      "season": 2024,
+      "position": "W/R/T",
+      "points": 479.1
+   },
+   {
+      "manager": "PJ",
+      "season": 2024,
+      "position": "BN",
+      "points": 506.9800000000001
+   },
+   {
+      "manager": "PJ",
+      "season": 2024,
+      "position": "K",
+      "points": 146.0
+   },
+   {
+      "manager": "PJ",
+      "season": 2024,
+      "position": "DEF",
+      "points": 77.0
+   },
+   {
+      "manager": "PJ",
+      "season": 2024,
+      "position": "IR",
+      "points": 12.2
+   },
+   {
+      "manager": "Brian",
+      "season": 2018,
+      "position": "QB",
+      "points": 376.56000000000006
+   },
+   {
+      "manager": "Brian",
+      "season": 2018,
+      "position": "WR",
+      "points": 603.1
+   },
+   {
+      "manager": "Brian",
+      "season": 2018,
+      "position": "RB",
+      "points": 560.8000000000001
+   },
+   {
+      "manager": "Brian",
+      "season": 2018,
+      "position": "TE",
+      "points": 144.3
+   },
+   {
+      "manager": "Brian",
+      "season": 2018,
+      "position": "W/R/T",
+      "points": 232.5
+   },
+   {
+      "manager": "Brian",
+      "season": 2018,
+      "position": "BN",
+      "points": 749.6199999999999
+   },
+   {
+      "manager": "Brian",
+      "season": 2018,
+      "position": "K",
+      "points": 148.0
+   },
+   {
+      "manager": "Brian",
+      "season": 2018,
+      "position": "DEF",
+      "points": 123.0
+   },
+   {
+      "manager": "Brian",
+      "season": 2019,
+      "position": "QB",
+      "points": 322.05999999999995
+   },
+   {
+      "manager": "Brian",
+      "season": 2019,
+      "position": "WR",
+      "points": 403.29999999999995
+   },
+   {
+      "manager": "Brian",
+      "season": 2019,
+      "position": "RB",
+      "points": 472.59999999999997
+   },
+   {
+      "manager": "Brian",
+      "season": 2019,
+      "position": "TE",
+      "points": 126.0
+   },
+   {
+      "manager": "Brian",
+      "season": 2019,
+      "position": "W/R/T",
+      "points": 135.89999999999998
+   },
+   {
+      "manager": "Brian",
+      "season": 2019,
+      "position": "BN",
+      "points": 605.2200000000001
+   },
+   {
+      "manager": "Brian",
+      "season": 2019,
+      "position": "K",
+      "points": 92.0
+   },
+   {
+      "manager": "Brian",
+      "season": 2019,
+      "position": "DEF",
+      "points": 97.0
+   },
+   {
+      "manager": "Brian",
+      "season": 2020,
+      "position": "QB",
+      "points": 302.82
+   },
+   {
+      "manager": "Brian",
+      "season": 2020,
+      "position": "WR",
+      "points": 316.7
+   },
+   {
+      "manager": "Brian",
+      "season": 2020,
+      "position": "RB",
+      "points": 707.3000000000001
+   },
+   {
+      "manager": "Brian",
+      "season": 2020,
+      "position": "TE",
+      "points": 197.5
+   },
+   {
+      "manager": "Brian",
+      "season": 2020,
+      "position": "W/R/T",
+      "points": 185.89999999999998
+   },
+   {
+      "manager": "Brian",
+      "season": 2020,
+      "position": "BN",
+      "points": 607.6599999999999
+   },
+   {
+      "manager": "Brian",
+      "season": 2020,
+      "position": "K",
+      "points": 119.0
+   },
+   {
+      "manager": "Brian",
+      "season": 2020,
+      "position": "DEF",
+      "points": 92.0
+   },
+   {
+      "manager": "Brian",
+      "season": 2020,
+      "position": "IR",
+      "points": 24.2
+   },
+   {
+      "manager": "Brian",
+      "season": 2021,
+      "position": "QB",
+      "points": 366.88
+   },
+   {
+      "manager": "Brian",
+      "season": 2021,
+      "position": "WR",
+      "points": 339.92
+   },
+   {
+      "manager": "Brian",
+      "season": 2021,
+      "position": "RB",
+      "points": 403.1
+   },
+   {
+      "manager": "Brian",
+      "season": 2021,
+      "position": "TE",
+      "points": 140.60000000000002
+   },
+   {
+      "manager": "Brian",
+      "season": 2021,
+      "position": "W/R/T",
+      "points": 200.99999999999997
+   },
+   {
+      "manager": "Brian",
+      "season": 2021,
+      "position": "BN",
+      "points": 754.4599999999999
+   },
+   {
+      "manager": "Brian",
+      "season": 2021,
+      "position": "K",
+      "points": 124.0
+   },
+   {
+      "manager": "Brian",
+      "season": 2021,
+      "position": "DEF",
+      "points": 149.0
+   },
+   {
+      "manager": "Brian",
+      "season": 2021,
+      "position": "IR",
+      "points": 41.88
+   },
+   {
+      "manager": "Brian",
+      "season": 2022,
+      "position": "QB",
+      "points": 421.3199999999999
+   },
+   {
+      "manager": "Brian",
+      "season": 2022,
+      "position": "RB",
+      "points": 444.40000000000003
+   },
+   {
+      "manager": "Brian",
+      "season": 2022,
+      "position": "W/T",
+      "points": 378.2999999999999
+   },
+   {
+      "manager": "Brian",
+      "season": 2022,
+      "position": "W/R/T",
+      "points": 209.3
+   },
+   {
+      "manager": "Brian",
+      "season": 2022,
+      "position": "BN",
+      "points": 511.0599999999999
+   },
+   {
+      "manager": "Brian",
+      "season": 2022,
+      "position": "K",
+      "points": 130.0
+   },
+   {
+      "manager": "Brian",
+      "season": 2022,
+      "position": "DEF",
+      "points": 134.0
+   },
+   {
+      "manager": "Brian",
+      "season": 2022,
+      "position": "IR",
+      "points": 29.6
+   },
+   {
+      "manager": "Brian",
+      "season": 2023,
+      "position": "QB",
+      "points": 393.26
+   },
+   {
+      "manager": "Brian",
+      "season": 2023,
+      "position": "RB",
+      "points": 410.7000000000001
+   },
+   {
+      "manager": "Brian",
+      "season": 2023,
+      "position": "W/T",
+      "points": 354.2
+   },
+   {
+      "manager": "Brian",
+      "season": 2023,
+      "position": "W/R/T",
+      "points": 441.3
+   },
+   {
+      "manager": "Brian",
+      "season": 2023,
+      "position": "BN",
+      "points": 474.40000000000003
+   },
+   {
+      "manager": "Brian",
+      "season": 2023,
+      "position": "K",
+      "points": 133.0
+   },
+   {
+      "manager": "Brian",
+      "season": 2023,
+      "position": "DEF",
+      "points": 118.0
+   },
+   {
+      "manager": "Brian",
+      "season": 2023,
+      "position": "IR",
+      "points": 27.4
+   },
+   {
+      "manager": "Brian",
+      "season": 2024,
+      "position": "QB",
+      "points": 433.52000000000004
+   },
+   {
+      "manager": "Brian",
+      "season": 2024,
+      "position": "RB",
+      "points": 589.8
+   },
+   {
+      "manager": "Brian",
+      "season": 2024,
+      "position": "W/T",
+      "points": 395.3
+   },
+   {
+      "manager": "Brian",
+      "season": 2024,
+      "position": "W/R/T",
+      "points": 502.5
+   },
+   {
+      "manager": "Brian",
+      "season": 2024,
+      "position": "BN",
+      "points": 338.17999999999995
+   },
+   {
+      "manager": "Brian",
+      "season": 2024,
+      "position": "K",
+      "points": 132.0
+   },
+   {
+      "manager": "Brian",
+      "season": 2024,
+      "position": "DEF",
+      "points": 151.0
+   },
+   {
+      "manager": "Brian",
+      "season": 2024,
+      "position": "IR",
+      "points": 8.0
+   },
+   {
+      "manager": "Bob",
+      "season": 2018,
+      "position": "QB",
+      "points": 297.34000000000003
+   },
+   {
+      "manager": "Bob",
+      "season": 2018,
+      "position": "WR",
+      "points": 344.79999999999995
+   },
+   {
+      "manager": "Bob",
+      "season": 2018,
+      "position": "RB",
+      "points": 544.0
+   },
+   {
+      "manager": "Bob",
+      "season": 2018,
+      "position": "TE",
+      "points": 256.7
+   },
+   {
+      "manager": "Bob",
+      "season": 2018,
+      "position": "W/R/T",
+      "points": 191.69999999999996
+   },
+   {
+      "manager": "Bob",
+      "season": 2018,
+      "position": "BN",
+      "points": 661.4200000000001
+   },
+   {
+      "manager": "Bob",
+      "season": 2018,
+      "position": "K",
+      "points": 121.0
+   },
+   {
+      "manager": "Bob",
+      "season": 2018,
+      "position": "DEF",
+      "points": 130.0
+   },
+   {
+      "manager": "Bob",
+      "season": 2019,
+      "position": "QB",
+      "points": 344.24
+   },
+   {
+      "manager": "Bob",
+      "season": 2019,
+      "position": "WR",
+      "points": 290.1
+   },
+   {
+      "manager": "Bob",
+      "season": 2019,
+      "position": "RB",
+      "points": 432.71999999999997
+   },
+   {
+      "manager": "Bob",
+      "season": 2019,
+      "position": "TE",
+      "points": 60.00000000000001
+   },
+   {
+      "manager": "Bob",
+      "season": 2019,
+      "position": "W/R/T",
+      "points": 174.0
+   },
+   {
+      "manager": "Bob",
+      "season": 2019,
+      "position": "BN",
+      "points": 657.5799999999997
+   },
+   {
+      "manager": "Bob",
+      "season": 2019,
+      "position": "K",
+      "points": 142.0
+   },
+   {
+      "manager": "Bob",
+      "season": 2019,
+      "position": "DEF",
+      "points": 134.0
+   },
+   {
+      "manager": "Bob",
+      "season": 2020,
+      "position": "QB",
+      "points": 356.41999999999996
+   },
+   {
+      "manager": "Bob",
+      "season": 2020,
+      "position": "WR",
+      "points": 273.42
+   },
+   {
+      "manager": "Bob",
+      "season": 2020,
+      "position": "RB",
+      "points": 477.0000000000001
+   },
+   {
+      "manager": "Bob",
+      "season": 2020,
+      "position": "TE",
+      "points": 96.4
+   },
+   {
+      "manager": "Bob",
+      "season": 2020,
+      "position": "W/R/T",
+      "points": 146.9
+   },
+   {
+      "manager": "Bob",
+      "season": 2020,
+      "position": "BN",
+      "points": 454.7
+   },
+   {
+      "manager": "Bob",
+      "season": 2020,
+      "position": "K",
+      "points": 129.0
+   },
+   {
+      "manager": "Bob",
+      "season": 2020,
+      "position": "DEF",
+      "points": 123.0
+   },
+   {
+      "manager": "Bob",
+      "season": 2020,
+      "position": "IR",
+      "points": 28.68
+   },
+   {
+      "manager": "Bob",
+      "season": 2021,
+      "position": "QB",
+      "points": 319.91999999999996
+   },
+   {
+      "manager": "Bob",
+      "season": 2021,
+      "position": "WR",
+      "points": 440.7
+   },
+   {
+      "manager": "Bob",
+      "season": 2021,
+      "position": "RB",
+      "points": 490.3
+   },
+   {
+      "manager": "Bob",
+      "season": 2021,
+      "position": "TE",
+      "points": 249.00000000000003
+   },
+   {
+      "manager": "Bob",
+      "season": 2021,
+      "position": "W/R/T",
+      "points": 215.4
+   },
+   {
+      "manager": "Bob",
+      "season": 2021,
+      "position": "BN",
+      "points": 520.36
+   },
+   {
+      "manager": "Bob",
+      "season": 2021,
+      "position": "K",
+      "points": 131.0
+   },
+   {
+      "manager": "Bob",
+      "season": 2021,
+      "position": "DEF",
+      "points": 93.0
+   },
+   {
+      "manager": "Bob",
+      "season": 2021,
+      "position": "IR",
+      "points": 0.0
+   },
+   {
+      "manager": "Bob",
+      "season": 2022,
+      "position": "QB",
+      "points": 528.98
+   },
+   {
+      "manager": "Bob",
+      "season": 2022,
+      "position": "RB",
+      "points": 541.8
+   },
+   {
+      "manager": "Bob",
+      "season": 2022,
+      "position": "W/T",
+      "points": 527.5600000000001
+   },
+   {
+      "manager": "Bob",
+      "season": 2022,
+      "position": "W/R/T",
+      "points": 251.39999999999998
+   },
+   {
+      "manager": "Bob",
+      "season": 2022,
+      "position": "BN",
+      "points": 487.8199999999999
+   },
+   {
+      "manager": "Bob",
+      "season": 2022,
+      "position": "K",
+      "points": 125.0
+   },
+   {
+      "manager": "Bob",
+      "season": 2022,
+      "position": "DEF",
+      "points": 88.0
+   },
+   {
+      "manager": "Bob",
+      "season": 2023,
+      "position": "QB",
+      "points": 299.67999999999995
+   },
+   {
+      "manager": "Bob",
+      "season": 2023,
+      "position": "RB",
+      "points": 510.8
+   },
+   {
+      "manager": "Bob",
+      "season": 2023,
+      "position": "W/T",
+      "points": 487.6000000000001
+   },
+   {
+      "manager": "Bob",
+      "season": 2023,
+      "position": "W/R/T",
+      "points": 401.69999999999993
+   },
+   {
+      "manager": "Bob",
+      "season": 2023,
+      "position": "BN",
+      "points": 404.26000000000005
+   },
+   {
+      "manager": "Bob",
+      "season": 2023,
+      "position": "K",
+      "points": 155.0
+   },
+   {
+      "manager": "Bob",
+      "season": 2023,
+      "position": "DEF",
+      "points": 107.0
+   },
+   {
+      "manager": "Bob",
+      "season": 2023,
+      "position": "IR",
+      "points": 0.0
+   },
+   {
+      "manager": "Bob",
+      "season": 2024,
+      "position": "QB",
+      "points": 271.82
+   },
+   {
+      "manager": "Bob",
+      "season": 2024,
+      "position": "RB",
+      "points": 304.20000000000005
+   },
+   {
+      "manager": "Bob",
+      "season": 2024,
+      "position": "W/T",
+      "points": 444.50000000000006
+   },
+   {
+      "manager": "Bob",
+      "season": 2024,
+      "position": "W/R/T",
+      "points": 391.59999999999997
+   },
+   {
+      "manager": "Bob",
+      "season": 2024,
+      "position": "BN",
+      "points": 348.88000000000005
+   },
+   {
+      "manager": "Bob",
+      "season": 2024,
+      "position": "K",
+      "points": 176.0
+   },
+   {
+      "manager": "Bob",
+      "season": 2024,
+      "position": "DEF",
+      "points": 138.0
+   },
+   {
+      "manager": "Bob",
+      "season": 2024,
+      "position": "IR",
+      "points": 0.0
+   },
+   {
+      "manager": "Chris",
+      "season": 2018,
+      "position": "QB",
+      "points": 281.46
+   },
+   {
+      "manager": "Chris",
+      "season": 2018,
+      "position": "WR",
+      "points": 259.59999999999997
+   },
+   {
+      "manager": "Chris",
+      "season": 2018,
+      "position": "RB",
+      "points": 551.2
+   },
+   {
+      "manager": "Chris",
+      "season": 2018,
+      "position": "TE",
+      "points": 153.70000000000002
+   },
+   {
+      "manager": "Chris",
+      "season": 2018,
+      "position": "W/R/T",
+      "points": 169.3
+   },
+   {
+      "manager": "Chris",
+      "season": 2018,
+      "position": "BN",
+      "points": 921.1999999999999
+   },
+   {
+      "manager": "Chris",
+      "season": 2018,
+      "position": "K",
+      "points": 80.0
+   },
+   {
+      "manager": "Chris",
+      "season": 2018,
+      "position": "DEF",
+      "points": 126.0
+   },
+   {
+      "manager": "Chris",
+      "season": 2019,
+      "position": "QB",
+      "points": 221.42
+   },
+   {
+      "manager": "Chris",
+      "season": 2019,
+      "position": "WR",
+      "points": 323.3
+   },
+   {
+      "manager": "Chris",
+      "season": 2019,
+      "position": "RB",
+      "points": 388.7
+   },
+   {
+      "manager": "Chris",
+      "season": 2019,
+      "position": "TE",
+      "points": 92.89999999999999
+   },
+   {
+      "manager": "Chris",
+      "season": 2019,
+      "position": "W/R/T",
+      "points": 199.50000000000003
+   },
+   {
+      "manager": "Chris",
+      "season": 2019,
+      "position": "BN",
+      "points": 605.9800000000001
+   },
+   {
+      "manager": "Chris",
+      "season": 2019,
+      "position": "K",
+      "points": 98.0
+   },
+   {
+      "manager": "Chris",
+      "season": 2019,
+      "position": "DEF",
+      "points": 115.0
+   },
+   {
+      "manager": "Chris",
+      "season": 2020,
+      "position": "QB",
+      "points": 261.16
+   },
+   {
+      "manager": "Chris",
+      "season": 2020,
+      "position": "WR",
+      "points": 701.1000000000003
+   },
+   {
+      "manager": "Chris",
+      "season": 2020,
+      "position": "RB",
+      "points": 368.39999999999986
+   },
+   {
+      "manager": "Chris",
+      "season": 2020,
+      "position": "TE",
+      "points": 140.4
+   },
+   {
+      "manager": "Chris",
+      "season": 2020,
+      "position": "W/R/T",
+      "points": 162.7
+   },
+   {
+      "manager": "Chris",
+      "season": 2020,
+      "position": "BN",
+      "points": 591.2000000000002
+   },
+   {
+      "manager": "Chris",
+      "season": 2020,
+      "position": "K",
+      "points": 143.0
+   },
+   {
+      "manager": "Chris",
+      "season": 2020,
+      "position": "DEF",
+      "points": 125.0
+   },
+   {
+      "manager": "Chris",
+      "season": 2021,
+      "position": "QB",
+      "points": 306.32
+   },
+   {
+      "manager": "Chris",
+      "season": 2021,
+      "position": "WR",
+      "points": 379.29999999999995
+   },
+   {
+      "manager": "Chris",
+      "season": 2021,
+      "position": "RB",
+      "points": 552.0000000000001
+   },
+   {
+      "manager": "Chris",
+      "season": 2021,
+      "position": "TE",
+      "points": 156.3
+   },
+   {
+      "manager": "Chris",
+      "season": 2021,
+      "position": "W/R/T",
+      "points": 201.59999999999997
+   },
+   {
+      "manager": "Chris",
+      "season": 2021,
+      "position": "BN",
+      "points": 545.56
+   },
+   {
+      "manager": "Chris",
+      "season": 2021,
+      "position": "K",
+      "points": 123.0
+   },
+   {
+      "manager": "Chris",
+      "season": 2021,
+      "position": "DEF",
+      "points": 116.0
+   },
+   {
+      "manager": "Chris",
+      "season": 2022,
+      "position": "QB",
+      "points": 409.86
+   },
+   {
+      "manager": "Chris",
+      "season": 2022,
+      "position": "RB",
+      "points": 359.8
+   },
+   {
+      "manager": "Chris",
+      "season": 2022,
+      "position": "W/T",
+      "points": 528.6999999999999
+   },
+   {
+      "manager": "Chris",
+      "season": 2022,
+      "position": "W/R/T",
+      "points": 160.60000000000002
+   },
+   {
+      "manager": "Chris",
+      "season": 2022,
+      "position": "BN",
+      "points": 356.52000000000004
+   },
+   {
+      "manager": "Chris",
+      "season": 2022,
+      "position": "K",
+      "points": 130.0
+   },
+   {
+      "manager": "Chris",
+      "season": 2022,
+      "position": "DEF",
+      "points": 108.0
+   },
+   {
+      "manager": "Chris",
+      "season": 2023,
+      "position": "QB",
+      "points": 245.9
+   },
+   {
+      "manager": "Chris",
+      "season": 2023,
+      "position": "RB",
+      "points": 191.2
+   },
+   {
+      "manager": "Chris",
+      "season": 2023,
+      "position": "W/T",
+      "points": 379.9
+   },
+   {
+      "manager": "Chris",
+      "season": 2023,
+      "position": "W/R/T",
+      "points": 394.32000000000005
+   },
+   {
+      "manager": "Chris",
+      "season": 2023,
+      "position": "BN",
+      "points": 318.7400000000001
+   },
+   {
+      "manager": "Chris",
+      "season": 2023,
+      "position": "K",
+      "points": 119.0
+   },
+   {
+      "manager": "Chris",
+      "season": 2023,
+      "position": "DEF",
+      "points": 129.0
+   },
+   {
+      "manager": "Chris",
+      "season": 2024,
+      "position": "QB",
+      "points": 291.41999999999996
+   },
+   {
+      "manager": "Chris",
+      "season": 2024,
+      "position": "RB",
+      "points": 243.09999999999994
+   },
+   {
+      "manager": "Chris",
+      "season": 2024,
+      "position": "W/T",
+      "points": 291.30000000000007
+   },
+   {
+      "manager": "Chris",
+      "season": 2024,
+      "position": "W/R/T",
+      "points": 342.52
+   },
+   {
+      "manager": "Chris",
+      "season": 2024,
+      "position": "BN",
+      "points": 464.96000000000004
+   },
+   {
+      "manager": "Chris",
+      "season": 2024,
+      "position": "K",
+      "points": 127.0
+   },
+   {
+      "manager": "Chris",
+      "season": 2024,
+      "position": "DEF",
+      "points": 149.0
+   },
+   {
+      "manager": "Jordan",
+      "season": 2018,
+      "position": "QB",
+      "points": 316.06
+   },
+   {
+      "manager": "Jordan",
+      "season": 2018,
+      "position": "WR",
+      "points": 378.2
+   },
+   {
+      "manager": "Jordan",
+      "season": 2018,
+      "position": "RB",
+      "points": 316.20000000000005
+   },
+   {
+      "manager": "Jordan",
+      "season": 2018,
+      "position": "TE",
+      "points": 82.1
+   },
+   {
+      "manager": "Jordan",
+      "season": 2018,
+      "position": "W/R/T",
+      "points": 218.70000000000005
+   },
+   {
+      "manager": "Jordan",
+      "season": 2018,
+      "position": "BN",
+      "points": 640.98
+   },
+   {
+      "manager": "Jordan",
+      "season": 2018,
+      "position": "K",
+      "points": 119.0
+   },
+   {
+      "manager": "Jordan",
+      "season": 2018,
+      "position": "DEF",
+      "points": 144.0
+   },
+   {
+      "manager": "Jordan",
+      "season": 2019,
+      "position": "QB",
+      "points": 331.91999999999996
+   },
+   {
+      "manager": "Jordan",
+      "season": 2019,
+      "position": "WR",
+      "points": 463.70000000000016
+   },
+   {
+      "manager": "Jordan",
+      "season": 2019,
+      "position": "RB",
+      "points": 530.1999999999998
+   },
+   {
+      "manager": "Jordan",
+      "season": 2019,
+      "position": "TE",
+      "points": 195.89999999999995
+   },
+   {
+      "manager": "Jordan",
+      "season": 2019,
+      "position": "W/R/T",
+      "points": 151.2
+   },
+   {
+      "manager": "Jordan",
+      "season": 2019,
+      "position": "BN",
+      "points": 671.8800000000002
+   },
+   {
+      "manager": "Jordan",
+      "season": 2019,
+      "position": "K",
+      "points": 118.0
+   },
+   {
+      "manager": "Jordan",
+      "season": 2019,
+      "position": "DEF",
+      "points": 145.0
+   },
+   {
+      "manager": "Jordan",
+      "season": 2020,
+      "position": "QB",
+      "points": 382.1599999999999
+   },
+   {
+      "manager": "Jordan",
+      "season": 2020,
+      "position": "WR",
+      "points": 311.5
+   },
+   {
+      "manager": "Jordan",
+      "season": 2020,
+      "position": "RB",
+      "points": 589.3999999999999
+   },
+   {
+      "manager": "Jordan",
+      "season": 2020,
+      "position": "TE",
+      "points": 163.9
+   },
+   {
+      "manager": "Jordan",
+      "season": 2020,
+      "position": "W/R/T",
+      "points": 154.1
+   },
+   {
+      "manager": "Jordan",
+      "season": 2020,
+      "position": "BN",
+      "points": 771.0400000000001
+   },
+   {
+      "manager": "Jordan",
+      "season": 2020,
+      "position": "K",
+      "points": 104.0
+   },
+   {
+      "manager": "Jordan",
+      "season": 2020,
+      "position": "DEF",
+      "points": 92.0
+   },
+   {
+      "manager": "Jordan",
+      "season": 2021,
+      "position": "QB",
+      "points": 374.02
+   },
+   {
+      "manager": "Jordan",
+      "season": 2021,
+      "position": "WR",
+      "points": 475.3
+   },
+   {
+      "manager": "Jordan",
+      "season": 2021,
+      "position": "RB",
+      "points": 636.3999999999999
+   },
+   {
+      "manager": "Jordan",
+      "season": 2021,
+      "position": "TE",
+      "points": 139.5
+   },
+   {
+      "manager": "Jordan",
+      "season": 2021,
+      "position": "W/R/T",
+      "points": 226.70000000000002
+   },
+   {
+      "manager": "Jordan",
+      "season": 2021,
+      "position": "BN",
+      "points": 756.9799999999999
+   },
+   {
+      "manager": "Jordan",
+      "season": 2021,
+      "position": "K",
+      "points": 135.0
+   },
+   {
+      "manager": "Jordan",
+      "season": 2021,
+      "position": "DEF",
+      "points": 146.0
+   },
+   {
+      "manager": "Jordan",
+      "season": 2022,
+      "position": "QB",
+      "points": 700.4000000000001
+   },
+   {
+      "manager": "Jordan",
+      "season": 2022,
+      "position": "RB",
+      "points": 434.6
+   },
+   {
+      "manager": "Jordan",
+      "season": 2022,
+      "position": "W/T",
+      "points": 495.70000000000005
+   },
+   {
+      "manager": "Jordan",
+      "season": 2022,
+      "position": "W/R/T",
+      "points": 116.90000000000002
+   },
+   {
+      "manager": "Jordan",
+      "season": 2022,
+      "position": "BN",
+      "points": 500.55999999999995
+   },
+   {
+      "manager": "Jordan",
+      "season": 2022,
+      "position": "K",
+      "points": 129.0
+   },
+   {
+      "manager": "Jordan",
+      "season": 2022,
+      "position": "DEF",
+      "points": 83.0
+   },
+   {
+      "manager": "Jordan",
+      "season": 2023,
+      "position": "QB",
+      "points": 304.0
+   },
+   {
+      "manager": "Jordan",
+      "season": 2023,
+      "position": "RB",
+      "points": 454.08
+   },
+   {
+      "manager": "Jordan",
+      "season": 2023,
+      "position": "W/T",
+      "points": 383.79999999999984
+   },
+   {
+      "manager": "Jordan",
+      "season": 2023,
+      "position": "W/R/T",
+      "points": 373.28
+   },
+   {
+      "manager": "Jordan",
+      "season": 2023,
+      "position": "BN",
+      "points": 355.7200000000001
+   },
+   {
+      "manager": "Jordan",
+      "season": 2023,
+      "position": "K",
+      "points": 156.0
+   },
+   {
+      "manager": "Jordan",
+      "season": 2023,
+      "position": "DEF",
+      "points": 168.0
+   },
+   {
+      "manager": "Jordan",
+      "season": 2024,
+      "position": "QB",
+      "points": 369.62
+   },
+   {
+      "manager": "Jordan",
+      "season": 2024,
+      "position": "RB",
+      "points": 520.9
+   },
+   {
+      "manager": "Jordan",
+      "season": 2024,
+      "position": "W/T",
+      "points": 421.40000000000003
+   },
+   {
+      "manager": "Jordan",
+      "season": 2024,
+      "position": "W/R/T",
+      "points": 414.7
+   },
+   {
+      "manager": "Jordan",
+      "season": 2024,
+      "position": "BN",
+      "points": 299.35999999999996
+   },
+   {
+      "manager": "Jordan",
+      "season": 2024,
+      "position": "K",
+      "points": 123.0
+   },
+   {
+      "manager": "Jordan",
+      "season": 2024,
+      "position": "DEF",
+      "points": 83.0
+   },
+   {
+      "manager": "Licata",
+      "season": 2018,
+      "position": "QB",
+      "points": 315.54
+   },
+   {
+      "manager": "Licata",
+      "season": 2018,
+      "position": "WR",
+      "points": 502.4199999999999
+   },
+   {
+      "manager": "Licata",
+      "season": 2018,
+      "position": "RB",
+      "points": 559.6
+   },
+   {
+      "manager": "Licata",
+      "season": 2018,
+      "position": "TE",
+      "points": 124.8
+   },
+   {
+      "manager": "Licata",
+      "season": 2018,
+      "position": "W/R/T",
+      "points": 187.10000000000002
+   },
+   {
+      "manager": "Licata",
+      "season": 2018,
+      "position": "BN",
+      "points": 652.8000000000002
+   },
+   {
+      "manager": "Licata",
+      "season": 2018,
+      "position": "K",
+      "points": 89.08
+   },
+   {
+      "manager": "Licata",
+      "season": 2018,
+      "position": "DEF",
+      "points": 72.0
+   },
+   {
+      "manager": "Licata",
+      "season": 2019,
+      "position": "QB",
+      "points": 446.97999999999996
+   },
+   {
+      "manager": "Licata",
+      "season": 2019,
+      "position": "WR",
+      "points": 494.40000000000003
+   },
+   {
+      "manager": "Licata",
+      "season": 2019,
+      "position": "RB",
+      "points": 411.8999999999999
+   },
+   {
+      "manager": "Licata",
+      "season": 2019,
+      "position": "TE",
+      "points": 139.10000000000002
+   },
+   {
+      "manager": "Licata",
+      "season": 2019,
+      "position": "W/R/T",
+      "points": 259.40000000000003
+   },
+   {
+      "manager": "Licata",
+      "season": 2019,
+      "position": "BN",
+      "points": 578.9000000000002
+   },
+   {
+      "manager": "Licata",
+      "season": 2019,
+      "position": "K",
+      "points": 109.0
+   },
+   {
+      "manager": "Licata",
+      "season": 2019,
+      "position": "DEF",
+      "points": 90.0
+   },
+   {
+      "manager": "Licata",
+      "season": 2020,
+      "position": "QB",
+      "points": 356.84
+   },
+   {
+      "manager": "Licata",
+      "season": 2020,
+      "position": "WR",
+      "points": 475.29999999999995
+   },
+   {
+      "manager": "Licata",
+      "season": 2020,
+      "position": "RB",
+      "points": 506.9999999999999
+   },
+   {
+      "manager": "Licata",
+      "season": 2020,
+      "position": "TE",
+      "points": 227.9
+   },
+   {
+      "manager": "Licata",
+      "season": 2020,
+      "position": "W/R/T",
+      "points": 166.6
+   },
+   {
+      "manager": "Licata",
+      "season": 2020,
+      "position": "BN",
+      "points": 619.9999999999999
+   },
+   {
+      "manager": "Licata",
+      "season": 2020,
+      "position": "K",
+      "points": 118.0
+   },
+   {
+      "manager": "Licata",
+      "season": 2020,
+      "position": "DEF",
+      "points": 142.0
+   },
+   {
+      "manager": "Licata",
+      "season": 2020,
+      "position": "IR",
+      "points": 0.2
+   },
+   {
+      "manager": "Licata",
+      "season": 2021,
+      "position": "QB",
+      "points": 270.82
+   },
+   {
+      "manager": "Licata",
+      "season": 2021,
+      "position": "WR",
+      "points": 542.5
+   },
+   {
+      "manager": "Licata",
+      "season": 2021,
+      "position": "RB",
+      "points": 493.49999999999994
+   },
+   {
+      "manager": "Licata",
+      "season": 2021,
+      "position": "TE",
+      "points": 130.89999999999998
+   },
+   {
+      "manager": "Licata",
+      "season": 2021,
+      "position": "W/R/T",
+      "points": 145.0
+   },
+   {
+      "manager": "Licata",
+      "season": 2021,
+      "position": "BN",
+      "points": 455.74000000000007
+   },
+   {
+      "manager": "Licata",
+      "season": 2021,
+      "position": "K",
+      "points": 134.0
+   },
+   {
+      "manager": "Licata",
+      "season": 2021,
+      "position": "DEF",
+      "points": 122.0
+   },
+   {
+      "manager": "Licata",
+      "season": 2021,
+      "position": "IR",
+      "points": 6.3
+   },
+   {
+      "manager": "Licata",
+      "season": 2022,
+      "position": "QB",
+      "points": 456.70000000000005
+   },
+   {
+      "manager": "Licata",
+      "season": 2022,
+      "position": "RB",
+      "points": 483.1999999999999
+   },
+   {
+      "manager": "Licata",
+      "season": 2022,
+      "position": "W/T",
+      "points": 418.3
+   },
+   {
+      "manager": "Licata",
+      "season": 2022,
+      "position": "W/R/T",
+      "points": 178.89999999999998
+   },
+   {
+      "manager": "Licata",
+      "season": 2022,
+      "position": "BN",
+      "points": 574.0
+   },
+   {
+      "manager": "Licata",
+      "season": 2022,
+      "position": "K",
+      "points": 129.0
+   },
+   {
+      "manager": "Licata",
+      "season": 2022,
+      "position": "DEF",
+      "points": 128.0
+   },
+   {
+      "manager": "Licata",
+      "season": 2022,
+      "position": "IR",
+      "points": 13.3
+   },
+   {
+      "manager": "Licata",
+      "season": 2023,
+      "position": "QB",
+      "points": 258.48
+   },
+   {
+      "manager": "Licata",
+      "season": 2023,
+      "position": "RB",
+      "points": 458.1
+   },
+   {
+      "manager": "Licata",
+      "season": 2023,
+      "position": "W/T",
+      "points": 369.6599999999999
+   },
+   {
+      "manager": "Licata",
+      "season": 2023,
+      "position": "W/R/T",
+      "points": 413.6
+   },
+   {
+      "manager": "Licata",
+      "season": 2023,
+      "position": "BN",
+      "points": 500.85999999999996
+   },
+   {
+      "manager": "Licata",
+      "season": 2023,
+      "position": "K",
+      "points": 131.0
+   },
+   {
+      "manager": "Licata",
+      "season": 2023,
+      "position": "DEF",
+      "points": 157.0
+   },
+   {
+      "manager": "Licata",
+      "season": 2023,
+      "position": "IR",
+      "points": 0.0
+   },
+   {
+      "manager": "Licata",
+      "season": 2024,
+      "position": "QB",
+      "points": 301.72
+   },
+   {
+      "manager": "Licata",
+      "season": 2024,
+      "position": "RB",
+      "points": 540.4
+   },
+   {
+      "manager": "Licata",
+      "season": 2024,
+      "position": "W/T",
+      "points": 423.8999999999999
+   },
+   {
+      "manager": "Licata",
+      "season": 2024,
+      "position": "W/R/T",
+      "points": 401.79999999999995
+   },
+   {
+      "manager": "Licata",
+      "season": 2024,
+      "position": "BN",
+      "points": 480.42
+   },
+   {
+      "manager": "Licata",
+      "season": 2024,
+      "position": "K",
+      "points": 146.0
+   },
+   {
+      "manager": "Licata",
+      "season": 2024,
+      "position": "DEF",
+      "points": 138.0
+   },
+   {
+      "manager": "Licata",
+      "season": 2024,
+      "position": "IR",
+      "points": 0.0
+   },
+   {
+      "manager": "Ryan",
+      "season": 2018,
+      "position": "QB",
+      "points": 275.22
+   },
+   {
+      "manager": "Ryan",
+      "season": 2018,
+      "position": "WR",
+      "points": 565.0000000000001
+   },
+   {
+      "manager": "Ryan",
+      "season": 2018,
+      "position": "RB",
+      "points": 447.34
+   },
+   {
+      "manager": "Ryan",
+      "season": 2018,
+      "position": "TE",
+      "points": 102.90000000000002
+   },
+   {
+      "manager": "Ryan",
+      "season": 2018,
+      "position": "W/R/T",
+      "points": 173.2
+   },
+   {
+      "manager": "Ryan",
+      "season": 2018,
+      "position": "BN",
+      "points": 423.9000000000001
+   },
+   {
+      "manager": "Ryan",
+      "season": 2018,
+      "position": "K",
+      "points": 121.0
+   },
+   {
+      "manager": "Ryan",
+      "season": 2018,
+      "position": "DEF",
+      "points": 124.0
+   },
+   {
+      "manager": "Ryan",
+      "season": 2019,
+      "position": "QB",
+      "points": 313.16
+   },
+   {
+      "manager": "Ryan",
+      "season": 2019,
+      "position": "WR",
+      "points": 461.2000000000001
+   },
+   {
+      "manager": "Ryan",
+      "season": 2019,
+      "position": "RB",
+      "points": 532.1
+   },
+   {
+      "manager": "Ryan",
+      "season": 2019,
+      "position": "TE",
+      "points": 219.20000000000002
+   },
+   {
+      "manager": "Ryan",
+      "season": 2019,
+      "position": "W/R/T",
+      "points": 174.10000000000002
+   },
+   {
+      "manager": "Ryan",
+      "season": 2019,
+      "position": "BN",
+      "points": 562.94
+   },
+   {
+      "manager": "Ryan",
+      "season": 2019,
+      "position": "K",
+      "points": 93.0
+   },
+   {
+      "manager": "Ryan",
+      "season": 2019,
+      "position": "DEF",
+      "points": 127.0
+   },
+   {
+      "manager": "Ryan",
+      "season": 2020,
+      "position": "QB",
+      "points": 280.37999999999994
+   },
+   {
+      "manager": "Ryan",
+      "season": 2020,
+      "position": "WR",
+      "points": 471.6
+   },
+   {
+      "manager": "Ryan",
+      "season": 2020,
+      "position": "RB",
+      "points": 402.9
+   },
+   {
+      "manager": "Ryan",
+      "season": 2020,
+      "position": "TE",
+      "points": 118.7
+   },
+   {
+      "manager": "Ryan",
+      "season": 2020,
+      "position": "W/R/T",
+      "points": 185.6
+   },
+   {
+      "manager": "Ryan",
+      "season": 2020,
+      "position": "BN",
+      "points": 627.6600000000001
+   },
+   {
+      "manager": "Ryan",
+      "season": 2020,
+      "position": "K",
+      "points": 142.0
+   },
+   {
+      "manager": "Ryan",
+      "season": 2020,
+      "position": "DEF",
+      "points": 143.0
+   },
+   {
+      "manager": "Ryan",
+      "season": 2021,
+      "position": "QB",
+      "points": 322.28
+   },
+   {
+      "manager": "Ryan",
+      "season": 2021,
+      "position": "WR",
+      "points": 448.40000000000015
+   },
+   {
+      "manager": "Ryan",
+      "season": 2021,
+      "position": "RB",
+      "points": 445.40000000000003
+   },
+   {
+      "manager": "Ryan",
+      "season": 2021,
+      "position": "TE",
+      "points": 187.0
+   },
+   {
+      "manager": "Ryan",
+      "season": 2021,
+      "position": "W/R/T",
+      "points": 213.70000000000005
+   },
+   {
+      "manager": "Ryan",
+      "season": 2021,
+      "position": "BN",
+      "points": 800.4799999999999
+   },
+   {
+      "manager": "Ryan",
+      "season": 2021,
+      "position": "K",
+      "points": 119.0
+   },
+   {
+      "manager": "Ryan",
+      "season": 2021,
+      "position": "DEF",
+      "points": 140.0
+   },
+   {
+      "manager": "Ryan",
+      "season": 2021,
+      "position": "IR",
+      "points": 0.0
+   },
+   {
+      "manager": "Ryan",
+      "season": 2022,
+      "position": "QB",
+      "points": 488.2799999999999
+   },
+   {
+      "manager": "Ryan",
+      "season": 2022,
+      "position": "RB",
+      "points": 509.16
+   },
+   {
+      "manager": "Ryan",
+      "season": 2022,
+      "position": "W/T",
+      "points": 452.1999999999999
+   },
+   {
+      "manager": "Ryan",
+      "season": 2022,
+      "position": "W/R/T",
+      "points": 201.2
+   },
+   {
+      "manager": "Ryan",
+      "season": 2022,
+      "position": "BN",
+      "points": 497.0199999999999
+   },
+   {
+      "manager": "Ryan",
+      "season": 2022,
+      "position": "K",
+      "points": 126.0
+   },
+   {
+      "manager": "Ryan",
+      "season": 2022,
+      "position": "DEF",
+      "points": 125.0
+   },
+   {
+      "manager": "Ryan",
+      "season": 2023,
+      "position": "QB",
+      "points": 383.11999999999995
+   },
+   {
+      "manager": "Ryan",
+      "season": 2023,
+      "position": "RB",
+      "points": 507.8000000000001
+   },
+   {
+      "manager": "Ryan",
+      "season": 2023,
+      "position": "W/T",
+      "points": 559.3
+   },
+   {
+      "manager": "Ryan",
+      "season": 2023,
+      "position": "W/R/T",
+      "points": 379.9
+   },
+   {
+      "manager": "Ryan",
+      "season": 2023,
+      "position": "BN",
+      "points": 402.2799999999999
+   },
+   {
+      "manager": "Ryan",
+      "season": 2023,
+      "position": "K",
+      "points": 117.0
+   },
+   {
+      "manager": "Ryan",
+      "season": 2023,
+      "position": "DEF",
+      "points": 135.0
+   },
+   {
+      "manager": "Ryan",
+      "season": 2024,
+      "position": "QB",
+      "points": 236.92
+   },
+   {
+      "manager": "Ryan",
+      "season": 2024,
+      "position": "RB",
+      "points": 550.8
+   },
+   {
+      "manager": "Ryan",
+      "season": 2024,
+      "position": "W/T",
+      "points": 331.30000000000007
+   },
+   {
+      "manager": "Ryan",
+      "season": 2024,
+      "position": "W/R/T",
+      "points": 344.49999999999994
+   },
+   {
+      "manager": "Ryan",
+      "season": 2024,
+      "position": "BN",
+      "points": 405.96000000000004
+   },
+   {
+      "manager": "Ryan",
+      "season": 2024,
+      "position": "K",
+      "points": 193.0
+   },
+   {
+      "manager": "Ryan",
+      "season": 2024,
+      "position": "DEF",
+      "points": 123.0
+   },
+   {
+      "manager": "Keara",
+      "season": 2018,
+      "position": "QB",
+      "points": 225.44
+   },
+   {
+      "manager": "Keara",
+      "season": 2018,
+      "position": "WR",
+      "points": 404.3999999999999
+   },
+   {
+      "manager": "Keara",
+      "season": 2018,
+      "position": "RB",
+      "points": 587.9000000000001
+   },
+   {
+      "manager": "Keara",
+      "season": 2018,
+      "position": "TE",
+      "points": 184.8
+   },
+   {
+      "manager": "Keara",
+      "season": 2018,
+      "position": "W/R/T",
+      "points": 170.7
+   },
+   {
+      "manager": "Keara",
+      "season": 2018,
+      "position": "BN",
+      "points": 693.6999999999999
+   },
+   {
+      "manager": "Keara",
+      "season": 2018,
+      "position": "K",
+      "points": 95.0
+   },
+   {
+      "manager": "Keara",
+      "season": 2018,
+      "position": "DEF",
+      "points": 120.0
+   },
+   {
+      "manager": "Keara",
+      "season": 2019,
+      "position": "QB",
+      "points": 268.72
+   },
+   {
+      "manager": "Keara",
+      "season": 2019,
+      "position": "WR",
+      "points": 417.70000000000005
+   },
+   {
+      "manager": "Keara",
+      "season": 2019,
+      "position": "RB",
+      "points": 409.19999999999993
+   },
+   {
+      "manager": "Keara",
+      "season": 2019,
+      "position": "TE",
+      "points": 101.3
+   },
+   {
+      "manager": "Keara",
+      "season": 2019,
+      "position": "W/R/T",
+      "points": 150.20000000000002
+   },
+   {
+      "manager": "Keara",
+      "season": 2019,
+      "position": "BN",
+      "points": 872.6199999999999
+   },
+   {
+      "manager": "Keara",
+      "season": 2019,
+      "position": "K",
+      "points": 124.0
+   },
+   {
+      "manager": "Keara",
+      "season": 2019,
+      "position": "DEF",
+      "points": 132.0
+   },
+   {
+      "manager": "Keara",
+      "season": 2020,
+      "position": "QB",
+      "points": 413.49999999999994
+   },
+   {
+      "manager": "Keara",
+      "season": 2020,
+      "position": "WR",
+      "points": 540.2
+   },
+   {
+      "manager": "Keara",
+      "season": 2020,
+      "position": "RB",
+      "points": 413.8
+   },
+   {
+      "manager": "Keara",
+      "season": 2020,
+      "position": "TE",
+      "points": 132.7
+   },
+   {
+      "manager": "Keara",
+      "season": 2020,
+      "position": "W/R/T",
+      "points": 196.3
+   },
+   {
+      "manager": "Keara",
+      "season": 2020,
+      "position": "BN",
+      "points": 856.8
+   },
+   {
+      "manager": "Keara",
+      "season": 2020,
+      "position": "K",
+      "points": 143.0
+   },
+   {
+      "manager": "Keara",
+      "season": 2020,
+      "position": "DEF",
+      "points": 131.0
+   },
+   {
+      "manager": "Keara",
+      "season": 2021,
+      "position": "QB",
+      "points": 313.79999999999995
+   },
+   {
+      "manager": "Keara",
+      "season": 2021,
+      "position": "WR",
+      "points": 428.5000000000001
+   },
+   {
+      "manager": "Keara",
+      "season": 2021,
+      "position": "RB",
+      "points": 474.9000000000001
+   },
+   {
+      "manager": "Keara",
+      "season": 2021,
+      "position": "TE",
+      "points": 155.29999999999998
+   },
+   {
+      "manager": "Keara",
+      "season": 2021,
+      "position": "W/R/T",
+      "points": 163.4
+   },
+   {
+      "manager": "Keara",
+      "season": 2021,
+      "position": "BN",
+      "points": 680.4000000000001
+   },
+   {
+      "manager": "Keara",
+      "season": 2021,
+      "position": "K",
+      "points": 113.0
+   },
+   {
+      "manager": "Keara",
+      "season": 2021,
+      "position": "DEF",
+      "points": 111.0
+   },
+   {
+      "manager": "Keara",
+      "season": 2022,
+      "position": "QB",
+      "points": 671.8199999999999
+   },
+   {
+      "manager": "Keara",
+      "season": 2022,
+      "position": "RB",
+      "points": 421.8000000000001
+   },
+   {
+      "manager": "Keara",
+      "season": 2022,
+      "position": "W/T",
+      "points": 538.4
+   },
+   {
+      "manager": "Keara",
+      "season": 2022,
+      "position": "W/R/T",
+      "points": 199.29999999999998
+   },
+   {
+      "manager": "Keara",
+      "season": 2022,
+      "position": "BN",
+      "points": 674.8800000000001
+   },
+   {
+      "manager": "Keara",
+      "season": 2022,
+      "position": "K",
+      "points": 152.0
+   },
+   {
+      "manager": "Keara",
+      "season": 2022,
+      "position": "DEF",
+      "points": 124.0
+   },
+   {
+      "manager": "Keara",
+      "season": 2023,
+      "position": "QB",
+      "points": 349.34
+   },
+   {
+      "manager": "Keara",
+      "season": 2023,
+      "position": "RB",
+      "points": 435.79999999999995
+   },
+   {
+      "manager": "Keara",
+      "season": 2023,
+      "position": "W/T",
+      "points": 409.70000000000005
+   },
+   {
+      "manager": "Keara",
+      "season": 2023,
+      "position": "W/R/T",
+      "points": 355.1
+   },
+   {
+      "manager": "Keara",
+      "season": 2023,
+      "position": "BN",
+      "points": 494.44
+   },
+   {
+      "manager": "Keara",
+      "season": 2023,
+      "position": "K",
+      "points": 122.0
+   },
+   {
+      "manager": "Keara",
+      "season": 2023,
+      "position": "DEF",
+      "points": 85.0
+   },
+   {
+      "manager": "Keara",
+      "season": 2024,
+      "position": "QB",
+      "points": 360.2200000000001
+   },
+   {
+      "manager": "Keara",
+      "season": 2024,
+      "position": "RB",
+      "points": 558.9
+   },
+   {
+      "manager": "Keara",
+      "season": 2024,
+      "position": "W/T",
+      "points": 538.3799999999999
+   },
+   {
+      "manager": "Keara",
+      "season": 2024,
+      "position": "W/R/T",
+      "points": 398.9
+   },
+   {
+      "manager": "Keara",
+      "season": 2024,
+      "position": "BN",
+      "points": 685.9800000000004
+   },
+   {
+      "manager": "Keara",
+      "season": 2024,
+      "position": "K",
+      "points": 133.0
+   },
+   {
+      "manager": "Keara",
+      "season": 2024,
+      "position": "DEF",
+      "points": 141.0
+   },
+   {
+      "manager": "Brendon",
+      "season": 2018,
+      "position": "QB",
+      "points": 230.64000000000001
+   },
+   {
+      "manager": "Brendon",
+      "season": 2018,
+      "position": "WR",
+      "points": 383.85999999999996
+   },
+   {
+      "manager": "Brendon",
+      "season": 2018,
+      "position": "RB",
+      "points": 515.3
+   },
+   {
+      "manager": "Brendon",
+      "season": 2018,
+      "position": "TE",
+      "points": 119.89999999999999
+   },
+   {
+      "manager": "Brendon",
+      "season": 2018,
+      "position": "W/R/T",
+      "points": 266.2
+   },
+   {
+      "manager": "Brendon",
+      "season": 2018,
+      "position": "BN",
+      "points": 710.36
+   },
+   {
+      "manager": "Brendon",
+      "season": 2018,
+      "position": "K",
+      "points": 140.0
+   },
+   {
+      "manager": "Brendon",
+      "season": 2018,
+      "position": "DEF",
+      "points": 158.0
+   },
+   {
+      "manager": "Brendon",
+      "season": 2019,
+      "position": "QB",
+      "points": 310.02000000000004
+   },
+   {
+      "manager": "Brendon",
+      "season": 2019,
+      "position": "WR",
+      "points": 457.43999999999994
+   },
+   {
+      "manager": "Brendon",
+      "season": 2019,
+      "position": "RB",
+      "points": 499.0
+   },
+   {
+      "manager": "Brendon",
+      "season": 2019,
+      "position": "TE",
+      "points": 136.10000000000002
+   },
+   {
+      "manager": "Brendon",
+      "season": 2019,
+      "position": "W/R/T",
+      "points": 204.7
+   },
+   {
+      "manager": "Brendon",
+      "season": 2019,
+      "position": "BN",
+      "points": 916.9399999999998
+   },
+   {
+      "manager": "Brendon",
+      "season": 2019,
+      "position": "K",
+      "points": 113.0
+   },
+   {
+      "manager": "Brendon",
+      "season": 2019,
+      "position": "DEF",
+      "points": 86.0
+   },
+   {
+      "manager": "Brendon",
+      "season": 2020,
+      "position": "QB",
+      "points": 298.17999999999995
+   },
+   {
+      "manager": "Brendon",
+      "season": 2020,
+      "position": "WR",
+      "points": 363.5199999999999
+   },
+   {
+      "manager": "Brendon",
+      "season": 2020,
+      "position": "RB",
+      "points": 458.59999999999997
+   },
+   {
+      "manager": "Brendon",
+      "season": 2020,
+      "position": "TE",
+      "points": 277.36
+   },
+   {
+      "manager": "Brendon",
+      "season": 2020,
+      "position": "W/R/T",
+      "points": 190.10000000000002
+   },
+   {
+      "manager": "Brendon",
+      "season": 2020,
+      "position": "BN",
+      "points": 790.4000000000001
+   },
+   {
+      "manager": "Brendon",
+      "season": 2020,
+      "position": "K",
+      "points": 158.0
+   },
+   {
+      "manager": "Brendon",
+      "season": 2020,
+      "position": "DEF",
+      "points": 99.0
+   },
+   {
+      "manager": "Brendon",
+      "season": 2020,
+      "position": "IR",
+      "points": 0.0
+   },
+   {
+      "manager": "Brendon",
+      "season": 2021,
+      "position": "QB",
+      "points": 324.9599999999999
+   },
+   {
+      "manager": "Brendon",
+      "season": 2021,
+      "position": "WR",
+      "points": 337.4000000000001
+   },
+   {
+      "manager": "Brendon",
+      "season": 2021,
+      "position": "RB",
+      "points": 612.0
+   },
+   {
+      "manager": "Brendon",
+      "season": 2021,
+      "position": "TE",
+      "points": 226.0
+   },
+   {
+      "manager": "Brendon",
+      "season": 2021,
+      "position": "W/R/T",
+      "points": 118.09999999999998
+   },
+   {
+      "manager": "Brendon",
+      "season": 2021,
+      "position": "BN",
+      "points": 515.9599999999999
+   },
+   {
+      "manager": "Brendon",
+      "season": 2021,
+      "position": "K",
+      "points": 135.0
+   },
+   {
+      "manager": "Brendon",
+      "season": 2021,
+      "position": "DEF",
+      "points": 150.0
+   },
+   {
+      "manager": "Brendon",
+      "season": 2021,
+      "position": "IR",
+      "points": 0.0
+   },
+   {
+      "manager": "Brendon",
+      "season": 2022,
+      "position": "QB",
+      "points": 575.5999999999999
+   },
+   {
+      "manager": "Brendon",
+      "season": 2022,
+      "position": "RB",
+      "points": 574.56
+   },
+   {
+      "manager": "Brendon",
+      "season": 2022,
+      "position": "W/T",
+      "points": 420.9
+   },
+   {
+      "manager": "Brendon",
+      "season": 2022,
+      "position": "W/R/T",
+      "points": 202.6
+   },
+   {
+      "manager": "Brendon",
+      "season": 2022,
+      "position": "BN",
+      "points": 648.58
+   },
+   {
+      "manager": "Brendon",
+      "season": 2022,
+      "position": "K",
+      "points": 134.0
+   },
+   {
+      "manager": "Brendon",
+      "season": 2022,
+      "position": "DEF",
+      "points": 118.0
+   },
+   {
+      "manager": "Brendon",
+      "season": 2023,
+      "position": "QB",
+      "points": 268.76
+   },
+   {
+      "manager": "Brendon",
+      "season": 2023,
+      "position": "RB",
+      "points": 472.79999999999995
+   },
+   {
+      "manager": "Brendon",
+      "season": 2023,
+      "position": "W/T",
+      "points": 388.8
+   },
+   {
+      "manager": "Brendon",
+      "season": 2023,
+      "position": "W/R/T",
+      "points": 398.5000000000001
+   },
+   {
+      "manager": "Brendon",
+      "season": 2023,
+      "position": "BN",
+      "points": 593.2800000000001
+   },
+   {
+      "manager": "Brendon",
+      "season": 2023,
+      "position": "K",
+      "points": 158.0
+   },
+   {
+      "manager": "Brendon",
+      "season": 2023,
+      "position": "DEF",
+      "points": 162.0
+   },
+   {
+      "manager": "Brendon",
+      "season": 2023,
+      "position": "IR",
+      "points": 0.0
+   },
+   {
+      "manager": "Brendon",
+      "season": 2024,
+      "position": "QB",
+      "points": 386.0
+   },
+   {
+      "manager": "Brendon",
+      "season": 2024,
+      "position": "RB",
+      "points": 601.7999999999998
+   },
+   {
+      "manager": "Brendon",
+      "season": 2024,
+      "position": "W/T",
+      "points": 536.3799999999999
+   },
+   {
+      "manager": "Brendon",
+      "season": 2024,
+      "position": "W/R/T",
+      "points": 397.9
+   },
+   {
+      "manager": "Brendon",
+      "season": 2024,
+      "position": "BN",
+      "points": 558.6999999999999
+   },
+   {
+      "manager": "Brendon",
+      "season": 2024,
+      "position": "K",
+      "points": 149.0
+   },
+   {
+      "manager": "Brendon",
+      "season": 2024,
+      "position": "DEF",
+      "points": 156.0
+   },
+   {
+      "manager": "Brendon",
+      "season": 2024,
+      "position": "IR",
+      "points": 6.4
+   },
+   {
+      "manager": "Eric",
+      "season": 2018,
+      "position": "QB",
+      "points": 314.53999999999996
+   },
+   {
+      "manager": "Eric",
+      "season": 2018,
+      "position": "WR",
+      "points": 437.4
+   },
+   {
+      "manager": "Eric",
+      "season": 2018,
+      "position": "RB",
+      "points": 429.0
+   },
+   {
+      "manager": "Eric",
+      "season": 2018,
+      "position": "TE",
+      "points": 259.7
+   },
+   {
+      "manager": "Eric",
+      "season": 2018,
+      "position": "W/R/T",
+      "points": 143.0
+   },
+   {
+      "manager": "Eric",
+      "season": 2018,
+      "position": "BN",
+      "points": 579.92
+   },
+   {
+      "manager": "Eric",
+      "season": 2018,
+      "position": "K",
+      "points": 112.0
+   },
+   {
+      "manager": "Eric",
+      "season": 2018,
+      "position": "DEF",
+      "points": 104.0
+   },
+   {
+      "manager": "Eric",
+      "season": 2019,
+      "position": "QB",
+      "points": 260.96000000000004
+   },
+   {
+      "manager": "Eric",
+      "season": 2019,
+      "position": "WR",
+      "points": 419.20000000000005
+   },
+   {
+      "manager": "Eric",
+      "season": 2019,
+      "position": "RB",
+      "points": 527.4000000000001
+   },
+   {
+      "manager": "Eric",
+      "season": 2019,
+      "position": "TE",
+      "points": 218.7
+   },
+   {
+      "manager": "Eric",
+      "season": 2019,
+      "position": "W/R/T",
+      "points": 219.39999999999998
+   },
+   {
+      "manager": "Eric",
+      "season": 2019,
+      "position": "BN",
+      "points": 674.18
+   },
+   {
+      "manager": "Eric",
+      "season": 2019,
+      "position": "K",
+      "points": 133.0
+   },
+   {
+      "manager": "Eric",
+      "season": 2019,
+      "position": "DEF",
+      "points": 128.0
+   },
+   {
+      "manager": "Eric",
+      "season": 2020,
+      "position": "QB",
+      "points": 297.02000000000004
+   },
+   {
+      "manager": "Eric",
+      "season": 2020,
+      "position": "WR",
+      "points": 434.10000000000014
+   },
+   {
+      "manager": "Eric",
+      "season": 2020,
+      "position": "RB",
+      "points": 408.0999999999999
+   },
+   {
+      "manager": "Eric",
+      "season": 2020,
+      "position": "TE",
+      "points": 127.09999999999998
+   },
+   {
+      "manager": "Eric",
+      "season": 2020,
+      "position": "W/R/T",
+      "points": 152.6
+   },
+   {
+      "manager": "Eric",
+      "season": 2020,
+      "position": "BN",
+      "points": 754.3000000000002
+   },
+   {
+      "manager": "Eric",
+      "season": 2020,
+      "position": "K",
+      "points": 139.0
+   },
+   {
+      "manager": "Eric",
+      "season": 2020,
+      "position": "DEF",
+      "points": 80.0
+   },
+   {
+      "manager": "Eric",
+      "season": 2020,
+      "position": "IR",
+      "points": 83.9
+   },
+   {
+      "manager": "Eric",
+      "season": 2021,
+      "position": "QB",
+      "points": 357.68
+   },
+   {
+      "manager": "Eric",
+      "season": 2021,
+      "position": "WR",
+      "points": 627.0
+   },
+   {
+      "manager": "Eric",
+      "season": 2021,
+      "position": "RB",
+      "points": 558.5000000000001
+   },
+   {
+      "manager": "Eric",
+      "season": 2021,
+      "position": "TE",
+      "points": 162.89999999999998
+   },
+   {
+      "manager": "Eric",
+      "season": 2021,
+      "position": "W/R/T",
+      "points": 142.6
+   },
+   {
+      "manager": "Eric",
+      "season": 2021,
+      "position": "BN",
+      "points": 663.02
+   },
+   {
+      "manager": "Eric",
+      "season": 2021,
+      "position": "K",
+      "points": 135.0
+   },
+   {
+      "manager": "Eric",
+      "season": 2021,
+      "position": "DEF",
+      "points": 110.0
+   },
+   {
+      "manager": "Eric",
+      "season": 2021,
+      "position": "IR",
+      "points": 11.0
+   },
+   {
+      "manager": "Eric",
+      "season": 2022,
+      "position": "QB",
+      "points": 724.8399999999998
+   },
+   {
+      "manager": "Eric",
+      "season": 2022,
+      "position": "RB",
+      "points": 582.3
+   },
+   {
+      "manager": "Eric",
+      "season": 2022,
+      "position": "W/T",
+      "points": 355.1
+   },
+   {
+      "manager": "Eric",
+      "season": 2022,
+      "position": "W/R/T",
+      "points": 173.29999999999998
+   },
+   {
+      "manager": "Eric",
+      "season": 2022,
+      "position": "BN",
+      "points": 668.1
+   },
+   {
+      "manager": "Eric",
+      "season": 2022,
+      "position": "K",
+      "points": 118.0
+   },
+   {
+      "manager": "Eric",
+      "season": 2022,
+      "position": "DEF",
+      "points": 150.0
+   },
+   {
+      "manager": "Eric",
+      "season": 2022,
+      "position": "IR",
+      "points": 0.0
+   },
+   {
+      "manager": "Eric",
+      "season": 2023,
+      "position": "QB",
+      "points": 330.26
+   },
+   {
+      "manager": "Eric",
+      "season": 2023,
+      "position": "RB",
+      "points": 388.49999999999994
+   },
+   {
+      "manager": "Eric",
+      "season": 2023,
+      "position": "W/T",
+      "points": 517.1600000000002
+   },
+   {
+      "manager": "Eric",
+      "season": 2023,
+      "position": "W/R/T",
+      "points": 448.39999999999986
+   },
+   {
+      "manager": "Eric",
+      "season": 2023,
+      "position": "BN",
+      "points": 452.1799999999999
+   },
+   {
+      "manager": "Eric",
+      "season": 2023,
+      "position": "K",
+      "points": 165.0
+   },
+   {
+      "manager": "Eric",
+      "season": 2023,
+      "position": "DEF",
+      "points": 155.0
+   },
+   {
+      "manager": "Eric",
+      "season": 2023,
+      "position": "IR",
+      "points": 0.0
+   },
+   {
+      "manager": "Eric",
+      "season": 2024,
+      "position": "QB",
+      "points": 341.34000000000003
+   },
+   {
+      "manager": "Eric",
+      "season": 2024,
+      "position": "RB",
+      "points": 454.1199999999999
+   },
+   {
+      "manager": "Eric",
+      "season": 2024,
+      "position": "W/T",
+      "points": 430.70000000000005
+   },
+   {
+      "manager": "Eric",
+      "season": 2024,
+      "position": "W/R/T",
+      "points": 381.4
+   },
+   {
+      "manager": "Eric",
+      "season": 2024,
+      "position": "BN",
+      "points": 480.69999999999993
+   },
+   {
+      "manager": "Eric",
+      "season": 2024,
+      "position": "K",
+      "points": 154.0
+   },
+   {
+      "manager": "Eric",
+      "season": 2024,
+      "position": "DEF",
+      "points": 91.0
+   },
+   {
+      "manager": "Eric",
+      "season": 2024,
+      "position": "IR",
+      "points": 18.9
+   },
+   {
+      "manager": "Mike",
+      "season": 2018,
+      "position": "QB",
+      "points": 299.40000000000003
+   },
+   {
+      "manager": "Mike",
+      "season": 2018,
+      "position": "WR",
+      "points": 478.81999999999994
+   },
+   {
+      "manager": "Mike",
+      "season": 2018,
+      "position": "RB",
+      "points": 316.1
+   },
+   {
+      "manager": "Mike",
+      "season": 2018,
+      "position": "TE",
+      "points": 93.99999999999999
+   },
+   {
+      "manager": "Mike",
+      "season": 2018,
+      "position": "W/R/T",
+      "points": 140.60000000000002
+   },
+   {
+      "manager": "Mike",
+      "season": 2018,
+      "position": "BN",
+      "points": 627.4999999999999
+   },
+   {
+      "manager": "Mike",
+      "season": 2018,
+      "position": "K",
+      "points": 133.0
+   },
+   {
+      "manager": "Mike",
+      "season": 2018,
+      "position": "DEF",
+      "points": 110.0
+   },
+   {
+      "manager": "Mike",
+      "season": 2019,
+      "position": "QB",
+      "points": 270.22
+   },
+   {
+      "manager": "Mike",
+      "season": 2019,
+      "position": "WR",
+      "points": 399.9
+   },
+   {
+      "manager": "Mike",
+      "season": 2019,
+      "position": "RB",
+      "points": 324.09999999999997
+   },
+   {
+      "manager": "Mike",
+      "season": 2019,
+      "position": "TE",
+      "points": 178.99999999999997
+   },
+   {
+      "manager": "Mike",
+      "season": 2019,
+      "position": "W/R/T",
+      "points": 158.8
+   },
+   {
+      "manager": "Mike",
+      "season": 2019,
+      "position": "BN",
+      "points": 710.4799999999999
+   },
+   {
+      "manager": "Mike",
+      "season": 2019,
+      "position": "K",
+      "points": 146.0
+   },
+   {
+      "manager": "Mike",
+      "season": 2019,
+      "position": "DEF",
+      "points": 155.0
+   },
+   {
+      "manager": "Mike",
+      "season": 2020,
+      "position": "QB",
+      "points": 361.38
+   },
+   {
+      "manager": "Mike",
+      "season": 2020,
+      "position": "WR",
+      "points": 435.00000000000006
+   },
+   {
+      "manager": "Mike",
+      "season": 2020,
+      "position": "RB",
+      "points": 397.20000000000005
+   },
+   {
+      "manager": "Mike",
+      "season": 2020,
+      "position": "TE",
+      "points": 158.89999999999998
+   },
+   {
+      "manager": "Mike",
+      "season": 2020,
+      "position": "W/R/T",
+      "points": 252.29999999999998
+   },
+   {
+      "manager": "Mike",
+      "season": 2020,
+      "position": "BN",
+      "points": 810.1
+   },
+   {
+      "manager": "Mike",
+      "season": 2020,
+      "position": "K",
+      "points": 90.0
+   },
+   {
+      "manager": "Mike",
+      "season": 2020,
+      "position": "DEF",
+      "points": 139.0
+   },
+   {
+      "manager": "Mike",
+      "season": 2020,
+      "position": "IR",
+      "points": 11.9
+   },
+   {
+      "manager": "Mike",
+      "season": 2021,
+      "position": "QB",
+      "points": 351.08000000000004
+   },
+   {
+      "manager": "Mike",
+      "season": 2021,
+      "position": "WR",
+      "points": 427.19999999999993
+   },
+   {
+      "manager": "Mike",
+      "season": 2021,
+      "position": "RB",
+      "points": 467.4999999999999
+   },
+   {
+      "manager": "Mike",
+      "season": 2021,
+      "position": "TE",
+      "points": 125.4
+   },
+   {
+      "manager": "Mike",
+      "season": 2021,
+      "position": "W/R/T",
+      "points": 159.46
+   },
+   {
+      "manager": "Mike",
+      "season": 2021,
+      "position": "BN",
+      "points": 630.0400000000002
+   },
+   {
+      "manager": "Mike",
+      "season": 2021,
+      "position": "K",
+      "points": 149.0
+   },
+   {
+      "manager": "Mike",
+      "season": 2021,
+      "position": "DEF",
+      "points": 181.0
+   },
+   {
+      "manager": "Mike",
+      "season": 2021,
+      "position": "IR",
+      "points": 46.3
+   },
+   {
+      "manager": "Mike",
+      "season": 2022,
+      "position": "QB",
+      "points": 587.64
+   },
+   {
+      "manager": "Mike",
+      "season": 2022,
+      "position": "RB",
+      "points": 455.6
+   },
+   {
+      "manager": "Mike",
+      "season": 2022,
+      "position": "W/T",
+      "points": 443.29999999999995
+   },
+   {
+      "manager": "Mike",
+      "season": 2022,
+      "position": "W/R/T",
+      "points": 219.20000000000005
+   },
+   {
+      "manager": "Mike",
+      "season": 2022,
+      "position": "BN",
+      "points": 632.6999999999998
+   },
+   {
+      "manager": "Mike",
+      "season": 2022,
+      "position": "K",
+      "points": 136.0
+   },
+   {
+      "manager": "Mike",
+      "season": 2022,
+      "position": "DEF",
+      "points": 173.0
+   },
+   {
+      "manager": "Mike",
+      "season": 2022,
+      "position": "IR",
+      "points": 27.4
+   },
+   {
+      "manager": "Mike",
+      "season": 2023,
+      "position": "QB",
+      "points": 283.79999999999995
+   },
+   {
+      "manager": "Mike",
+      "season": 2023,
+      "position": "RB",
+      "points": 519.8
+   },
+   {
+      "manager": "Mike",
+      "season": 2023,
+      "position": "W/T",
+      "points": 413.5999999999999
+   },
+   {
+      "manager": "Mike",
+      "season": 2023,
+      "position": "W/R/T",
+      "points": 390.67999999999995
+   },
+   {
+      "manager": "Mike",
+      "season": 2023,
+      "position": "BN",
+      "points": 370.59999999999997
+   },
+   {
+      "manager": "Mike",
+      "season": 2023,
+      "position": "K",
+      "points": 114.0
+   },
+   {
+      "manager": "Mike",
+      "season": 2023,
+      "position": "DEF",
+      "points": 172.0
+   },
+   {
+      "manager": "Mike",
+      "season": 2024,
+      "position": "QB",
+      "points": 303.67999999999995
+   },
+   {
+      "manager": "Mike",
+      "season": 2024,
+      "position": "RB",
+      "points": 552.5
+   },
+   {
+      "manager": "Mike",
+      "season": 2024,
+      "position": "W/T",
+      "points": 402.80000000000007
+   },
+   {
+      "manager": "Mike",
+      "season": 2024,
+      "position": "W/R/T",
+      "points": 363.9
+   },
+   {
+      "manager": "Mike",
+      "season": 2024,
+      "position": "BN",
+      "points": 425.34000000000003
+   },
+   {
+      "manager": "Mike",
+      "season": 2024,
+      "position": "K",
+      "points": 202.0
+   },
+   {
+      "manager": "Mike",
+      "season": 2024,
+      "position": "DEF",
+      "points": 106.0
+   },
+   {
+      "manager": "Mike",
+      "season": 2024,
+      "position": "IR",
+      "points": 0.0
+   }
+]
