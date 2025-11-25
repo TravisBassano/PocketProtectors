@@ -2,13 +2,21 @@
 
 import json
 import pandas as pd
+import nflreadpy
 
 from collections import defaultdict
 from pathlib import Path
+from random import uniform
 from time import sleep
+from tqdm import tqdm
 
 from yfpy.query import YahooFantasySportsQuery
-from yfpy.models import Team
+from yfpy.models import Team, Player
+
+
+def query_delay():
+    # sleep(random()*Query.API_DELAY_SLEEP_MAX_SEC)
+    sleep(uniform(1.0, Query.API_DELAY_SLEEP_MAX_SEC))
 
 
 class Query:
@@ -20,10 +28,16 @@ class Query:
     and other league metadata.
     """
 
-    API_DELAY_SLEEP_SEC = 1
+    API_DELAY_SLEEP_MAX_SEC = 2.0255
 
-    SEASONS_RANGE = range(2018, 2024+1)
-    DATA_DIR = Path(__file__).parent.parent / "data"
+    SEASONS_RANGE = range(2020, 2024+1)
+
+    # Define the desired width for the tqdm description strings
+    TQDM_WIDTH = 12
+
+    ROOT_DIR = Path(__file__).parent.parent
+    DATA_DIR = ROOT_DIR / "data"
+    CACHE_DIR = DATA_DIR / "cache"
 
     def __init__(self):
         """Initializes a new instance of Query.
@@ -37,17 +51,16 @@ class Query:
                 )
             )
 
-        self.winners_map = defaultdict(  # season
-                lambda: defaultdict(dict)  # winners
-            )
-
         self.standings_map = defaultdict(  # season
                 lambda: defaultdict(dict)  # manager -> data entries
             )
 
         self.transactions_map = defaultdict(list)
 
+        self.draft_results = []
+
         self.league_name = None
+        self.season = None
 
     def run_query(self, season: int):
         """Initializes and returns a Yahoo Fantasy Sports API query object for
@@ -68,18 +81,28 @@ class Query:
             league_id="######",
             game_code="nfl"
             )
+
         game_id = query.get_game_key_by_season(season)
 
         leagues = query.get_user_leagues_by_game_key(game_id)
+        query_delay()
 
         if self.league_name is None:
             if len(leagues) > 1:
-                print(leagues)
-                raise NotImplementedError(
-                    f"Unable to determine league for season {season}."
+                print()
+                for k, league in enumerate(leagues):
+                    print(f"[{k}] {league.name}")
+                league_k = int(
+                    input(f"Select league name to query for {season}: ")
                     )
 
-            self.league_name = leagues[0].name
+                self.league_name = leagues[league_k].name
+
+                # raise NotImplementedError(
+                #     f"Unable to determine league for season {season}."
+                #     )
+            else:
+                self.league_name = leagues[0].name
 
         league_id = None
 
@@ -87,11 +110,14 @@ class Query:
             if league.name == self.league_name:
                 league_id = league.league_id
 
-        if league_id is None:
-            raise ValueError(f"No league_id found for {season}")
-
-        # Reduce API rate
-        sleep(self.API_DELAY_SLEEP_SEC)
+        if league_id is None and len(leagues) > 1:
+            for k, league in enumerate(leagues):
+                print(f"[{k}] {league.name}")
+            league_k = int(
+                input("Select league name to query for {season}: ")
+            )
+            league_id = league[league_k].league_id
+            # raise ValueError(f"No league_id found for {season}")
 
         query = YahooFantasySportsQuery(
                 league_id=league_id,
@@ -99,9 +125,7 @@ class Query:
                 game_code="nfl",
                 all_output_as_json_str=False
             )
-
-        # Reduce API rate
-        sleep(self.API_DELAY_SLEEP_SEC)
+        query_delay()
 
         return query
 
@@ -119,30 +143,37 @@ class Query:
         """
 
         league_info = query.get_league_metadata()
+        query_delay()
 
         season = league_info.season
 
+        if league_info.season != self.season:
+            raise RuntimeError("Season mismatch")
+
         standings = query.get_league_standings().teams
+        query_delay()
 
-        teams = query.get_league_teams()
+        # self.parse_draft_results(query)
 
-        self.winners_map[season]["1st"] = standings[0].managers[0].nickname
-        self.winners_map[season]["2nd"] = standings[1].managers[0].nickname
-        self.winners_map[season]["3rd"] = standings[2].managers[0].nickname
+        # for transaction in query.get_league_transactions():
+        #   query_delay()
 
-        for transaction in query.get_league_transactions():
-            if transaction.type == "trade":
-                tk0 = int(transaction.tradee_team_key.rsplit('.')[-1])-1
-                tk1 = int(transaction.trader_team_key.rsplit('.')[-1])-1
+        #     if transaction.type == "trade":
+        #         tk0 = int(transaction.tradee_team_key.rsplit('.')[-1])-1
+        #         tk1 = int(transaction.trader_team_key.rsplit('.')[-1])-1
 
-                self.transactions_map[season].append((
-                    teams[tk0].managers[0].nickname,
-                    teams[tk1].managers[0].nickname,
-                ))
+        #         self.transactions_map[season].append((
+        #             teams[tk0].managers[0].nickname,
+        #             teams[tk1].managers[0].nickname,
+        #         ))
 
         for team in standings:
 
             manager = team.managers[0].nickname
+
+            if manager == "--hidden--":
+                print(team)
+                exit(0)
 
             self.standings_map[season][manager]["pf"] = team.points_for
             self.standings_map[season][manager]["pa"] = team.points_against
@@ -151,37 +182,55 @@ class Query:
             self.standings_map[season][manager]["wins"] = team.wins
             self.standings_map[season][manager]["losses"] = team.losses
 
+        # Get the season-long player roster for additional player metrics
+        # not available through YFPY
+        self.weekly_roster = nflreadpy.load_rosters_weekly(season)
+        self.weekly_roster = self.weekly_roster.to_pandas()
+
+        self.sched = nflreadpy.load_schedules(season).to_pandas()
+
         # Dynamically loop over both 17 and 18 week seasons
-        for week in range(1, league_info.current_week+1):
+        for week in tqdm(range(1, league_info.current_week+1),
+                         desc="Week".ljust(self.TQDM_WIDTH),
+                         leave=False,
+                         position=1):
 
             scoreboard = query.get_league_scoreboard_by_week(week)
+            query_delay()
 
             if scoreboard is None:
-                print(f"No scoreboard data for Week {week} in {season}.")
-                continue
+                raise RuntimeError(
+                    f"No scoreboard data for Week {week} in {season}."
+                    )
 
-            for matchup_data in scoreboard.matchups:
+            for matchup_data in tqdm(scoreboard.matchups,
+                                     leave=False,
+                                     desc="Matchup".ljust(self.TQDM_WIDTH),
+                                     position=2):
 
                 team1_data = matchup_data.teams[0]
                 team2_data = matchup_data.teams[1]
 
-                team1_manager = team1_data.managers[0].nickname
-                team2_manager = team2_data.managers[0].nickname
-
                 if matchup_data.is_tied:
-                    print("TIE")
-                    print(season)
-                    print(week)
-                    print(team1_manager)
-                    print(team2_manager)
-                    exit(2)
+                    raise NotImplementedError("Tie handling not implemented.")
 
                 mrm = self.managers_record_map[season][week]
 
-                self.extract_matchup_data(mrm, team1_data, team2_data, query, week)
-                self.extract_matchup_data(mrm, team2_data, team1_data, query, week)
+                t1_mgr = team1_data.managers[0].nickname
+                t2_mgr = team2_data.managers[0].nickname
 
+                mrm[t1_mgr]["is_playoffs"] = matchup_data.is_playoffs
+                mrm[t1_mgr]["is_consolation"] = matchup_data.is_consolation
 
+                mrm[t2_mgr]["is_playoffs"] = matchup_data.is_playoffs
+                mrm[t2_mgr]["is_consolation"] = matchup_data.is_consolation
+
+                self.extract_matchup_data(
+                    mrm, team1_data, team2_data, query, week
+                    )
+                self.extract_matchup_data(
+                    mrm, team2_data, team1_data, query, week
+                    )
 
     def extract_matchup_data(self,
                              mrm_stub: defaultdict,
@@ -208,55 +257,216 @@ class Query:
 
         mrm_stub[team1_manager]["points"] = team1.team_points.total
         mrm_stub[team1_manager]["proj_points"] = team1.projected_points
-        mrm_stub[team1_manager]["faab_balance"] = team1.faab_balance
-        mrm_stub[team1_manager]["moves"] = team1.number_of_moves
-        mrm_stub[team1_manager]["rank"] = team1.rank
 
         mrm_stub[team1_manager]["opp_points"] = team2.team_points.total
         mrm_stub[team1_manager]["opp_proj_points"] = team2.projected_points
         mrm_stub[team1_manager]["opponent"] = team2_manager
 
-        players = query.get_team_roster_player_stats_by_week(team1.team_id, week)
+        players = query.get_team_roster_player_stats_by_week(
+            team1.team_id,
+            week,
+            )
+        query_delay()
 
-        editorial_teams = defaultdict(int)
-        editorial_teams_starters = defaultdict(int)
-
-        pos_pts = defaultdict(int)
-
-        max_player_score = -1e9
-        min_player_score = 1e9
-        zero_pt_starters = 0
-        neg_pt_starters = 0
-        bye_starts = 0
+        roster = []
 
         for player in players:
 
-            editorial_teams[player.editorial_team_abbr] += 1
+            pts = player.player_points.total
 
-            if player.selected_position.position == "BN":
-                continue
+            # YFPY does not provide a player's team for a given season,
+            # so use a separate dB for a lookup
+            player_team, player_pos = self.get_player_team(week, player)
 
-            pos_pts[player.selected_position.position] += player.player_points.total
+            player_team_tmp = player_team
 
-            editorial_teams_starters[player.editorial_team_abbr] += 1
+            if self.season < 2020 and player_team == "LV":
+                player_team_tmp = "OAK"
 
-            max_player_score = max(max_player_score, player.player_points.total)
-            min_player_score = min(min_player_score, player.player_points.total)
+            if player_team == "LAR":
+                player_team_tmp = "LA"
 
-            zero_pt_starters += (player.player_points.total == 0.0)
-            neg_pt_starters += (player.player_points.total < 0.0)
+            if player_team == "N/A":
+                week_day = "N/A"
 
-            bye_starts += player.bye_weeks.week == week
+            else:
+                teams = pd.concat(
+                    [self.sched["home_team"], self.sched["home_team"]],
+                    )
+                teams = teams.unique()
 
-        mrm_stub[team1_manager]["player_teams"] = dict(editorial_teams)
-        mrm_stub[team1_manager]["starter_teams"] = dict(editorial_teams_starters)
-        mrm_stub[team1_manager]["max_player_score"] = max_player_score
-        mrm_stub[team1_manager]["min_player_score"] = min_player_score
-        mrm_stub[team1_manager]["zero_pt_starters"] = zero_pt_starters
-        mrm_stub[team1_manager]["neg_pt_starters"] = neg_pt_starters
-        mrm_stub[team1_manager]["bye_starters"] = bye_starts
-        mrm_stub[team1_manager]["pos_pts"] = pos_pts
+                week_slice = self.sched[self.sched["week"] == week]
+                week_slice = week_slice.drop(
+                    columns=["game_id", "week", "season", "game_type"],
+                    )
 
+                if player_team_tmp not in teams:
+                    print("\n\n\n")
+                    print(week)
+                    print(team1_manager)
+                    print(week_slice)
+                    print(player.full_name)
+                    print(player_team)
+                    print(player)
+                    raise RuntimeError(
+                        "Failed to identify player-team schedule."
+                        )
+
+                sched_slice = week_slice[
+                    (week_slice["home_team"] == player_team_tmp) |
+                    (week_slice["away_team"] == player_team_tmp)
+                ].reset_index()
+
+                # Bye week
+                if sched_slice.shape[0] == 0:
+                    week_day = "BYE"
+                elif sched_slice.shape[0] == 1:
+                    week_day = sched_slice.loc[0, "weekday"]
+                else:
+                    raise RuntimeError(
+                        "Failed to identify player-team schedule. (2)"
+                        )
+
+            roster.append(
+                (
+                    player.full_name,
+                    player_team,
+                    player.selected_position.position,
+                    pts,
+                    player_pos,
+                    week_day,
+                )
+            )
+
+        mrm_stub[team1_manager]["roster"] = roster
+
+    def get_player_team(self, week: int, player: Player):
+        """Perform a secondary lookup to get a player's team for a past season.
+
+        YFPY is unable to provide a player's team for historical seasons. The
+        team returned is the player's most recent team. This function hooks in
+        a secondary library to provide a lookup for a player's team for a
+        given season.
+        """
+
+        wkly_rstr = self.weekly_roster
+
+        if player.display_position == "DEF":
+            player_team = player.editorial_team_abbr
+            player_pos = "DEF"
+
+        else:
+
+            # Use Yahoo ID first
+            player_slice = wkly_rstr[
+                (wkly_rstr["yahoo_id"] == f"{player.player_id}")
+                ].reset_index()
+
+            # Else, fallback to str match on full name
+            if player_slice.empty:
+                player_slice = wkly_rstr[
+                    (wkly_rstr["full_name"] == f"{player.full_name}")
+                    ].reset_index()
+
+            first_name = player.first_name
+            last_name_trim = player.last_name.split()[0]
+
+            # Else, fallback to partial match on first and last name
+            if player_slice.empty:
+                player_slice = wkly_rstr[
+                    (wkly_rstr["first_name"] == f"{first_name}") &
+                    (wkly_rstr["last_name"] == f"{last_name_trim}")
+                    ].reset_index()
+
+            # Else, fallback to last name and first initial
+            if player_slice.empty:
+                player_slice = wkly_rstr[
+                    (wkly_rstr["first_name"].str.startswith(
+                        first_name[0])) &
+                    (wkly_rstr["last_name"] == f"{last_name_trim}")
+                    ].reset_index()
+
+            # Else, last name only and position
+            if player_slice.empty:
+                player_slice = wkly_rstr[
+                    (wkly_rstr["position"] == player.primary_position) &
+                    (wkly_rstr["last_name"] == f"{last_name_trim}")
+                    ].reset_index()
+
+            # Retired players that managers drafted anyway
+            known_exceptions = [
+                ("Rob Gronkowski", "TE"),
+                ("Ryan Fitzpatrick", "QB"),
+                ("Tim Tebow", "QB"),
+                ("Odell Beckham Jr.", "WR"),
+                ("Ray Rice", "RB"),
+                ]
+
+            # Expectation at this point is that any database mismatches
+            # have been resolved, and the current `player` is one of the
+            # known exceptions of not having an identifiable team.
+            if player_slice.empty:
+                player_team = "N/A"
+
+                found = False
+                for ke_name, ke_pos in known_exceptions:
+
+                    if ke_name == player.full_name:
+                        found = True
+                        player_pos = ke_pos
+                        break
+
+                if not found:
+                    raise RuntimeWarning(
+                        f"{player.full_name} -- team not found.\n"
+                        f"{self.season} - {week}"
+                        )
+
+            else:
+                closest_week_index = (
+                    player_slice['week'] - week
+                    ).abs().idxmin()
+
+                player_team = player_slice.loc[
+                    closest_week_index, "team"]
+
+                player_pos = player_slice.loc[
+                    closest_week_index, "position"]
+
+        if player_team == "OAK":
+            player_team = "LV"
+
+        return (player_team.upper(), player_pos)
+
+    def parse_draft_results(self, query: YahooFantasySportsQuery):
+        """"""
+
+        teams = query.get_league_teams()
+        query_delay()
+
+        draft_results_query = query.get_league_draft_results()
+
+        for drft_rslt in draft_results_query:
+
+            team_k = int(drft_rslt.team_key.split(".")[-1])-1
+            manager = teams[team_k].managers[0].nickname
+
+            player = query.get_player_stats_for_season(drft_rslt.player_key)
+            query_delay()
+
+            self.draft_results.append(
+                {
+                    "season": self.season,
+                    "manager": manager,
+                    "player_name": player.full_name,
+                    "player_pos": player.primary_position,
+                    "player_key": player.player_key,
+                    "player_cost": drft_rslt.cost,
+                }
+            )
+
+        with open(self.CACHE_DIR / f'temp_draft_{self.season}.json', 'w') as f:
+            json.dump(self.draft_results, f)
 
     def query_seasons(self):
         """Run and parse YahooFantasySportsQuery for all seasons.
@@ -264,13 +474,15 @@ class Query:
         Queries are made indvidually across each season, and built into
         a local database. Databases are then saved the disk.
         """
-
-        for season in self.SEASONS_RANGE:
-            print(f"Querying {season} season...")
-            query = self.run_query(season)
+        for season in tqdm(self.SEASONS_RANGE,
+                           desc="Season".ljust(self.TQDM_WIDTH)):
+            self.season = season
+            query = self.run_query(self.season)
             self.parse_query(query)
 
-        self.save_data()
+            fn_path = self.CACHE_DIR / f"temp_data_{self.season}.json"
+            with open(fn_path, "w") as f:
+                json.dump(self.managers_record_map[self.season], f)
 
     def apply_manager_aliases(self, df: pd.DataFrame):
         """Apply an alias to manager nicknames.
@@ -294,10 +506,11 @@ class Query:
             if 'opponent' in df.columns:
                 df['opponent'] = df['opponent'].str.replace(manager, alias)
 
-    def save_data(self):
-        """Save results from YahooFantasySportsQuery to local files.
+    def save_weekly_matchups_data(self):
+        """Convert the multi-level weekly manager matchups data
+        dictionary into a Pandas dataframe. Then save the dataframe
+        to disk.
         """
-
         # Flatten the nested dictionary into a list of records
         records = []
         for season in list(self.managers_record_map.keys()):
@@ -318,16 +531,21 @@ class Query:
                     }
                     records.append(record)
 
-        # Convert the list of records to a DataFrame
         df = pd.DataFrame(records)
-
-        print(df.columns)
-
-        manager_aliases_path = Path('manager_aliases.json')
         self.apply_manager_aliases(df)
-
         df.to_csv(self.DATA_DIR / 'data.csv')
 
+    def save_data(self):
+        """Save results from YahooFantasySportsQuery to local files.
+        """
+
+        # df = pd.DataFrame(self.draft_results)
+        # df = self.apply_manager_aliases(df)
+        # df.to_csv(self.DATA_DIR / "draft_results.csv")
+
+        self.save_weekly_matchups_data()
+
+        manager_aliases_path = Path('manager_aliases.json')
         with open(manager_aliases_path, 'r') as f:
             manager_aliases = json.load(f)
 
@@ -381,12 +599,91 @@ class Query:
         self.apply_manager_aliases(df)
         df.to_csv(self.DATA_DIR / 'standings.csv')
 
+    def combine(self, season_range: range = range(2018, 2024+1)):
+        """Helper function to combine partial (cached) weekly matchup
+        data files into a complete database.
+        """
+
+        for season in season_range:
+
+            with open(self.CACHE_DIR / f"temp_data_{season}.json", "r") as f:
+                data = json.load(f)
+
+            self.managers_record_map[season] = data
+
+        self.save_weekly_matchups_data()
+
+    def combine_draft(self):
+        """Helper function to combine partial (cached) season draft results
+        data files into a complete database.
+        """
+
+        self.draft_results = []
+
+        for season in range(2024, 2024+1):
+
+            with open(self.CACHE_DIR / f"temp_draft_{season}.json", "r") as f:
+                data = json.load(f)
+
+            self.draft_results += data
+
+        df_drft = pd.DataFrame(self.draft_results)
+        self.apply_manager_aliases(df_drft)
+        df_drft.to_csv(self.DATA_DIR / "draft_results.csv")
+
+    def save_draft_results(self):
+        """Helper function to process draft results into a full,
+        usable database.
+        """
+
+        df = pd.read_csv(self.DATA_DIR / 'data.csv')
+        df_drft = pd.read_csv(self.DATA_DIR / 'draft_results.csv')
+
+        for k, row in df_drft.iterrows():
+
+            season = row['season']
+            manager = row['manager']
+            player_name = row['player_name']
+            pts = 0.0
+
+            df1 = df[
+                (df['manager'] == manager) &
+                (df['season'] == season)
+            ]
+
+            for week in df1['week'].unique():
+
+                df2 = df1[df1['week'] == week].reset_index()
+                roster = eval(df2.loc[0, 'roster'])
+
+                for r in roster:
+
+                    if r[0] == player_name and r[2] != "BN":
+                        pts += r[3]
+
+            df_drft.loc[k, 'points'] = pts
+
+        df_drft = df_drft.drop(
+            ['Unnamed: 0', 'player_key'],
+            axis=1,
+            )
+        df_drft.to_csv(self.DATA_DIR / "draft_results.csv")
+        df_drft.to_json(
+            self.ROOT_DIR / '_data' / 'draft-results.json',
+            orient='records',
+            indent=3,
+            )
+
 
 if __name__ == "__main__":
 
-    query = YahooFantasySportsQuery(
-            league_id="######",
-            game_code="nfl",
-            save_token_data_to_env_file=True,
-            env_file_location=Path(__file__).parent.parent,
-            )
+    from dotenv import load_dotenv
+    load_dotenv()
+
+    q = Query()
+    # q.combine_draft()
+    # q.save_draft_results()
+    q.combine()
+
+    # q.SEASONS_RANGE = range(2016, 2017+1)
+    # q.query_seasons()
