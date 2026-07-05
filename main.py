@@ -24,6 +24,7 @@ load_dotenv()
 def main():
     q = Query()
     q.query_seasons()
+    q.save_data()
 
     a = Awards()
     a.run()
@@ -33,7 +34,7 @@ def main():
 
     c = ContentGenerator()
     c.generate_chart_data()
-    c.generate_page()
+    c.generate_all_manager_pages()
 
 
 if __name__ == "__main__":

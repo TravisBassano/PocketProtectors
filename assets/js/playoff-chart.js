@@ -44,6 +44,7 @@ document.addEventListener("DOMContentLoaded", function() {
     data: data,
     options: {
       responsive: true,
+      maintainAspectRatio: false,
       plugins: {
         legend: { position: 'top' },
         title: { display: true, text: 'Fantasy Manager Playoff Stats' }

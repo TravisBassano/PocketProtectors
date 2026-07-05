@@ -3,8 +3,7 @@ layout: default
 title: Home
 ---
 
-# Statistical League History
-## 2018-2024
+# Statistical League History (2018-2024)
 
 <link rel="stylesheet" href="{{ '/assets/css/tablesort.css' | relative_url }}">
 
@@ -44,7 +43,9 @@ title: Home
 </script>
 
 
-<canvas id="playoffChart" width="800" height="400"></canvas>
+<div class="chart-container">
+  <canvas id="playoffChart"></canvas>
+</div>
 
 <!-- Embed data in a hidden element -->
 <script id="playoff-data" type="application/json">
@@ -53,3 +54,96 @@ title: Home
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="{{ '/assets/js/playoff-chart.js' | relative_url }}"></script>
+
+## Season-by-Season Manager Scoring
+
+<select id="manager-select">
+  <option value="Bob">Bob</option>
+  <option value="Brendon">Brendon</option>
+  <option value="Brian">Brian</option>
+  <option value="Chris">Chris</option>
+  <option value="Eric">Eric</option>
+  <option value="Jordan">Jordan</option>
+  <option value="Keara">Keara</option>
+  <option value="Licata">Licata</option>
+  <option value="Mike">Mike</option>
+  <option value="PJ">PJ</option>
+  <option value="Ryan">Ryan</option>
+  <option value="Travis">Travis</option>
+</select>
+
+<div id="managerChartSection">
+  <canvas id="managerChart" width="600" height="400"></canvas>
+</div>
+
+<!-- Embed manager data in JSON -->
+<script id="manager-data" type="application/json">
+  {{ site.data.seasons | jsonify }}
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="{{ '/assets/js/manager-chart.js' | relative_url }}"></script>
+
+<style>
+    .chart-container {
+    position: relative;
+    width: 100%;
+    height: 300px; /* adjust for your needs */
+    }
+
+    @media (max-width: 600px) {
+    .chart-container {
+        height: 280px; /* smaller for portrait phones */
+    }
+    }
+</style>
+
+### Points by Roster Position
+
+<div id="season-filters" class="season-filters"></div>
+
+<canvas id="pointsChart"></canvas>
+
+<!-- Embed JSON directly from Jekyll data -->
+<script id="rosters-data" type="application/json">
+  {{ site.data.rosters | jsonify }}
+</script>
+
+<!-- Load Chart.js and your custom JS -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="{{ '/assets/js/roster-scatter.js' | relative_url }}"></script>
+
+<style>
+  .season-filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.season-filters input {
+  display: none;
+}
+
+.season-filters label {
+  background: #007bff;
+  color: #fff;
+  border-radius: 999px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  user-select: none;
+  font-size: 0.9rem;
+  transition: background 0.2s ease;
+  text-decoration: line-through;
+}
+
+.season-filters label:hover {
+  background: #abd5ffff;
+}
+
+.season-filters input:checked + label {
+  background: #0056b3;
+  text-decoration: none;
+}
+</style>

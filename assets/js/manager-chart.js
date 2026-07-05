@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function() {
   const allPf = Object.values(managerData).flatMap(m => m.pf);
   const allPa = Object.values(managerData).flatMap(m => m.pa);
 
-  const stepSize = 100;
+  const stepSize = 10;
 
   let globalMin = Math.min(...allPf, ...allPa);
   let globalMax = Math.max(...allPf, ...allPa);
@@ -16,19 +16,21 @@ document.addEventListener("DOMContentLoaded", function() {
   globalMin = Math.floor(globalMin / stepSize) * stepSize;
   globalMax = Math.ceil(globalMax / stepSize) * stepSize;
 
+  globalMax = Math.max(Math.abs(globalMax), Math.abs(globalMin))
+
   const chartConfig = {
     type: 'line',
     data: {
       labels: ['2018', '2019', '2020', '2021', '2022', '2023', '2024'],
       datasets: [
         {
-          label: 'Points Scored',
+          label: 'Points Scored - League Average',
           data: managerData[currentManager].pf,
           borderColor: 'green',
           fill: false,
         },
         {
-          label: 'Points Against',
+          label: 'Points Against - League Average',
           data: managerData[currentManager].pa,
           borderColor: 'red',
           fill: false,
@@ -38,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function() {
     options: {
       responsive: true,
       plugins: { legend: { position: 'top' } },
-      scales: { y: { beginAtZero: true, min: globalMin, max: globalMax, ticks: { stepSize: stepSize } } }
+      scales: { y: { beginAtZero: true, min: -globalMax, max: globalMax, ticks: { stepSize: stepSize } } }
     }
   };
 

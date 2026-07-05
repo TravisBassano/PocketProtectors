@@ -55,51 +55,87 @@ class ContentGenerator:
             champs = (df_slice["rank"] == 1).sum()
 
             data.append({
-                "manager" : manager,
-                "playoff_appearances" : int(playoff_appearances),
-                "playoff_byes" : int(playoff_byes),
-                "championship_appearances" : int(champ_appearances),
-                "championships" : int(champs),
+                "manager": manager,
+                "playoff_appearances": int(playoff_appearances),
+                "playoff_byes": int(playoff_byes),
+                "championship_appearances": int(champ_appearances),
+                "championships": int(champs),
             })
 
         with open(self.WEB_DATA_DIR / "playoffs.json", 'w') as f:
             json.dump(data, f, indent=3)
 
-
-    def generate_page(self):
+    def generate_all_manager_pages(self):
         """
-        Generate a full page.
+        Generate the profile page for all managers in the league dataset.
 
-        Args:
-
-
-        Returns:
+        Loops over every manager found in the dataset, and creates a
+        custom manager profile page under the web _subpage assets.
 
         """
 
         managers = self.df["manager"].unique()
 
         for manager in managers:
+            self.generate_manager_page(manager)
 
-            manager_page_path = (
-                self.MGR_PAGES_DIR / f"{manager.lower()}.md"
+    def generate_manager_page(self, manager: str):
+        """
+        Generates a manager profile page for the specified manager.
+
+        Using the league historical database, generate the profile
+        page for the manager provided by an argument.
+
+        Args:
+            manager (str): Name of the manager
+        """
+
+        css_style_str = (
+            "<link rel=\"stylesheet\" "
+            "href=\"{{ '/assets/css/awards.css' | relative_url }}\">"
             )
 
-            f = open(manager_page_path, "w")
+        scatter_plot_str = (
+            "![Scatter plot]({{ site.baseurl }}"
+            f"/assets/plots/matchup_scatter_{manager.lower()}.png)"
+            )
 
-            f.write(textwrap.dedent(f"""\
-                ---
-                layout: page
-                title: {manager.title()} Profile Page
-                permalink: /manager/{manager.lower()}/
-                ---
+        js_script_str = (
+            "<script src=\"{{ '/assets/js/manager-awards.js' | relative_url }}"
+            "\"></script>"
+        )
 
-                ![Scatter plot]({{{{ site.baseurl }}}}/assets/plots/matchup_scatter_{manager.lower()}.png)
-                """
-            ))
+        manager_page_path = (
+            self.MGR_PAGES_DIR / f"{manager.lower()}.md"
+        )
 
-            f.close()
+        f = open(manager_page_path, "w")
+
+        f.write(textwrap.dedent(f"""\
+            ---
+            layout: page
+            title: {manager.title()} Profile Page
+            permalink: /manager/{manager.lower()}/
+            manager: {manager}
+            ---
+
+            {css_style_str}
+
+            <script id="awards-data" type="application/json">
+               {{{{ site.data.awards | jsonify }}}}
+            </script>
+
+            <div id="banner-wall" data-manager="{{{{ page.manager }}}}"></div>
+
+            {js_script_str}
+
+            {scatter_plot_str}
+            """
+        ))
+
+        f.close()
 
 
 if __name__ == "__main__":
     gen = ContentGenerator()
+    gen.generate_all_manager_pages()
