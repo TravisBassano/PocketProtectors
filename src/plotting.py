@@ -3,6 +3,7 @@
 import inspect
 import json
 import matplotlib.pyplot as plt
+import matplotlib.ticker as mtick
 import pandas as pd
 import seaborn as sns
 import networkx as nx
@@ -12,6 +13,7 @@ from adjustText import adjust_text
 from pathlib import Path
 from matplotlib.lines import Line2D
 from statsmodels.formula.api import ols
+from collections import defaultdict
 
 
 class Plotting:
@@ -42,83 +44,79 @@ class Plotting:
         max_season = max(self.df["season"].unique())
         self.PLT_HEADER = f"MVKC\nSeaons {min_season}-{max_season}\n"
 
-        self.generate_web_data()
-
-    def generate_web_data(self):
-        """Generate the output files used by Liquid / Jekyll for JS charts.
+    def plot_scorigami(self):
+        """DEPRECATED Since most matches are scorigami
+        Create a heatmap based on matchup scores. Unique scores only
+        occuring once are a 'scorigami'
         """
+        df = self.df
 
-        # Group by 'manager' and sum the 'wins' and 'losses'
-        manager_stats = self.df_standings.groupby('manager')[
-            ['wins',
-             'losses',
-             'pf',
-             'pa',
-             ]].sum().reset_index()
+        # Round scores
+        df["points_r"] = df["points"].round().astype(int)
+        df["opp_points_r"] = df["opp_points"].round().astype(int)
 
-        manager_stats['win_pct'] = round(
-            manager_stats['wins'] / (
-                manager_stats['wins'] + manager_stats['losses']
-                ) * 100.0,
-            1
+        # Keep only winning matchups
+        winners = df[df["points"] > df["opp_points"]]
+
+        # Count frequency of each (losing, winning) pair
+        pair_counts = winners.groupby(
+            ["points_r", "opp_points_r"]).size().reset_index(name="count")
+
+        # Merge counts back onto winners
+        winners = winners.merge(
+            pair_counts, on=["points_r", "opp_points_r"], how="left")
+        ties = df[df["points_r"] == df["opp_points_r"]]
+
+        # How many scorigamis happened more than once?
+        duplicates = pair_counts[pair_counts["count"] > 1]
+
+        print("Number of scorigamis repeated:", len(duplicates))
+        print(duplicates.sort_values("count", ascending=False))
+
+        # Percentage of games with duplicate scorigami
+        duplicate_games = (winners["count"] > 1).sum()
+        pct_duplicates = duplicate_games / len(winners) * 100
+
+        print(f"Total games: {len(winners)}")
+        print(f"Games with duplicate scorigami: {duplicate_games}")
+        print(f"Percentage: {pct_duplicates:.2f}%")
+
+        print(f"Total ties: {len(ties)}")
+        if len(ties):
+            print(ties[["season", "week", "manager", "points_r", "opponent"]])
+
+        # Build a 2D frequency table (winning vs losing scores)
+        heatmap_data = winners.groupby(
+            ["opp_points_r", "points_r"]).size().unstack(fill_value=0)
+
+        exit(0)
+
+        # Plot
+        plt.figure(figsize=(12, 8))
+        plt.imshow(heatmap_data, origin="lower", cmap="Blues", aspect="auto")
+
+        # Axes labels
+        plt.xticks(
+            range(len(heatmap_data.columns)),
+            heatmap_data.columns,
+            rotation=90,
             )
+        plt.yticks(range(len(heatmap_data.index)), heatmap_data.index)
 
-        manager_stats = manager_stats.rename(columns={'manager': 'name'})
-        manager_stats = manager_stats.round(1)
+        plt.xlabel("Losing Score (rounded)")
+        plt.ylabel("Winning Score (rounded)")
+        plt.title("Fantasy League Scorigami (Winning vs Losing Scores)")
 
-        # Print the resulting table
-        print(manager_stats)
+        # Optional: add counts as text
+        for (y, x), value in np.ndenumerate(heatmap_data.values):
+            if value > 0:
+                plt.text(x, y, str(value),
+                         ha="center", va="center", color="black", fontsize=7)
 
-        p = Path(__file__).parent.parent / "_data"
-        p.mkdir(parents=True, exist_ok=True)
-
-        p = p / "overall.json"
-
-        with open(p, "w") as f:
-            manager_stats.to_json(f, orient='records', indent=3)
-
-        # Group the data by 'manager' and calculate the totals
-        manager_stats = self.df_standings.groupby('manager').agg(
-            playoff_appearances=('seed', lambda x: (x <= 6).sum()),
-            championship_appearances=('rank', lambda x: (x <= 2).sum()),
-            championships=('rank', lambda x: (x == 1).sum())
-        )
-
-        manager_stats = manager_stats.rename(columns={'manager': 'name'})
-        manager_stats = manager_stats.reset_index()
-
-        # Print the resulting table
-        print(manager_stats)
-
-        p = Path(__file__).parent.parent / "_data" / "playoffs.json"
-
-        with open(p, "w") as f:
-            manager_stats.to_json(f, orient='records', indent=3)
-
-        grouped = self.df_standings.groupby('manager')
-
-        # Create a dictionary to hold the final output
-        json_output = {}
-
-        # Iterate through each manager's group
-        for manager, group_df in grouped:
-            # For each manager, create a dictionary to store their stats
-            manager_stats = {}
-
-            # Get the columns to include in the output (excluding 'manager' and 'season')
-            columns_to_include = ['pf', 'pa', 'rank', 'seed', 'wins', 'losses']
-
-            # Iterate through each column and convert the series to a list
-            for col in columns_to_include:
-                manager_stats[col] = group_df[col].tolist()
-
-            # Add the manager's stats to the main output dictionary
-            json_output[manager] = manager_stats
-
-        p = Path(__file__).parent.parent / "_data" / "seasons.json"
-
-        with open(p, "w") as f:
-            json.dump(json_output, f, indent=3)
+        plt.colorbar(label="Number of Occurrences")
+        plt.tight_layout()
+        plt.savefig(self.PLOTS_DIR / "scorigami.png")
+        plt.close()
 
     def plot_proj(self):
         """Plot projected points vs. actual points scored per manager.
@@ -203,6 +201,9 @@ class Plotting:
         annot_data = []
 
         for manager in managers:
+
+            win_pct = {}
+
             for opponent in managers:
 
                 # If self-matchup:
@@ -230,6 +231,8 @@ class Plotting:
 
                     record = f"({wins}-{losses})"
 
+                    win_pct[opponent] = wins / (wins + losses)
+
                     avg_delta = matchup_df['point_diff'].mean()
 
                     # Annotations info
@@ -240,6 +243,13 @@ class Plotting:
                 else:
                     matchup_data.append([manager, opponent, float('nan')])
                     annot_data.append([manager, opponent, ""])
+
+            rival = min(win_pct, key=win_pct.get)
+            patsy = max(win_pct, key=win_pct.get)
+
+            print(manager)
+            print(f"\tRival: {rival} ({win_pct[rival]:0.2f})")
+            print(f"\tPatsy: {patsy} ({win_pct[patsy]:0.2f})")
 
         # Create DataFrames and pivot for the heatmap
         matchup_df_for_heatmap = pd.DataFrame(
@@ -1147,6 +1157,1127 @@ class Plotting:
         plt.savefig(self.PLOTS_DIR / 'trade_network.png')
         plt.close()
 
+    def plot_draft_cost_points(self):
+
+        df = pd.read_csv(self.DATA_DIR / 'draft_results.csv')
+
+        plt.figure(figsize=(8, 6))
+        sns.scatterplot(x='player_cost', y='points', data=df)
+
+        plt.xlabel("Player Auction Draft Cost")
+        plt.ylabel("Points Scored for Original Manager")
+        plt.suptitle(self.PLT_HEADER, fontsize=16, weight="heavy", y=0.95)
+        plt.title("Player Auction Draft Cost vs. Points Scored")
+        plt.grid(True, linestyle="--", alpha=0.6)
+
+        # Format x-axis with dollar signs
+        plt.gca().xaxis.set_major_formatter(
+            mtick.StrMethodFormatter('${x:,.0f}'))
+
+        x_mean = df['player_cost'].mean()
+        y_mean = df['points'].median()
+
+        # Draw quadrant lines
+        plt.axvline(x=x_mean, color='red', linestyle='--', alpha=0.7)
+        plt.axhline(y=y_mean, color='red', linestyle='--', alpha=0.7)
+
+        # Get current axis limits
+        plt.xlim((0, 100))
+        plt.ylim((-50, 500))
+        x_min, x_max = plt.xlim()
+        y_min, y_max = plt.ylim()
+
+        x_pad = (x_max - x_min) * 0.02
+        y_pad = (y_max - y_min) * 0.02
+
+        # Place quadrant labels in corners
+        plt.text(
+            x_max - x_pad, y_max - y_pad,
+            "As Advertised", fontsize=14, color="black", ha='right', va='top')
+        plt.text(
+            x_min + x_pad, y_max - y_pad,
+            "Value\nPicks", fontsize=14, color="black", ha='left', va='top')
+        plt.text(
+            x_min + x_pad, y_min + y_pad,
+            "JAGs", fontsize=14, color="black", ha='left', va='bottom')
+        plt.text(
+            x_max - x_pad, y_min + y_pad, "Busts",
+            fontsize=14, color="black", ha='right', va='bottom')
+        plt.tight_layout()
+        plt.savefig(self.PLOTS_DIR / 'draft_scatter.png')
+        plt.close()
+
+        # Busts
+        busts = df[
+            (df['points'] < y_mean) &
+            (df['player_cost'] > 40)
+        ].reset_index()
+
+        busts = busts.sort_values(
+            by=['player_cost', 'points'],
+            ascending=[False, True],
+            )
+
+        for k, row in busts.iterrows():
+            print(
+                f"{row['season']} - "
+                f"{row['manager']} - "
+                f"{row['player_name']} ({row['player_pos']}) - "
+                f"${row['player_cost']} / {row['points']:0.2f}pts"
+            )
+
+        # Values
+        values = df[
+            (df['points'] > 275) &
+            (df['player_cost'] < x_mean)
+        ].reset_index()
+
+        values = values.sort_values(
+            by=['player_cost', 'points'],
+            ascending=[True, True],
+            )
+
+        print()
+
+        for k, row in values.iterrows():
+            print(
+                f"{row['season']} - "
+                f"{row['manager']} - "
+                f"{row['player_name']} ({row['player_pos']}) - "
+                f"${row['player_cost']} / {row['points']:0.2f}pts"
+            )
+
+        for season in df['season'].unique():
+
+            print(f"{season}")
+
+            for k, rank in enumerate(["1st", "2nd", "3rd"]):
+                df1 = self.df_standings[
+                    (self.df_standings['season'] == season) &
+                    (self.df_standings['rank'] == k+1)
+                ].reset_index()
+
+                winner = df1.loc[0, 'manager']
+
+                qbs = df[
+                    (df['manager'] == winner) &
+                    (df['season'] == season) &
+                    (df['player_pos'] == "QB")
+                ]
+
+                print(
+                    f"\t{rank} - {winner} - {qbs['player_cost'].sum()} QB $s")
+            print()
+
+    def plot_pts_by_roster_spot(self):
+        """
+        """
+
+        df = self.df
+
+        all_managers = {}
+        all_managers2 = {}
+
+        js = []
+
+        for manager in df["manager"].unique():
+
+            pts_by_pos = defaultdict(int)
+            pts_by_ros = defaultdict(int)
+
+            s = df[df["manager"] == manager]
+
+            for k, row in s.iterrows():
+                roster = eval(row["roster"])
+                # print(roster)
+
+                for r in roster:
+                    pts_by_ros[r[2]] += r[3]
+
+                    if r[2] == "BN":
+                        pts_by_pos["BN_" + r[4]] += r[3]
+                    else:
+                        pts_by_pos[r[4]] += r[3]
+
+            all_managers[manager] = pts_by_ros
+            all_managers2[manager] = pts_by_pos
+
+        for manager in df["manager"].unique():
+            s = df[df["manager"] == manager]
+
+            for season in s["season"].unique():
+                t = s[s["season"] == season]
+
+                pts_by_ros = defaultdict(int)
+
+                for k, row in t.iterrows():
+                    roster = eval(row["roster"])
+
+                    for r in roster:
+                        pts_by_ros[r[2]] += r[3]
+
+                for key, value in pts_by_ros.items():
+                    entry = {
+                        "manager": manager,
+                        "season": int(season),
+                        "position": key,
+                        "points": value,
+                    }
+                    js.append(entry)
+        print(js)
+
+        with open("_data/rosters.json", "w") as f:
+            json.dump(js, f, indent=3)
+
+        custom_order = [
+            'QB', 'RB', 'WR', 'TE', 'W/R/T', 'W/T', 'DEF', 'K', 'BN', 'IR'
+        ]
+
+        # Convert to DataFrame and transform to "long" format for plotting
+        df = pd.DataFrame.from_dict(
+            all_managers, orient='index').reset_index().rename(
+                columns={'index': 'Manager'})
+        df_long = df.melt(
+            id_vars='Manager', var_name='Position', value_name='Value')
+
+        managers = sorted(df['Manager'].unique().tolist())
+
+        # Use a colormap suitable for up to 20 distinct categories
+        cmap = plt.cm.get_cmap('tab20', 12)
+        manager_to_color = {m: cmap(i) for i, m in enumerate(managers)}
+
+        # Define 12 unique markers for better separation
+        unique_markers = [
+            'o', 's', '^', 'D', 'p', '*', 'h', 'v', '>', '<', 'X', 'P']
+        manager_to_marker = {
+            m: unique_markers[
+                i % len(unique_markers)] for i, m in enumerate(managers)}
+
+        position_to_x = {pos: i for i, pos in enumerate(custom_order)}
+
+        plt.figure(figsize=(14, 8))
+        ax = plt.gca()
+
+        # Plotting with Jitter (Dodge) and Markers
+        manager_offsets = np.linspace(-0.4, 0.4, 12)
+        offset_map = dict(zip(managers, manager_offsets))
+
+        # Calculate the base numerical x-position for each data point
+        df_long['x_base'] = df_long['Position'].apply(
+            lambda p: position_to_x[p])
+
+        for manager in managers:
+            subset = df_long[df_long['Manager'] == manager]
+
+            x_pos = subset['x_base'] + offset_map[manager]
+            y_pos = subset['Value']
+
+            # Plot the points using Matplotlib's scatter
+            ax.scatter(
+                x_pos,
+                y_pos,
+                label=manager,
+                color=manager_to_color[manager],
+                marker=manager_to_marker[manager],
+                s=80,
+                edgecolors='black',
+                linewidths=0.5
+            )
+
+        plt.suptitle(self.PLT_HEADER, fontsize=16, weight="heavy", y=0.95)
+        ax.set_title(
+            'Roster Position Points Comparison Across All Managers',
+            fontsize=16,
+            )
+        ax.set_xlabel('Roster Position', fontsize=12)
+        ax.set_ylabel('Points', fontsize=12)
+
+        # Set the X-ticks to the position names
+        ax.set_xticks(np.arange(len(custom_order)))
+        ax.set_xticklabels(custom_order, rotation=45, ha='right')
+
+        # --- FIX: Set vertical grid lines at mid-points to box the data ---
+        # Grid lines should be placed at 0.5, 1.5, 2.5, ..., 9.5, 10.5
+        grid_ticks = np.arange(-0.5, len(custom_order) + 0.5, 1)
+
+        # Add vertical grid lines
+        ax.set_xticks(grid_ticks, minor=True)
+        ax.grid(
+            axis='x',
+            which='minor',
+            linestyle='-',
+            alpha=0.9,
+            color='lightgray',
+            linewidth=1.5,
+            )
+
+        # Hide minor ticks if they appear
+        ax.tick_params(axis='x', which='minor', size=0)
+
+        # Remove the default grid lines that were aligned with the labels
+        ax.grid(axis='x', which='major', visible=False)
+
+        # Keep the horizontal (y-axis) grid lines
+        ax.grid(axis='y', linestyle='--', alpha=0.6)
+
+        # Set X-limits to ensure the first and last boxes are fully drawn
+        ax.set_xlim(grid_ticks.min(), grid_ticks.max())
+
+        ax.legend(
+            title='Manager',
+            loc='upper left',
+            bbox_to_anchor=(1.01, 1),
+            ncol=1,
+            fontsize=8,
+            )
+
+        # Adjust layout to make room for the 2-column legend
+        plt.tight_layout(rect=[0, 0, 0.88, 1])
+
+        plt.savefig(self.PLOTS_DIR / 'player_ros_pts_by_manager.png')
+        plt.close()
+
+        custom_order = [
+            'QB', 'RB', 'WR', 'TE',
+            'DEF', 'K',
+            'BN_QB', 'BN_RB', 'BN_WR', 'BN_TE',
+            'BN_DEF', 'BN_K',
+            ]
+
+        # Convert to DataFrame and transform to "long" format for plotting
+        df = pd.DataFrame.from_dict(
+            all_managers2, orient='index').reset_index().rename(
+                columns={'index': 'Manager'})
+
+        df_long = df.melt(
+            id_vars='Manager',
+            var_name='Position',
+            value_name='Value',
+            )
+
+        # Use a colormap suitable for up to 20 distinct categories
+        cmap = plt.cm.get_cmap('tab20', 12)
+        manager_to_color = {m: cmap(i) for i, m in enumerate(managers)}
+
+        # Define 12 unique markers for better separation
+        unique_markers = [
+            'o', 's', '^', 'D', 'p', '*', 'h', 'v', '>', '<', 'X', 'P']
+        manager_to_marker = {
+            m: unique_markers[
+                i % len(unique_markers)] for i, m in enumerate(managers)}
+
+        position_to_x = {pos: i for i, pos in enumerate(custom_order)}
+
+        plt.figure(figsize=(14, 8))
+        ax = plt.gca()
+
+        # Manual Plotting with Jitter (Dodge) and Markers
+        manager_offsets = np.linspace(-0.4, 0.4, 12)
+        offset_map = dict(zip(managers, manager_offsets))
+
+        # Calculate the base numerical x-position for each data point
+        df_long['x_base'] = df_long['Position'].apply(
+            lambda p: position_to_x[p])
+
+        for manager in managers:
+            subset = df_long[df_long['Manager'] == manager]
+
+            x_pos = subset['x_base'] + offset_map[manager]
+            y_pos = subset['Value']
+
+            # Plot the points using Matplotlib's scatter
+            ax.scatter(
+                x_pos,
+                y_pos,
+                label=manager,
+                color=manager_to_color[manager],
+                marker=manager_to_marker[manager],
+                s=80,
+                edgecolors='black',
+                linewidths=0.5
+            )
+
+        plt.suptitle(self.PLT_HEADER, fontsize=16, weight="heavy", y=0.95)
+        ax.set_title(
+            'Player Position Points Comparison Across All Managers',
+            fontsize=16,
+            )
+        ax.set_xlabel('Player Position', fontsize=12)
+        ax.set_ylabel('Points', fontsize=12)
+
+        # Set the X-ticks to the position names
+        ax.set_xticks(np.arange(len(custom_order)))
+        ax.set_xticklabels(custom_order, rotation=45, ha='right')
+
+        # --- FIX: Set vertical grid lines at mid-points to box the data ---
+        # Grid lines should be placed at 0.5, 1.5, 2.5, ..., 9.5, 10.5
+        grid_ticks = np.arange(-0.5, len(custom_order) + 0.5, 1)
+
+        # Add vertical grid lines
+        ax.set_xticks(grid_ticks, minor=True)
+        ax.grid(
+            axis='x',
+            which='minor',
+            linestyle='-',
+            alpha=0.9,
+            color='lightgray',
+            linewidth=1.5,
+            )
+
+        # Hide minor ticks if they appear
+        ax.tick_params(axis='x', which='minor', size=0)
+
+        # Remove the default grid lines that were aligned with the labels
+        ax.grid(axis='x', which='major', visible=False)
+
+        # Keep the horizontal (y-axis) grid lines
+        ax.grid(axis='y', linestyle='--', alpha=0.6)
+
+        # Set X-limits to ensure the first and last boxes are fully drawn
+        ax.set_xlim(grid_ticks.min(), grid_ticks.max())
+
+        # Move the legend outside the plot, using 2 columns
+        ax.legend(
+            title='Manager',
+            loc='upper left',
+            bbox_to_anchor=(1.01, 1),
+            ncol=1,
+            fontsize=8,
+            )
+
+        # Adjust layout to make room for the 2-column legend
+        plt.tight_layout(rect=[0, 0, 0.88, 1])
+
+        plt.savefig(self.PLOTS_DIR / 'player_pos_pts_by_manager.png')
+        plt.close()
+
+    def plot_optimum_lineup(self):
+        """
+        """
+
+        df = self.df
+
+        mx = -1e9
+        mx_str = ""
+
+        sqr_pts_sum = 0.0
+        total_w = 0
+
+        m = defaultdict(lambda: {'opt_cnt': 0, 'sqr_pts': 0.0, 'flips': 0})
+
+        for k, row in df.iterrows():
+
+            roster = eval(row['roster'])
+            s_roster = sorted(roster, key=lambda item: item[3], reverse=True)
+
+            # print(roster)
+            # print()
+            # print(s_roster)
+            # exit(0)
+
+            manager = row['manager']
+            week = row['week']
+            season = row['season']
+
+            starters = []
+            bench = []
+            optimum = []
+            slots = []
+
+            pts = 0
+            opt_pts = 0
+
+            for r in roster:
+                if r[2] == 'BN' or r[2] == 'IR':
+                    bench.append(r)
+                else:
+                    starters.append(r)
+                    slots.append(r[2])
+                    pts += r[3]
+
+            for s in slots:
+                kp = None
+                for k, p in enumerate(s_roster):
+                    if (
+                        # Roster slot position matches player position
+                        (s == p[4]) or
+                        # Elseif is full FLEX
+                        (s == "W/R/T" and (
+                            p[4] == "WR" or p[4] == "RB" or p[4] == "TE")) or
+                        # Elseif is WR or TE
+                        (s == "W/T" and (p[4] == "WR" or p[4] == "TE"))
+                    ):
+                        kp = k
+                        opt_pts += p[3]
+                        break
+
+                optimum.append(s_roster.pop(kp))
+
+            # print(f"{manager}: Week {week} {season} | {pts} vs {opt_pts}")
+
+            # DEBUG
+            # Sanity check sum of player points vs. team scores
+            # if round(pts, 2) != round(row['points'], 2):
+            #     print("Points Mismatch")
+            #     print(
+            #         f"{manager}: Week {week} {season} - "
+            #         f"{pts:0.2f} {row['points']:0.2f}\n"
+            #         )
+
+            if pts == opt_pts:
+                # print(
+                #     f"{manager}: Week {week} {season} - "
+                #     f"Optimum Lineup {opt_pts:0.2f} pts"
+                #     )
+                m[manager]['opt_cnt'] += 1
+
+            else:
+                sqr_pts = opt_pts - pts
+                m[manager]['sqr_pts'] += sqr_pts
+
+                # Manual trivia extraction here
+                if sqr_pts > mx and manager == "Chris":
+                    mx = sqr_pts
+                    mx_str = f"{manager}: Week {week} {season} | {opt_pts} pts"
+
+                sqr_pts_sum += sqr_pts
+
+                if opt_pts > row['opp_points'] and pts < row['opp_points']:
+                    m[manager]['flips'] += 1
+
+            total_w += 1
+
+        print(f"{mx_str} {mx} pts")
+        print(f"{sqr_pts_sum / total_w} {total_w}")
+
+        # Create a list of (category, count) tuples
+        data_pairs = [(key, data['opt_cnt']) for key, data in m.items()]
+
+        sorted_data = sorted(
+            data_pairs,
+            key=lambda item: item[1],
+            reverse=True,
+            )
+
+        # Unpack the sorted data for plotting
+        categories = [item[0] for item in sorted_data]
+        counts = [item[1] for item in sorted_data]
+
+        plt.figure(figsize=(8, 6))
+        plt.bar(categories, counts, color='skyblue')
+
+        # Add labels and title
+        plt.xlabel('Manager')
+        plt.xticks(rotation=45, ha='right')
+        plt.ylabel('Num. of Optimum Lineup Weeks')
+        plt.suptitle(self.PLT_HEADER, fontsize=16, weight="heavy", y=0.95)
+        plt.title(
+            "Weeks of Setting Optimum Lineup (No Squandered Bench Points)"
+            )
+
+        # Optional: Add the count value on top of each bar
+        for i, count in enumerate(counts):
+            plt.text(i, count + 0.1, str(count), ha='center', va='bottom')
+
+        plt.tight_layout()
+
+        # Display the chart (The output image is shown above)
+        plt.savefig(self.PLOTS_DIR / 'opt_lineup_chart_counts.png')
+
+        # Create a list of (category, count) tuples
+        data_pairs = [(key, data['flips']) for key, data in m.items()]
+
+        sorted_data = sorted(
+            data_pairs,
+            key=lambda item: item[1],
+            reverse=True,
+            )
+
+        # Unpack the sorted data for plotting
+        categories = [item[0] for item in sorted_data]
+        counts = [item[1] for item in sorted_data]
+
+        plt.figure(figsize=(8, 6))
+        plt.bar(categories, counts, color='skyblue')
+
+        # Add labels and title
+        plt.xlabel('Manager')
+        plt.xticks(rotation=45, ha='right')
+        plt.ylabel('Number of "Flipped" Games (Loss Becomes Win)')
+        plt.suptitle(self.PLT_HEADER, fontsize=16, weight="heavy", y=0.95)
+        plt.title("Num. Additional Wins With Optimal Lineup")
+
+        # Optional: Add the count value on top of each bar
+        for i, count in enumerate(counts):
+            plt.text(
+                i,
+                count + 0.1,
+                str(round(count)),
+                ha='center',
+                va='bottom',
+                )
+
+        plt.tight_layout()
+
+        # Display the chart (The output image is shown above)
+        plt.savefig(self.PLOTS_DIR / 'flips_chart_counts.png')
+
+        # Create a list of (category, count) tuples
+        data_pairs = [(key, data['sqr_pts']) for key, data in m.items()]
+
+        sorted_data = sorted(
+            data_pairs,
+            key=lambda item: item[1],
+            reverse=True,
+            )
+
+        # Unpack the sorted data for plotting
+        categories = [item[0] for item in sorted_data]
+        counts = [item[1] for item in sorted_data]
+
+        plt.figure(figsize=(8, 6))
+        plt.bar(categories, counts, color='skyblue')
+
+        # Add labels and title
+        plt.xlabel('Manager')
+        plt.xticks(rotation=45, ha='right')
+        plt.ylabel('Total Squandered Bench Points')
+        plt.suptitle(self.PLT_HEADER, fontsize=16, weight="heavy", y=0.95)
+        plt.title("Squandered Bench Points")
+
+        # Optional: Add the count value on top of each bar
+        for i, count in enumerate(counts):
+            plt.text(
+                i,
+                count + 0.1,
+                str(round(count)),
+                ha='center',
+                va='bottom',
+                )
+
+        plt.tight_layout()
+
+        # Display the chart (The output image is shown above)
+        plt.savefig(self.PLOTS_DIR / 'squandered_pts_chart_counts.png')
+
+    def plot_kicker_tackles(self):
+        """
+        """
+
+        df_stats = pd.read_csv("nfl_player_stats.csv")
+
+        df = self.df
+
+        k_tkl_count = 0
+        dlta_sum = 0
+        k_tkl_thrs_count = 0
+
+        qbs = []
+        wrs = []
+        rbs = []
+        ks = []
+        ks_tkl = []
+
+        for k, df_row in df.iterrows():
+
+            roster = eval(df_row["roster"])
+
+            manager = df_row["manager"]
+            opp_manager = df_row["opponent"]
+            season = df_row["season"]
+            week = df_row["week"]
+            pts = df_row["points"]
+            opp_pts = df_row["opp_points"]
+            dlta = pts - opp_pts
+
+            p_s = df_stats[
+                (df_stats["season"] == season) &
+                (df_stats["week"] == week)
+            ]
+
+            # Find kicker
+            for r in roster:
+                if r[4] == "QB":
+                    qbs.append(r[3])
+                if r[4] == "RB":
+                    rbs.append(r[3])
+                if r[4] == "WR":
+                    wrs.append(r[3])
+
+
+                if r[2] == "K":
+                    ks.append(r[3])
+
+                    first, last = r[0].split()
+
+                    p_ss = p_s[
+                        p_s["player_name"] == f"{first[0]}.{last}"
+                    ].reset_index()
+
+                    if p_ss.shape[0] != 1:
+                        # print(f"|{first[0]}.{last}|")
+                        # print(f"Week {week} {season} {r}")
+                        # exit(0)
+                        continue
+
+                    k_tkl = p_ss.loc[0, "def_tackles_solo"]
+                    ks_tkl.append(r[3] + k_tkl*8)
+
+                    if k_tkl > 0:
+                        # print(f"Week {week} {season} {r[0]} {k_tkl} | {pts} vs. {opp_pts}")
+
+                        if opp_pts > pts:
+                            dlta_sum += dlta
+                            k_tkl_count += 1
+                            # print(f"{manager} vs. {opp_manager} | Week {week} {season} {r[0]} - {k_tkl} tkl | {pts} vs. {opp_pts} ({dlta:0.2f} pts delta)")
+
+
+                        if dlta < 0 and dlta > -10:
+                            print(f"{manager} vs. {opp_manager} | Week {week} {season} {r[0]} - {k_tkl} tkl | {pts} vs. {opp_pts} ({dlta:0.2f} pts delta)")
+                            k_tkl_thrs_count += 1
+
+        print(f"Total Matchups with Kicker Tackles: {k_tkl_count}")
+        print(f"Average Matchup Delta: {dlta_sum / k_tkl_count}")
+        print(f"Total Matchups with 10-point (or less) Deltas: {k_tkl_thrs_count}")
+
+        plt.figure(figsize=(10, 6))
+
+        # Plot the Kernel Density Estimate (KDE) line
+        sns.kdeplot(qbs, color='darkorange', linewidth=3, label="QBs")
+        sns.kdeplot(rbs, color='darkgreen', linewidth=3, label="RBs")
+        sns.kdeplot(wrs, color='lightgreen', linewidth=3, label="WRs")
+        sns.kdeplot(ks, color='blue', linewidth=3, label="Ks (standard)")
+        sns.kdeplot(ks_tkl, color='lightblue', linewidth=3, label="Ks (tackle pts)")
+
+        # 3. Add title and labels
+        plt.suptitle(self.PLT_HEADER, fontsize=16, weight="heavy", y=0.95)
+        plt.title('Distribution Shape of Position Scoring (Kernel Density Estimates)', fontsize=16)
+        plt.xlabel('Weekly Points', fontsize=12)
+        plt.ylabel('Density', fontsize=12)
+        plt.grid(axis='y', alpha=0.5)
+        plt.legend(loc="upper right", bbox_to_anchor=(1.05, 1))
+
+        plt.tight_layout()
+        # 4. Save the plot
+        plt.savefig('kde_plot.png')
+        plt.close()
+
+    def plot_last_win(self):
+        """
+        """
+
+        last_wins = {}
+
+        longest = 0
+        t_str = "None"
+
+        df = self.df
+
+        curr_season = df.iloc[-1, df.columns.get_loc('season')]
+        curr_week = df.iloc[-1, df.columns.get_loc('week')]
+
+        min_season = df.iloc[0, df.columns.get_loc('season')]
+
+        weeks_now = (curr_season-min_season)*52 + curr_week
+
+        for manager in df["manager"].unique():
+
+            if manager != "Eric":
+                continue
+
+            s0 = df[df["manager"] == manager]
+
+            opps = {}
+            w_str = "Never"
+
+            man_longest = 0
+            man_str = "Never"
+
+            for opponent in s0["opponent"].unique():
+                s1 = s0[
+                    s0["opponent"] == opponent
+                    ].reset_index()
+
+                wins = s1[
+                    s1["points"] > s1["opp_points"]
+                ].reset_index()
+
+                if wins.shape[0] > 0:
+                    k = wins.shape[0] - 1
+
+                    wk = int(wins.loc[k, "week"])
+                    sn = int(wins.loc[k, "season"])
+
+                    w_str = f"Week {wk} {sn}"
+                    opps[opponent] = w_str
+
+                    t_weeks = weeks_now - (sn-min_season)*52 + wk
+
+                    # print(f"{t_weeks}\t{longest}")
+
+                    k = ((s1["season"] == sn) & (s1["week"] == wk)).idxmax()
+                    s2 = s1.iloc[k+1:]
+
+                    tot_losses = s2.shape[0]
+                    consol_losses = s2["is_consolation"].sum()
+                    playoff_losses = s2["is_playoffs"].sum() - consol_losses
+
+                    if t_weeks > longest:
+                        longest = t_weeks
+                        t_str = f"{manager} vs {opponent} - {w_str} ({tot_losses}, {playoff_losses}, {consol_losses})"
+
+                    if t_weeks > man_longest:
+                        man_longest = t_weeks
+                        man_str = f"{manager} vs {opponent} - {w_str} ({tot_losses}, {playoff_losses}, {consol_losses})"
+
+            last_wins[manager] = opps
+            print(man_str)
+
+            print(manager)
+            print(opps)
+            print()
+
+        # print(last_wins)
+        print()
+        print(t_str)
+
+    def plot_monday_comebacks(self):
+        """
+        """
+
+        df = self.df
+
+        count = 0
+        count2 = 0
+        count3 = 0
+        count4 = 0
+
+        count2_sum = 0
+
+        manager_counts = defaultdict(int)
+        manager_opportunities = defaultdict(int)
+        manager_needed = defaultdict(lambda: 1e9)
+        manager_needed_s = dict()
+        loser_counts = defaultdict(int)
+        pos_counts = defaultdict(int)
+
+        th_pts = 0
+
+        max_win = -1e9
+        min_win = 1e9
+
+        managers = df['manager'].unique()
+
+        total_matchups = df.shape[0] >> 1
+
+        for k, row in df.iterrows():
+
+            monday_players = []
+            num_monday_players_opp = 0
+
+            roster = eval(row["roster"])
+
+            season = row["season"]
+            week = row["week"]
+            manager = row["manager"]
+            opponent = row["opponent"]
+            pts = row["points"]
+            opp_pts = row["opp_points"]
+
+            opp_row = df[
+                (df["season"] == season) &
+                (df["week"] == week) &
+                (df["manager"] == opponent) &
+                (df["opponent"] == manager)
+            ].reset_index()
+
+            opp_roster = eval(opp_row.loc[0, "roster"])
+
+            for r in roster:
+                day = r[5]
+
+                active = True
+
+                if r[2] == "BN" or r[2] == "IR":
+                    active = False
+
+                if day == "Monday" and active:
+                    monday_players += [r]
+
+            for r in opp_roster:
+                day = r[5]
+
+                active = True
+
+                if r[2] == "BN" or r[2] == "IR":
+                    active = False
+
+                if day == "Monday" and active:
+                    num_monday_players_opp += 1
+
+            if len(monday_players) == 1 and num_monday_players_opp == 0:
+                count += 1
+
+                monday_pts = monday_players[0][3]
+                r = monday_players[0]
+
+                if (pts - monday_pts) + th_pts < opp_pts:
+                    count2 += 1
+                    count2_sum += opp_pts - (pts - monday_pts)
+
+                    manager_opportunities[manager] += 1
+
+                    needed = opp_pts - (pts - monday_pts)
+
+                    s = (
+                        f"Week {week:2d} {season} | "
+                        f"{manager} ({pts}) vs. {opponent} ({opp_pts}) | "
+                        f"{r[0]} ({r[1]} - {r[4]}): {r[3]:0.2f} pts "
+                        f"(needed: {needed:0.2f})"
+                    )
+
+                    if pts > opp_pts:
+
+                        count4 += 1
+                        print(s)
+                        print()
+
+                        if pts - opp_pts < min_win:
+                            min_s = s
+                            min_win = pts - opp_pts
+
+                        if needed > max_win:
+                            max_s = s
+                            max_win = needed
+
+                        manager_counts[manager] += 1
+                        loser_counts[opponent] += 1
+                        pos_counts[monday_players[0][4]] += 1
+
+                    else:
+
+                        if needed < manager_needed[manager]:
+                            manager_needed[manager] = needed
+                            manager_needed_s[manager] = s
+
+                else:
+                    count3 += 1
+
+        print(f"Matchups with 1 player remaining on Monday: {count} / {total_matchups} | ({100 * count / total_matchups:0.2f}%)")
+        print(f"and where manager is behind by {th_pts} or more pts: {count2} ({count2_sum / count2:0.2f} pts avg.)")
+        print(f"and where manager won: {count4} ({100*count4 / count:0.2f}%)")
+        # print(count3)
+        print(f"Num. MNF Comebacks by Manager: {dict(manager_counts)}")
+        print(f"Num. MNF Comeback Chances by Manager: {dict(manager_opportunities)}")
+        print(f"Num. MNF Comeback Victims by Manager: {dict(loser_counts)}")
+        # print(loser_counts)
+        print(pos_counts)
+        print()
+        print("Squeakiest Monday night comeback:")
+        print(min_s)
+        print(min_win)
+        print()
+        print("Biggest Monday night comeback:")
+        print(max_s)
+        print(max_win)
+        print()
+
+        for m in managers:
+            print(m)
+            print(manager_needed_s[m])
+            print()
+
+    def plot_cmc(self):
+        """
+        """
+
+        df = self.df
+
+        x = []
+        y = []
+
+        cmc_played = 0
+        cmc_played_win = 0
+        cmc_played_margin = 0
+
+        cmc_benched = 0
+        cmc_benched_win = 0
+        cmc_benched_margin = 0
+
+        man_wins = defaultdict(int)
+        man_count = defaultdict(int)
+
+        man_played = defaultdict(int)
+        man_played_wins = defaultdict(int)
+
+        for k, row in df.iterrows():
+
+            # is_cmc = False
+
+            # if row["is_playoffs"] == 0:
+            #     continue
+
+            # if row["is_consolation"] == 1:
+            #     continue
+
+            manager = row["manager"]
+            season = row["season"]
+            week = row["week"]
+
+            cmc_pts = 0
+
+            roster = eval(row["roster"])
+
+            margin = row["points"] - row["opp_points"]
+
+            for r in roster:
+                if r[0] == "Christian McCaffrey":
+                    cmc_pts = r[3]
+
+                    print(f"Week {week} {season} | {manager} | {margin:0.2f} | {cmc_pts} [{r[2]}]")
+
+                    man_count[manager] += 1
+                    if margin > 0:
+                        man_wins[manager] += 1
+
+                    if r[2] == "IR" or r[2] == "BN":
+                        cmc_benched += 1
+                        cmc_benched_margin += margin
+
+                        if margin > 0:
+                            cmc_benched_win += 1
+
+                    else:
+                        cmc_played += 1
+                        cmc_played_margin += margin
+                        man_played[manager] += 1
+
+                        if margin > 0:
+                            cmc_played_win += 1
+                            man_played_wins[manager] += 1
+
+
+                    break
+
+            x += [cmc_pts]
+            y += [margin]
+
+        print(f"{cmc_played} games rostered | {cmc_played_win / cmc_played:0.2f} | {cmc_played_margin / cmc_played:0.2f}")
+        print(f"{cmc_benched} games benched | {cmc_benched_win / cmc_benched:0.2f} | {cmc_benched_margin / cmc_benched:0.2f}")
+
+        for k in man_count:
+            # print(k)
+            print(f"{k} | {man_wins[k] / man_count[k]:0.2} | {man_wins[k]} / {man_count[k]}")
+            if man_played[k] == 0:
+                print(f"{k} | {man_played[k]} games played")
+
+            else:
+                print(f"{k} | {man_played_wins[k] / man_played[k]:0.2} | {man_played_wins[k]} / {man_played[k]}")
+            # print(f"{k} | {man_played[k] / man_count[k]:0.2}")
+            print()
+
+
+        # plt.figure(figsize=(10, 7))
+
+        # plt.scatter(
+        #     x,
+        #     y,
+        #     s=200,
+        #     marker='*',
+        #     color='gold',
+        #     edgecolor='black',
+        #     zorder=10,
+        #     label='League Winner'
+        # )
+
+        # plt.show()
+
+    def plot_optimum_qbs(self):
+        """
+        """
+
+        num_multi_qb = defaultdict(int)
+        wrong_multi_qb = defaultdict(int)
+        chc_wks = defaultdict(int)
+        tot_qb_wks = defaultdict(int)
+
+        df = self.df
+
+        for k, row in df.iterrows():
+
+            manager = row["manager"]
+            weeks = row["week"]
+
+            if manager != "Keara":
+                continue
+
+            roster = eval(row['roster'])
+
+            qbs = []
+            bn_pts = 0
+
+            for r in roster:
+                if r[4] == "QB":
+                    tot_qb_wks[manager] += 1
+
+                if r[4] == "QB" and r[5] != "BYE":
+                    qbs += [r]
+
+                    if r[2] == "QB":
+                        qb_pts = r[3]
+                    elif r[2] == "BN":
+                        bn_pts = r[3]
+                        if bn_pts > 0:
+                            chc_wks[manager] += 1
+
+            if len(qbs) > 1:
+                num_multi_qb[manager] += 1
+
+            if bn_pts > qb_pts:
+                wrong_multi_qb[manager] += 1
+                s = "WRONG"
+            else:
+                s = "Correct"
+
+            print(f"Week {row["week"]} | {qbs} | {s}")
+
+        for m in df["manager"].unique():
+
+            print(m)
+            print(f"\tMulti-QB weeks: {num_multi_qb[m]} / {weeks}")
+            print(f"\tWrong QB start weeks: {wrong_multi_qb[m]} / {num_multi_qb[m]}")
+            print(f"\tMulti-start QB weeks: {chc_wks[m]} / {num_multi_qb[m]}")
+            print(f"\tTotal QB roster weeks: {tot_qb_wks[m]}")
+            print()
+
+    def plot_individual_perf(self):
+        """
+        """
+
+        season = 2025
+
+        df = self.df[self.df["season"] == season]
+
+        mx = -1e9
+        s = []
+
+        for k, row in df.iterrows():
+
+            manager = row["manager"]
+            week = row["week"]
+
+            roster = eval(row['roster'])
+
+            for r in roster:
+
+                if r[4] == "WR" or r[4] == "RB" or r[4] == "TE":
+
+                    if r[3] > mx:
+                        mx = r[3]
+                        s = f"Week {week} | {manager} | {r}"
+
+        print(s)
+
     def run(self):
         """Discovers and calls all plotting methods in the class.
         """
@@ -1161,4 +2292,14 @@ class Plotting:
 if __name__ == "__main__":
 
     p = Plotting()
-    p.run()
+    # p.plot_draft_cost_points()
+    # p.plot_pts_by_roster_spot()
+    # p.plot_optimum_lineup()
+    # p.plot_kicker_tackles()
+    # p.plot_proj_heatmap()
+    # p.plot_last_win()
+    # p.plot_monday_comebacks()
+    # p.plot_cmc()
+    # p.plot_optimum_qbs()
+    p.plot_individual_perf()
+

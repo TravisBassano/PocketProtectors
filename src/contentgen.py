@@ -32,8 +32,80 @@ class ContentGenerator:
     def __init__(self):
 
         self.df = pd.read_csv(self.DATA_DIR / 'data.csv')
+        self.df_standings = pd.read_csv(self.DATA_DIR / 'standings.csv')
 
         self.MGR_PAGES_DIR.mkdir(parents=True, exist_ok=True)
+        self.WEB_DATA_DIR.mkdir(parents=True, exist_ok=True)
+
+    def generate_overall_standings(self):
+        """Create a JSON output file of overall manager standings
+        """
+
+        average_stats_by_season = self.df_standings.groupby(
+            'season')[['pf', 'pa']].mean()
+        avg_pf = average_stats_by_season['pf'].to_list()
+        avg_pa = average_stats_by_season['pa'].to_list()
+
+        # Group by 'manager' and sum the 'wins' and 'losses'
+        manager_stats = self.df_standings.groupby('manager')[
+            ['wins',
+             'losses',
+             'pf',
+             'pa',
+             ]].sum().reset_index()
+
+        manager_stats['win_pct'] = round(
+            manager_stats['wins'] / (
+                manager_stats['wins'] + manager_stats['losses']
+                ) * 100.0,
+            1
+            )
+
+        manager_stats = manager_stats.rename(columns={'manager': 'name'})
+        manager_stats = manager_stats.round(1)
+
+        p = self.WEB_DATA_DIR / "overall.json"
+
+        with open(p, "w") as f:
+            manager_stats.to_json(f, orient='records', indent=3)
+
+        # Group the data by 'manager' and calculate the totals
+        manager_stats = self.df_standings.groupby('manager').agg(
+            playoff_appearances=('seed', lambda x: (x <= 6).sum()),
+            championship_appearances=('rank', lambda x: (x <= 2).sum()),
+            championships=('rank', lambda x: (x == 1).sum())
+        )
+
+        manager_stats = manager_stats.rename(columns={'manager': 'name'})
+        manager_stats = manager_stats.reset_index()
+
+        grouped = self.df_standings.groupby('manager')
+
+        # Create a dictionary to hold the final output
+        json_output = {}
+
+        # Iterate through each manager's group
+        for manager, group_df in grouped:
+            # For each manager, create a dictionary to store their stats
+            manager_stats = {}
+
+            columns_to_include = ['pf', 'pa', 'rank', 'seed', 'wins', 'losses']
+
+            # Iterate through each column and convert the series to a list
+            for col in columns_to_include:
+                manager_stats[col] = group_df[col].tolist()
+
+            for k, _ in enumerate(manager_stats['pf']):
+                manager_stats['pf'][k] -= avg_pf[k]
+                manager_stats['pa'][k] -= avg_pa[k]
+
+            # Add the manager's stats to the main output dictionary
+            json_output[manager] = manager_stats
+
+        p = self.WEB_DATA_DIR / "seasons.json"
+
+        with open(p, "w") as f:
+            json.dump(json_output, f, indent=3)
 
     def generate_chart_data(self):
         """Output _data/ assets
@@ -77,6 +149,8 @@ class ContentGenerator:
         managers = self.df["manager"].unique()
 
         for manager in managers:
+            # if manager == "Travis":
+            #     continue
             self.generate_manager_page(manager)
 
     def generate_manager_page(self, manager: str):
@@ -100,7 +174,7 @@ class ContentGenerator:
             f"/assets/plots/matchup_scatter_{manager.lower()}.png)"
             )
 
-        js_script_str = (
+        awards_js_str = (
             "<script src=\"{{ '/assets/js/manager-awards.js' | relative_url }}"
             "\"></script>"
         )
@@ -114,7 +188,7 @@ class ContentGenerator:
         f.write(textwrap.dedent(f"""\
             ---
             layout: page
-            title: {manager.title()} Profile Page
+            title: {manager}
             permalink: /manager/{manager.lower()}/
             manager: {manager}
             ---
@@ -125,9 +199,22 @@ class ContentGenerator:
                {{{{ site.data.awards | jsonify }}}}
             </script>
 
-            <div id="banner-wall" data-manager="{{{{ page.manager }}}}"></div>
+            <script id="accolades-data" type="application/json">
+               {{{{ site.data.accolades | jsonify }}}}
+            </script>
 
-            {js_script_str}
+            <script id="counts-data" type="application/json">
+                {{{{ site.data.team-counts | jsonify }}}}
+            </script>
+
+            <div id="banner-wall" data-manager="{{{{ page.manager }}}}"></div>
+            <div id="accolades-wall"></div>
+
+            {awards_js_str}
+
+            <canvas id="favoriteTeams"></canvas>
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+            <script src="{{{{ '/assets/js/team-counts.js' | relative_url }}}}"></script>
 
             {scatter_plot_str}
             """
@@ -138,4 +225,5 @@ class ContentGenerator:
 
 if __name__ == "__main__":
     gen = ContentGenerator()
+    gen.generate_overall_standings()
     gen.generate_all_manager_pages()

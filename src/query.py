@@ -30,7 +30,7 @@ class Query:
 
     API_DELAY_SLEEP_MAX_SEC = 2.0255
 
-    SEASONS_RANGE = range(2020, 2024+1)
+    SEASONS_RANGE = range(2018, 2024+1)
 
     # Define the desired width for the tqdm description strings
     TQDM_WIDTH = 12
@@ -45,6 +45,7 @@ class Query:
 
         self.DATA_DIR.mkdir(parents=True, exist_ok=True)
 
+        # TODO: Remove in favor of the caching approach
         self.managers_record_map = defaultdict(  # season
             lambda: defaultdict(  # week
                 lambda: defaultdict(dict)  # manager -> data entries
@@ -58,6 +59,10 @@ class Query:
         self.transactions_map = defaultdict(list)
 
         self.draft_results = []
+
+        self.query_draft_flag = False
+        self.query_matchups_flag = False
+        self.query_transactions_flag = False
 
         self.league_name = None
         self.season = None
@@ -153,19 +158,12 @@ class Query:
         standings = query.get_league_standings().teams
         query_delay()
 
-        # self.parse_draft_results(query)
+        if self.query_draft_flag:
+            self.parse_draft_results(query)
 
-        # for transaction in query.get_league_transactions():
-        #   query_delay()
-
-        #     if transaction.type == "trade":
-        #         tk0 = int(transaction.tradee_team_key.rsplit('.')[-1])-1
-        #         tk1 = int(transaction.trader_team_key.rsplit('.')[-1])-1
-
-        #         self.transactions_map[season].append((
-        #             teams[tk0].managers[0].nickname,
-        #             teams[tk1].managers[0].nickname,
-        #         ))
+        if self.query_transactions_flag:
+            # self.parse_transactions(query)
+            raise NotImplementedError("Transaction parsing not implemented.")
 
         for team in standings:
 
@@ -173,7 +171,7 @@ class Query:
 
             if manager == "--hidden--":
                 print(team)
-                exit(0)
+                raise RuntimeError("Manager nickname not found.")
 
             self.standings_map[season][manager]["pf"] = team.points_for
             self.standings_map[season][manager]["pa"] = team.points_against
@@ -189,7 +187,9 @@ class Query:
 
         self.sched = nflreadpy.load_schedules(season).to_pandas()
 
-        # Dynamically loop over both 17 and 18 week seasons
+        # Dynamically loop to the most recent week of the season
+        # i.e. championship week for completed seasons, and
+        # current week for present season
         for week in tqdm(range(1, league_info.current_week+1),
                          desc="Week".ljust(self.TQDM_WIDTH),
                          leave=False,
@@ -200,7 +200,7 @@ class Query:
 
             if scoreboard is None:
                 raise RuntimeError(
-                    f"No scoreboard data for Week {week} in {season}."
+                    f"No scoreboard data for Week {week} {season}."
                     )
 
             for matchup_data in tqdm(scoreboard.matchups,
@@ -323,8 +323,15 @@ class Query:
                 elif sched_slice.shape[0] == 1:
                     week_day = sched_slice.loc[0, "weekday"]
                 else:
+                    print("\n\n\n")
+                    print(week)
+                    print(team1_manager)
+                    print(week_slice)
+                    print(player.full_name)
+                    print(player_team)
+                    print(player)
                     raise RuntimeError(
-                        "Failed to identify player-team schedule. (2)"
+                        "Multipe player-teams found."
                         )
 
             roster.append(
@@ -433,10 +440,33 @@ class Query:
                 player_pos = player_slice.loc[
                     closest_week_index, "position"]
 
+                # print(player_slice)
+                # for x in player_slice.columns:
+                #     print(x)
+                # exit(0)
+
         if player_team == "OAK":
             player_team = "LV"
 
         return (player_team.upper(), player_pos)
+
+    def parse_transaction(self, query: YahooFantasySportsQuery):
+        """Parse out trade and other player transactions for all managers.
+        """
+
+        return NotImplemented
+
+        # for transaction in query.get_league_transactions():
+        #     query_delay()
+
+        #     if transaction.type == "trade":
+        #         tk0 = int(transaction.tradee_team_key.rsplit('.')[-1])-1
+        #         tk1 = int(transaction.trader_team_key.rsplit('.')[-1])-1
+
+        #         self.transactions_map[season].append((
+        #             teams[tk0].managers[0].nickname,
+        #             teams[tk1].managers[0].nickname,
+        #         ))
 
     def parse_draft_results(self, query: YahooFantasySportsQuery):
         """"""
@@ -599,7 +629,7 @@ class Query:
         self.apply_manager_aliases(df)
         df.to_csv(self.DATA_DIR / 'standings.csv')
 
-    def combine(self, season_range: range = range(2018, 2024+1)):
+    def combine(self, season_range: range = range(2018, 2025+1)):
         """Helper function to combine partial (cached) weekly matchup
         data files into a complete database.
         """
@@ -683,7 +713,13 @@ if __name__ == "__main__":
     q = Query()
     # q.combine_draft()
     # q.save_draft_results()
-    q.combine()
+
+    r = range(2025, 2025+1)
+    q.SEASONS_RANGE = r
+    q.query_seasons()
+
+    # r = range(2018, 2025+1)
+    # q.combine(r)
 
     # q.SEASONS_RANGE = range(2016, 2017+1)
     # q.query_seasons()
