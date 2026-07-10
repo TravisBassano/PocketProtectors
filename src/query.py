@@ -28,9 +28,9 @@ class Query:
     and other league metadata.
     """
 
-    API_DELAY_SLEEP_MAX_SEC = 2.0255
+    API_DELAY_SLEEP_MAX_SEC = 20.255
 
-    SEASONS_RANGE = range(2018, 2024+1)
+    SEASONS_RANGE = range(2018, 2025+1)
 
     # Define the desired width for the tqdm description strings
     TQDM_WIDTH = 12
